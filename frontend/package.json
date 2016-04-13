@@ -1,5 +1,5 @@
 {
-  "name": "waimai",
+  "name": "Take-out",
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
@@ -13,14 +13,11 @@
     "gulp-batch": "^1.0.5",
     "gulp-connect": "^2.2.0",
     "gulp-copy": "0.0.2",
-    "gulp-plumber": "^1.0.1",
-    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "html-loader": "^0.4.0",
     "node-sass": "^3.4.2",
     "run-sequence": "1.1.5",
     "sass-loader": "^3.1.2",
-    "semantic-ui": "^2.1",
     "style-loader": "^0.13.0",
     "vue-hot-reload-api": "^1.2.2",
     "vue-html-loader": "^1.0.0",
