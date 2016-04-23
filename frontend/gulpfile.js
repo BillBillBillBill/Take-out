@@ -56,7 +56,7 @@ gulp.task('webserver_admin', function() {
 });
 
 // Copy index.html file
-gulp.task('build.index', function(){
+gulp.task('build.index', function() {
   gulp.src('src/customer/index.html')
     .pipe(gulp.dest('dist/customer/'));
   gulp.src('src/bussiness/index.html')
@@ -64,6 +64,20 @@ gulp.task('build.index', function(){
   gulp.src('src/admin/index.html')
     .pipe(gulp.dest('dist/admin/'))
 });
+
+// Copy foundation.min.js file
+gulp.task('build.js', function() {
+  gulp.src('node_modules/foundation-sites/dist/foundation.min.js')
+    .pipe(gulp.dest('dist/customer/'));
+  gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('dist/customer'));
+});
+
+// Copy images
+/*gulp.task('build.img', function() {
+  gulp.src('src/customer/images/*.{jpg,png,gif}')
+    .pipe(gulp.dest('dist/customer/images/'));
+});*/
 
 // Watch changes in index.html file && main.js file
 gulp.task('watch', function() {
@@ -73,5 +87,5 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function(callback) {
-  runSeq(['webpack', 'build.index', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
+  runSeq(['webpack', 'build.index', 'build.js', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
 });

@@ -1,6 +1,7 @@
 var webpack = require('webpack')
 
 module.exports =  {
+  devtool: 'cheap-module-eval-source-map',
   entry: [
     './src/customer/main.js'
   ],
@@ -26,6 +27,11 @@ module.exports =  {
       {
         test: /\.vue$/,
         loader: 'vue'
+      },
+      {
+        test:/\.jpg$/,
+        loader: 'url-loader',
+        query: {mimetype: 'image/jpg'}
       }
     ]
   },
@@ -35,5 +41,6 @@ module.exports =  {
   },
   resolve: {
     modulesDirectories: ['node_modules']
-  }
+  },
+  debug: true
 }

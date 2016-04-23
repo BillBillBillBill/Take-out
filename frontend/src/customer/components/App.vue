@@ -5,12 +5,15 @@
     name: "App",
 
     components: {
-      Navbar
+      'navbar': Navbar
     }
   }
+
 </script>
 
 <template>
-  <navbar></navbar>
-  <router-view></router-view>
+  <div>
+    <navbar></navbar>
+    <router-view></router-view>
+  </div>
 </template>
