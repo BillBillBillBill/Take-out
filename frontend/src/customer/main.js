@@ -6,8 +6,8 @@ import Router from 'vue-router'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
+import Order from './components/Order.vue'
 import About from './components/About.vue'
-import Quote from './components/Quote.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -23,12 +23,12 @@ router.map({
     component: Home
   },
   '/about':{
-    name: 'about',
-    component: About
+    name: 'order',
+    component: Order
   },
   '/quote':{
-    name: 'quote',
-    component: Quote
+    name: 'about',
+    component: About
   }
 })
 

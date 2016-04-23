@@ -8,3 +8,13 @@
 body{
   color: $black;
 }
+
+/** Customer Home **/
+#customer-home {
+	border: 1px solid rgb(169, 169, 169);
+}
+.customer-item {
+	padding-top: 15px;
+	padding-bottom: 20px;
+	color: gray;
+}

@@ -1,16 +1,46 @@
 <script>
+  import QuoteService from '../services/quote'
+
   export default {
-    name: "About"
+    name: "About",
+
+    data: function(){
+      return {
+        about: ""
+      }
+    },
+
+    ready: function() {
+      QuoteService.getQuote(this).then(function(response){
+        this.$set('about', response.data[0].content);
+      }, function(response){
+        console.log(response);
+      });
+    }
   }
 </script>
 
 <template>
   <div class="row">
-    <div class="medium-6 medium-offset-3 columns">
-      <h2>About Us</h2>
+    <div class="about-wrapper">
+      <h2>Random About</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{about}}
       </p>
     </div>
   </div>
 </template>
+
+<style lang="sass">
+  // Imports
+  @import "../variables.scss";
+
+  // Styles
+  .about-wrapper{
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.14);
+    padding: 2em;
+    border: solid 1px $grey2;
+    margin-top: 1em;
+  }
+
+</style>
