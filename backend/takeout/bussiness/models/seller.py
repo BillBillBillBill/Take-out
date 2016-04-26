@@ -7,12 +7,26 @@ from django.db import models
 
 
 class Seller(UserBase):
-    store_id = models.IntegerField()
+    # store_id = models.IntegerField(blank=True)
 
     def save(self, *args, **kwargs):
         if self.created_time == self.updated_time:
             self.password = get_enc_password(self.password)
         super(Seller, self).save(*args, **kwargs)
+
+    def to_string(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "nickname": self.nickname,
+        }
+
+    def to_detail_string(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "nickname": self.nickname,
+        }
 
     class Meta(UserBase.Meta):
         db_table = 'seller'
