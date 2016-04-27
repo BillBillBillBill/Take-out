@@ -2,7 +2,7 @@
 from password_tools import get_enc_password
 
 
-def gen_update_dict_by_list(update_list, json_data):
+def get_update_dict_by_list(update_list, json_data):
     update_dict = {}
     for item in update_list:
         v = json_data.get(item)

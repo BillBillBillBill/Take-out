@@ -2,6 +2,7 @@
 from bussiness.models.seller import Seller
 from conn import redisClient
 import json
+from lib.utils.response import JsonResponse, JsonErrorResponse
 
 
 USER_MODEL_MAP = {
@@ -13,7 +14,6 @@ USER_MODEL_MAP = {
 
 class TokenMiddleware(object):
     def process_request(self, request):
-        print request.json
         request.u = None
         request.account_type = None
         token = request.json.get('token')
@@ -21,16 +21,18 @@ class TokenMiddleware(object):
         if not token:
             return
         # check token
-        if token and len(token.split('$')) == 5:
+        try:
+            assert token and len(token.split('$')) == 5
             info = token.split('$')
             account_type = info[1]
             user_id = info[2]
-            if redisClient.get("token:%s:%s" % (account_type, user_id)) == token:
-                if account_type not in USER_MODEL_MAP:
-                    return
-                user = USER_MODEL_MAP[account_type].query.get(user_id)
-                request.u = user
-                request.account_type = account_type
+            assert redisClient.get("token:%s:%s" % (account_type, user_id)) == token
+            assert account_type in USER_MODEL_MAP
+            user = USER_MODEL_MAP[account_type].objects.get(id=user_id)
+            request.u = user
+            request.account_type = account_type
+        except AssertionError:
+            return JsonErrorResponse("Token Auth Fail", 403)
 
 
 class JsonMiddlerware(object):
