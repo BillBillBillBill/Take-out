@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.db import models
-
+from bussiness.models.seller import Seller
 
 class Store(models.Model):
     BAN_STATUS = (
@@ -15,4 +15,4 @@ class Store(models.Model):
     is_banned = models.CharField(max_length=1, choices=BAN_STATUS, default="N")
     created_time = models.DateField(auto_now_add=True)
     updated_time = models.DateField(auto_now=True, auto_now_add=True)
-    owner = models.ForeignKey('seller', related_name='store')
+    owner = models.OneToOneField(Seller, related_name='store')
