@@ -74,10 +74,10 @@ gulp.task('build.js', function() {
 });
 
 // Copy images
-/*gulp.task('build.img', function() {
+gulp.task('build.img', function() {
   gulp.src('src/customer/images/*.{jpg,png,gif}')
     .pipe(gulp.dest('dist/customer/images/'));
-});*/
+});
 
 // Watch changes in index.html file && main.js file
 gulp.task('watch', function() {
@@ -87,5 +87,5 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function(callback) {
-  runSeq(['webpack', 'build.index', 'build.js', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
+  runSeq(['webpack', 'build.index', 'build.js', 'build.img', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
 });
