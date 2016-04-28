@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'seller', views.SellerList.as_view()),
     url(r'store/(\d*)', views.StoreDetail.as_view()),
     url(r'store', views.StoreList.as_view()),
+    url(r'food/(\d*)', views.FoodDetail.as_view()),
+    url(r'food', views.FoodList.as_view()),
     # url(r'store/$', views.StoreList.as_view()),
 ]

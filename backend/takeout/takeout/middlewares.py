@@ -17,7 +17,6 @@ class TokenMiddleware(object):
         request.u = None
         request.account_type = None
         token = request.json.get('token')
-        print "token:", token
         if not token:
             return
         # check token
