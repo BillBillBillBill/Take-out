@@ -1,6 +1,7 @@
 <script>
   export default {
-    name: "Navbar"
+    name: "Navbar",
+    props: ['searchText']
   }
 </script>
 
@@ -22,7 +23,7 @@
     </div>
     <div class="top-bar-right">
       <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
+        <li><input type="search" placeholder="Search" v-model="searchText"></li>
         <li><button type="button" class="button">Search</button></li>
       </ul>
     </div>
