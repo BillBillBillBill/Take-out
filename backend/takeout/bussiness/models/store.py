@@ -16,3 +16,17 @@ class Store(models.Model):
     created_time = models.DateField(auto_now_add=True)
     updated_time = models.DateField(auto_now=True, auto_now_add=True)
     owner = models.OneToOneField(Seller, related_name='store')
+
+    def to_string(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "address": self.address,
+            "phone": self.phone,
+            "announcement": self.announcement,
+            "description": self.description,
+            "owner": self.owner.to_detail_string()
+        }
+
+    def to_detail_string(self):
+        return self.to_string()
