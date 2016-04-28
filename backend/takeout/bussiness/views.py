@@ -172,3 +172,15 @@ class FoodDetail(APIView):
             return JsonResponse({})
         except Exception, e:
             return JsonErrorResponse("Update failed:" + e.message, 400)
+
+    def delete(self, request, food_id):
+        # 删除食品
+        try:
+            # owner = request.u
+            # store = owner.store
+            # modify_num = store.foods.filter(id=food_id).update(**update_dict)
+            result = Food.objects.get(id=food_id).delete()
+            assert result[0] == 1
+            return JsonResponse({})
+        except Exception, e:
+            return JsonErrorResponse("Delete failed:" + e.message, 400)

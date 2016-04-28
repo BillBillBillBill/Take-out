@@ -16,7 +16,7 @@ class TokenMiddleware(object):
     def process_request(self, request):
         request.u = None
         request.account_type = None
-        token = request.json.get('token')
+        token = request.json.get('token', None) or request.META.get("HTTP_AUTHORIZATION_TOKEN", None)
         if not token:
             return
         # check token
