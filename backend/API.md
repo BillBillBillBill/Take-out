@@ -94,12 +94,12 @@ curl http://127.0.0.1:8000/store
 URL:/store
 Method:POST
 Require:name,address,announcement,description,phone
-Optional:
+Optional:image_ids
 Token Require: Yes
 Return:{"data": {"id": "store id"}}
 
 curl example
-curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a", "name": "testname", "address": "testaddress", "announcement": "testannouncement", "description": "testdescription", "phone": "12345678901"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/store
+curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a", "name": "testname", "address": "testaddress", "announcement": "testannouncement", "description": "testdescription", "phone": "12345678901", "image_ids": "1,3"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/store
 
 # 获取单个商店信息
 URL:/store/store_id
@@ -140,12 +140,12 @@ curl -X GET -d '{"store_id": 1}' http://127.0.0.1:8000/food
 URL:/food
 Method:POST
 Require:name, description, price, stock
-Optional:
+Optional:image_ids
 Token Require: Yes
 Return:{"data": {"id": "food id"}}
 
 curl example
-curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a", "name": "foodname", "description": "gggggg", "price": 12.34, "stock": 100}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/food
+curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a", "name": "foodname", "description": "gggggg", "price": 12.34, "stock": 100, "image_ids": "1,3"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/food
 
 # 获取单个食物信息
 URL:/food/food_id
