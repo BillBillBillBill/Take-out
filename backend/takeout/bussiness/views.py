@@ -72,6 +72,7 @@ class StoreList(APIView):
         announcement = request.json.get("announcement")
         description = request.json.get("description")
         phone = request.json.get("phone")
+        image_ids = request.json.get("image_ids")
         if not all([owner, name, address, announcement, description]):
             return JsonErrorResponse("owner, name, address, announcement, description, phone are needed", 400)
         new_store = Store(
@@ -80,6 +81,7 @@ class StoreList(APIView):
             announcement=announcement,
             description=description,
             phone=phone,
+            image_ids=image_ids,
             owner=owner
         )
         try:
@@ -101,7 +103,7 @@ class StoreDetail(APIView):
 
     def put(self, request, store_id):
         # 更新信息
-        update_item = ['name', 'address', 'announcement', 'description', 'phone']
+        update_item = ['name', 'address', 'announcement', 'description', 'phone', 'image_ids']
         try:
             update_dict = get_update_dict_by_list(update_item, request.json)
             # owner = request.u
@@ -133,6 +135,7 @@ class FoodList(APIView):
         description = request.json.get("description")
         price = float(request.json.get("price"))
         stock = int(request.json.get("stock"))
+        image_ids = request.json.get("image_ids")
         if not all([store, name, description, price, stock]):
             return JsonErrorResponse("store, name, description, price, stock are needed", 400)
         new_food = Food(
@@ -140,6 +143,7 @@ class FoodList(APIView):
             description=description,
             price=price,
             stock=stock,
+            image_ids=image_ids,
             store=store
         )
         try:
@@ -162,7 +166,7 @@ class FoodDetail(APIView):
     def put(self, request, food_id):
         # 更新食品
         try:
-            update_item = ['name', 'price', 'stock', 'description']
+            update_item = ['name', 'price', 'stock', 'description', 'image_ids']
             update_dict = get_update_dict_by_list(update_item, request.json)
             # owner = request.u
             # store = owner.store
