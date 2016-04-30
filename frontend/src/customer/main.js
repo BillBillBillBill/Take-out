@@ -8,6 +8,7 @@ import App from './components/App.vue'
 import Home from './components/Home.vue'
 import Order from './components/Order.vue'
 import About from './components/About.vue'
+import Detail from './components/Detail.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -29,6 +30,10 @@ router.map({
   '/quote':{
     name: 'about',
     component: About
+  },
+  '/home/:bussinessId':{
+    name: 'detail',
+    component: Detail
   }
 })
 

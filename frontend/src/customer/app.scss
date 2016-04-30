@@ -1,7 +1,7 @@
 /** IMPORTS **/
 @import '~foundation-sites/scss/foundation.scss';
 @include foundation-everything;
-@include foundation-flex-grid; // Remove this if you want the regular float grid
+@include foundation-flex-grid; //Remove this if you want the regular float grid
 @import "./variables.scss";
 
 /** GLOBALS **/
@@ -17,4 +17,11 @@ body{
 	padding-top: 15px;
 	padding-bottom: 20px;
 	color: gray;
+}
+#sort-bar {
+	width: 100%;
+}
+
+.orbit-container {
+	height: 200px;
 }
