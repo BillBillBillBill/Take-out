@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'bussiness',
+    'admin',
+    'customer',
     'lib',
 ]
 
@@ -136,3 +140,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+MEDIA_ROOT = 'upload_files/'
+
+MEDIA_URL = 'upload_files/'
+
+# config static file
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, MEDIA_ROOT),
+)
