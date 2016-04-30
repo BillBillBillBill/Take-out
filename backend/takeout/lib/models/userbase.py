@@ -13,6 +13,7 @@ class UserBase(models.Model):
     nickname = models.CharField(max_length=20)
     created_time = models.DateField(auto_now_add=True)
     updated_time = models.DateField(auto_now=True, auto_now_add=True)
+    image_id = models.CharField(max_length=500, null=True)
 
     class Meta:
         abstract = True
