@@ -1,14 +1,10 @@
 # coding: utf-8
-from rest_framework import viewsets
-from rest_framework import status
 from rest_framework.views import APIView
 from models.seller import Seller
 from models.store import Store
 from models.food import Food
-from rest_framework.response import Response
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
-from django.db import models
 
 
 class SellerList(APIView):
@@ -36,7 +32,7 @@ class SellerList(APIView):
         except Exception, e:
             print e
             return JsonErrorResponse("Fail" + e.message)
-        print "新注册id：", new_seller.id
+        print "新注册卖家id：", new_seller.id
         return JsonResponse({"id": new_seller.id})
 
 

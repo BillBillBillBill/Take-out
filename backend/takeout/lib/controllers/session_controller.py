@@ -2,7 +2,6 @@
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from rest_framework import status
 from lib.utils.token_tools import get_token, USER_MODEL_MAP
-import json
 
 
 def login(request, account_type):
