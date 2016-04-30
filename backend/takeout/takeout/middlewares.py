@@ -1,5 +1,6 @@
 # coding: utf-8
 from bussiness.models.seller import Seller
+from customer.models.customer import Customer
 from conn import redisClient
 import json
 from lib.utils.response import JsonResponse, JsonErrorResponse
@@ -7,7 +8,7 @@ from lib.utils.response import JsonResponse, JsonErrorResponse
 
 USER_MODEL_MAP = {
     "admin": Seller,
-    "customer": Seller,
+    "customer": Customer,
     "bussiness": Seller,
 }
 

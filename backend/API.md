@@ -181,6 +181,97 @@ curl example
 curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a"}' -X DELETE -H "Content-Type:application/json"  http://127.0.0.1:8000/food/1
 
 ==============================================================================
+# 顾客注册
+URL:/customer
+Method:POST
+Require:username,password,nickname,account_type
+Optional:
+Token Require: No
+Return:{"data": {"id": "customer id"}}
 
+curl example
+curl -d '{"username": "test", "password": "test", "nickname": "fuck", "account_type": "P"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/customer
+
+
+# 获取顾客列表
+URL:/customer
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"customer_list": [{customer_infor}]}}
+
+curl example
+curl http://127.0.0.1:8000/customer
+
+
+# 获取单个顾客信息
+URL:/customer/customer_id
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"customer": customer_infor}}
+
+curl example
+curl http://127.0.0.1:8000/customer/1
+
+
+# 修改顾客信息
+URL:/customer/customer_id
+Method:PUT
+Require:
+Optional:password,nickname
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "20160430153325$customer$1$a34d6487$c751839117e735773971fb38f1c60823b9d97e352bf439367221e26fb8616b04", "password": "edit", "nickname": "edit"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/customer/1
 
 ==============================================================================
+# 管理员注册
+URL:/admin
+Method:POST
+Require:username,password,nickname,account_type
+Optional:
+Token Require: No
+Return:{"data": {"id": "admin id"}}
+
+curl example
+curl -d '{"username": "test", "password": "test", "nickname": "fuck", "account_type": "P"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/admin
+
+
+# 获取管理员列表
+URL:/admin
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"admin_list": [{admin_infor}]}}
+
+curl example
+curl http://127.0.0.1:8000/admin
+
+
+# 获取单个管理员信息
+URL:/admin/admin_id
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"admin": admin_infor}}
+
+curl example
+curl http://127.0.0.1:8000/admin/1
+
+
+# 修改管理员信息
+URL:/admin/admin_id
+Method:PUT
+Require:
+Optional:password,nickname
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "", "password": "edit", "nickname": "edit"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/admin/1

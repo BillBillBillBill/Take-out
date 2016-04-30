@@ -1,9 +1,9 @@
 # coding: utf-8
 from lib.utils.response import JsonResponse, JsonErrorResponse
-import json
 from rest_framework import status
 from django.core.files.base import ContentFile
 from lib.models.image import ImageStore
+
 
 def file_uploader(request):
     try:
