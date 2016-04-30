@@ -29,7 +29,7 @@ Return:{"data": {"token": "Your token"}}
 curl example
 curl -d '{"username": "test", "password": "test"}' -X POST http://127.0.0.1:8000/api-token-auth/bussiness
 
-
+==============================================================================
 # 卖家注册
 URL:/seller
 Method:POST
@@ -179,3 +179,8 @@ Return:{"data": {}}
 
 curl example
 curl -d '{"token": "20160428011519$bussiness$2$e7c1ad7a$8e0212c482a6ea99ee93c2a5a20f5dbde377c01cd10768accb7524c9d9a76a2a"}' -X DELETE -H "Content-Type:application/json"  http://127.0.0.1:8000/food/1
+
+==============================================================================
+
+
+==============================================================================
