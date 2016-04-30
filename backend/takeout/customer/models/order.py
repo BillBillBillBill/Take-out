@@ -3,6 +3,7 @@ from django.db import models
 from customer import Customer, DeliveryInformation
 from bussiness.models.store import Store
 from bussiness.models.food import Food
+from lib.utils.misc import get_timestamp_from_datetime
 
 
 class Order(models.Model):
@@ -15,9 +16,9 @@ class Order(models.Model):
     )
     status = models.CharField(max_length=1, choices=STATUS_LIST)
     note = models.CharField(max_length=200)
-    make_order_time = models.DateField(auto_now_add=True)
-    accept_order_time = models.DateField(auto_now=True, auto_now_add=True)
-    confirm_time = models.DateField(auto_now=True, auto_now_add=True)
+    make_order_time = models.DateTimeField(auto_now_add=True)
+    accept_order_time = models.DateTimeField(auto_now=True, auto_now_add=True)
+    confirm_time = models.DateTimeField(auto_now=True, auto_now_add=True)
     total_price = models.FloatField()
     store = models.ForeignKey(Store, related_name='orders')
     customer = models.ForeignKey(Customer, related_name='orders')
@@ -28,9 +29,9 @@ class Order(models.Model):
             "id": self.id,
             "status": self.get_status_display(),
             "note": self.note,
-            "make_order_time": self.make_order_time,
-            "accept_order_time": self.accept_order_time,
-            "confirm_time": self.confirm_time,
+            "make_order_time": get_timestamp_from_datetime(self.make_order_time),
+            "accept_order_time": get_timestamp_from_datetime(self.accept_order_time),
+            "confirm_time": get_timestamp_from_datetime(self.confirm_time),
             "total_price": self.total_price,
             "store": self.store.id,
             "customer": self.customer.id,

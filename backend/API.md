@@ -228,6 +228,108 @@ Return:{"data": {}}
 curl example
 curl -d '{"token": "20160430153325$customer$1$a34d6487$c751839117e735773971fb38f1c60823b9d97e352bf439367221e26fb8616b04", "password": "edit", "nickname": "edit"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/customer/1
 
+
+
+# 获取收货信息列表
+URL:/delivery_information
+Method:GET
+Require:
+Optional:
+Token Require: Yes
+Return:{"data": {"delivery_information_list": [{delivery_information_infor}]}}
+
+curl example
+curl -X GET -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1"}'  http://127.0.0.1:8000/delivery_information
+
+# 添加收货信息
+URL:/delivery_information
+Method:POST
+Require:address, phone, receiver
+Optional:
+Token Require: Yes
+Return:{"data": {"id": "delivery_information id"}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "address": "addressasdasd", "phone": "18888888888", "receiver": "黄先生"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/delivery_information
+
+# 获取单个收货信息
+URL:/delivery_information/delivery_information_id
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"delivery_information": delivery_information_infor}}
+
+curl example
+curl http://127.0.0.1:8000/delivery_information/1
+
+# 修改收货信息
+URL:/delivery_information/delivery_information_id
+Method:PUT
+Require:
+Optional:address, phone, receiver
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "receiver": "黄小姐"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/delivery_information/1
+
+# 删除收货信息
+URL:/delivery_information/delivery_information_id
+Method:DELETE
+Require:
+Optional:
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1"}' -X DELETE -H "Content-Type:application/json"  http://127.0.0.1:8000/delivery_information/1
+
+
+
+# 获取投诉列表(发出)
+URL:/complaint
+Method:GET
+Require:
+Optional:
+Token Require: Yes
+Return:{"data": {"complaint_list": [{complaint_infor}]}}
+
+curl example
+curl -X GET -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1"}' http://127.0.0.1:8000/complaint
+
+# 添加投诉信息
+URL:/complaint
+Method:POST
+Require:content, store_id
+Optional:
+Token Require: Yes
+Return:{"data": {"id": "complaint id"}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "content": "asdasdasd", "store_id": "1"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/complaint
+
+# 获取单个投诉信息
+URL:/complaint/delivery_information_id
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"complaint": complaint_infor}}
+
+curl example
+curl http://127.0.0.1:8000/complaint/1
+
+# 修改投诉信息
+URL:/complaint/complaint_id
+Method:PUT
+Require:
+Optional:status
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "status": "R"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/complaint/1
 ==============================================================================
 # 管理员注册
 URL:/admin
