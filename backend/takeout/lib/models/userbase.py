@@ -1,4 +1,5 @@
 from django.db import models
+from lib.utils.password_tools import get_enc_password
 
 
 class UserBase(models.Model):
@@ -7,7 +8,7 @@ class UserBase(models.Model):
         ("E", "Email")
     )
     username = models.CharField(max_length=20, unique=True)
-    password = models.CharField(max_length=20)
+    password = models.CharField(max_length=200)
     account_type = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
     nickname = models.CharField(max_length=20)
     created_time = models.DateField(auto_now_add=True)
@@ -15,3 +16,8 @@ class UserBase(models.Model):
 
     class Meta:
         abstract = True
+
+    def save(self, *args, **kwargs):
+        if self.created_time == self.updated_time:
+            self.password = get_enc_password(self.password)
+        super(UserBase, self).save(*args, **kwargs)

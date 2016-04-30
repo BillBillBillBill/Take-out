@@ -1,14 +1,10 @@
 # coding: utf-8
-from rest_framework import viewsets
-from rest_framework import status
 from rest_framework.views import APIView
-from bussiness.serializers import SellerSerializer, StoreSerializer
 from models.seller import Seller
 from models.store import Store
-from rest_framework.response import Response
+from models.food import Food
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
-from django.db import models
 
 
 class SellerList(APIView):
@@ -36,9 +32,7 @@ class SellerList(APIView):
         except Exception, e:
             print e
             return JsonErrorResponse("Fail" + e.message)
-        print "新注册id：", new_seller.id
-        print request.data
-        print request.query_params
+        print "新注册卖家id：", new_seller.id
         return JsonResponse({"id": new_seller.id})
 
 
@@ -74,6 +68,7 @@ class StoreList(APIView):
         announcement = request.json.get("announcement")
         description = request.json.get("description")
         phone = request.json.get("phone")
+        image_ids = request.json.get("image_ids")
         if not all([owner, name, address, announcement, description]):
             return JsonErrorResponse("owner, name, address, announcement, description, phone are needed", 400)
         new_store = Store(
@@ -82,6 +77,7 @@ class StoreList(APIView):
             announcement=announcement,
             description=description,
             phone=phone,
+            image_ids=image_ids,
             owner=owner
         )
         try:
@@ -95,8 +91,6 @@ class StoreList(APIView):
 
 class StoreDetail(APIView):
     def get(self, request, store_id):
-        print store_id
-        print request.json
         try:
             store = Store.objects.get(id=store_id)
         except Store.DoesNotExist:
@@ -105,9 +99,88 @@ class StoreDetail(APIView):
 
     def put(self, request, store_id):
         # 更新信息
-        update_item = ['name', 'address', 'announcement', 'description', 'phone']
-        update_dict = get_update_dict_by_list(update_item, request.json)
-        modify_num = Store.objects.filter(id=store_id).update(**update_dict)
-        if modify_num == 1:
+        update_item = ['name', 'address', 'announcement', 'description', 'phone', 'image_ids']
+        try:
+            update_dict = get_update_dict_by_list(update_item, request.json)
+            # owner = request.u
+            # store = owner.store
+            # assert store.id == store_id
+            modify_num = Store.objects.filter(id=store_id).update(**update_dict)
+            assert modify_num == 1
             return JsonResponse({})
-        return JsonErrorResponse("Update failed", 400)
+        except Exception, e:
+            return JsonErrorResponse("Update failed:" + e.message, 400)
+
+class FoodList(APIView):
+    def get(self, request):
+        # 获取食品列表
+        store_id = request.json.get("store_id", None)
+        if not store_id:
+            return JsonErrorResponse("You must provide a store_id", 400)
+        store = Store.objects.filter(id=store_id).first()
+        if not store:
+            return JsonErrorResponse("Store not existed", 404)
+        foods = [food.to_string() for food in store.foods.all()]
+        return JsonResponse({"food_list": foods})
+
+    def post(self, request):
+        # 创建食品
+        owner = request.u
+        store = owner.store
+        name = request.json.get("name")
+        description = request.json.get("description")
+        price = float(request.json.get("price"))
+        stock = int(request.json.get("stock"))
+        image_ids = request.json.get("image_ids")
+        if not all([store, name, description, price, stock]):
+            return JsonErrorResponse("store, name, description, price, stock are needed", 400)
+        new_food = Food(
+            name=name,
+            description=description,
+            price=price,
+            stock=stock,
+            image_ids=image_ids,
+            store=store
+        )
+        try:
+            new_food.save()
+        except Exception, e:
+            print e
+            return JsonErrorResponse("Fail" + e.message)
+        print "新注册id：", new_food.id
+        return JsonResponse({"id": new_food.id})
+
+
+class FoodDetail(APIView):
+    def get(self, request, food_id):
+        try:
+            food = Food.objects.get(id=food_id)
+        except Food.DoesNotExist:
+            return JsonErrorResponse("Food does not exist", 404)
+        return JsonResponse({"food": food.to_detail_string()})
+
+    def put(self, request, food_id):
+        # 更新食品
+        try:
+            update_item = ['name', 'price', 'stock', 'description', 'image_ids']
+            update_dict = get_update_dict_by_list(update_item, request.json)
+            # owner = request.u
+            # store = owner.store
+            # modify_num = store.foods.filter(id=food_id).update(**update_dict)
+            modify_num = Food.objects.filter(id=food_id).update(**update_dict)
+            assert modify_num == 1
+            return JsonResponse({})
+        except Exception, e:
+            return JsonErrorResponse("Update failed:" + e.message, 400)
+
+    def delete(self, request, food_id):
+        # 删除食品
+        try:
+            # owner = request.u
+            # store = owner.store
+            # modify_num = store.foods.filter(id=food_id).update(**update_dict)
+            result = Food.objects.get(id=food_id).delete()
+            assert result[0] == 1
+            return JsonResponse({})
+        except Exception, e:
+            return JsonErrorResponse("Delete failed:" + e.message, 400)

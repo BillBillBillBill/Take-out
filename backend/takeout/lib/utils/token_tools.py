@@ -1,13 +1,14 @@
 # coding: utf-8
 import time
 from bussiness.models.seller import Seller
+from customer.models.customer import Customer
 from password_tools import check_password
 from takeout.conn import redisClient
 
 
 USER_MODEL_MAP = {
     "admin": Seller,
-    "customer": Seller,
+    "customer": Customer,
     "bussiness": Seller,
 }
 
