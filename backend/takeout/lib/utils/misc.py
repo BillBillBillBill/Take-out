@@ -1,5 +1,6 @@
 # coding: utf-8
 from password_tools import get_enc_password
+import time
 
 
 def get_update_dict_by_list(update_list, json_data):
@@ -12,3 +13,11 @@ def get_update_dict_by_list(update_list, json_data):
             else:
                 update_dict[item] = v
     return update_dict
+
+
+def get_timestamp_from_datetime(datetime):
+    try:
+        return time.mktime(datetime.timetuple())
+    except Exception, e:
+        print e.message
+        return ""

@@ -30,7 +30,7 @@ class DeliveryInformation(models.Model):
     address = models.CharField(max_length=150)
     phone = models.CharField(max_length=13)
     receiver = models.CharField(max_length=50)
-    customer = models.ForeignKey(Customer)
+    customer = models.ForeignKey(Customer, related_name='delivery_informations')
 
     def to_string(self):
         data = {
@@ -41,3 +41,6 @@ class DeliveryInformation(models.Model):
             "customer": self.customer.id
         }
         return data
+
+    def to_detail_string(self):
+        return self.to_string()
