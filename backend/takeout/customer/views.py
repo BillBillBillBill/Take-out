@@ -4,6 +4,8 @@ from models.customer import Customer, DeliveryInformation
 from models.order import Order, OrderFood
 from models.complaint import Complaint
 from bussiness.models.store import Store
+from bussiness.models.food import Food
+from lib.models.review import FoodReview, OrderReview
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
 
@@ -252,12 +254,54 @@ class OrderDetail(APIView):
     def put(self, request, order_id):
         # 更新订单
         try:
-            update_item = ['status']
-            status = request.json.get("status")
-            assert status in map(lambda i:i[0], Order.STATUS_LIST), "not valid"
-            update_dict = get_update_dict_by_list(update_item, request.json)
-            modify_num = Order.objects.filter(id=order_id).update(**update_dict)
-            assert modify_num == 1
+            action = request.json.get("action")
+            order = Order.objects.get(id=order_id)
+            status = order.status
+            if request.account_type == "customer":
+                action_to_func = {"finish": order.finish}
+            else:
+                action_to_func = {
+                    "accept": order.accept,
+                    "transport": order.transport,
+                    "close": order.close,
+                }
+            if action not in action_to_func:
+                return JsonErrorResponse("fail to action on order", 400)
+            action_to_func[action]()
+            # 评论商品和订单 只允许一次
+            if action == "finish" and status == "3":
+                order_foods = order.order_foods.all()
+                order_foods_food = [i.food for i in order_foods]
+                food_review_list = request.json.get("food_review_list", [])
+
+                # 商品评论
+                data = {}
+                data['customer'] = request.u
+                data['order'] = order
+                for food_review in food_review_list:
+                    try:
+                        food = Food.objects.get(id = food_review.get("food_id"))
+                        assert food in order_foods_food
+                        data['food'] = food
+                        data['content'] = food_review.get("content", "")
+                        data['star'] = food_review.get("star", "5")
+                        new_food_review = FoodReview(**data)
+                        new_food_review.save()
+                    except Exception, e:
+                        print e.message
+                # 订单评论
+                order_review = request.json.get("order_review")
+                data['store'] = order.store
+                if order_review:
+                    if data.get('food'):
+                        data.pop('food')
+                    data['delivery_time'] = order_review.get("delivery_time", 120)
+                    data['content'] = order_review.get("content", "")
+                    data['star'] = order_review.get("star", "5")
+                    new_order_review = OrderReview(**data)
+                    new_order_review.save()
+
+                order_review = request.json.get("order_review")
             return JsonResponse({})
         except Exception, e:
             return JsonErrorResponse("Update failed:" + e.message, 400)

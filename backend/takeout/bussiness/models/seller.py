@@ -27,8 +27,8 @@ class Seller(UserBase):
             "nickname": self.nickname,
             "account_type": self.get_account_type_display()
         }
-        if self.image_ids:
-            data['images'] = ImageStore.get_by_ids(self.image_ids)
+        if self.image_id:
+            data['images'] = ImageStore.get_by_ids([self.image_id])
         else:
             data['images'] = []
         return data
