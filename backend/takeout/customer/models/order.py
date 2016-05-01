@@ -14,18 +14,18 @@ class Order(models.Model):
         ("4", "已完成"),
         ("5", "已关闭"),
     )
-    status = models.CharField(max_length=1, choices=STATUS_LIST)
-    note = models.CharField(max_length=200)
+    status = models.CharField(max_length=1, choices=STATUS_LIST, default="1")
+    note = models.CharField(max_length=200, null=True)
     make_order_time = models.DateTimeField(auto_now_add=True)
-    accept_order_time = models.DateTimeField(auto_now=True, auto_now_add=True)
-    confirm_time = models.DateTimeField(auto_now=True, auto_now_add=True)
+    accept_order_time = models.DateTimeField(null=True)
+    confirm_time = models.DateTimeField(null=True)
     total_price = models.FloatField()
     store = models.ForeignKey(Store, related_name='orders')
     customer = models.ForeignKey(Customer, related_name='orders')
     delivery_information = models.ForeignKey(DeliveryInformation, related_name='orders')
 
     def to_string(self):
-        return {
+        data = {
             "id": self.id,
             "status": self.get_status_display(),
             "note": self.note,
@@ -36,6 +36,11 @@ class Order(models.Model):
             "store": self.store.id,
             "customer": self.customer.id,
         }
+        data["food_list"] = [food.to_string() for food in self.order_foods.all()]
+        return data
+
+    def to_detail_string(self):
+        return self.to_string()
 
 
 class OrderFood(models.Model):
@@ -50,3 +55,6 @@ class OrderFood(models.Model):
             "order": self.order.id,
             "food": self.food.id
         }
+
+    def to_detail_string(self):
+        return self.to_string()

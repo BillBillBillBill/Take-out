@@ -310,7 +310,7 @@ curl example
 curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "content": "asdasdasd", "store_id": "1"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/complaint
 
 # 获取单个投诉信息
-URL:/complaint/delivery_information_id
+URL:/complaint/complaint_id
 Method:GET
 Require:
 Optional:
@@ -330,6 +330,52 @@ Return:{"data": {}}
 
 curl example
 curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "status": "R"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/complaint/1
+
+
+
+# 获取订单列表
+URL:/order
+Method:GET
+Require:
+Optional:
+Token Require: Yes
+Return:{"data": {"order_list": [{order_infor}]}}
+
+curl example
+curl -X GET -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1"}' http://127.0.0.1:8000/order
+
+# 添加订单信息
+URL:/order
+Method:POST
+Require:food_list, delivery_information_id, store_id
+Optional:note
+Token Require: Yes
+Return:{"data": {"id": "order id"}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "food_list": [{"food_id": "1", "count": "2"}, {"food_id": "2", "count": "3"}], "delivery_information_id": "1", "store_id": "1"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/order
+
+# 获取单个订单信息
+URL:/order/order_id
+Method:GET
+Require:
+Optional:
+Token Require: No
+Return:{"data": {"order": order_infor}}
+
+curl example
+curl http://127.0.0.1:8000/order/1
+
+# 修改订单信息
+URL:/order/order_id
+Method:PUT
+Require:
+Optional:status
+Token Require: Yes
+Return:{"data": {}}
+
+curl example
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "status": "5"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/order/1
 ==============================================================================
 # 管理员注册
 URL:/admin
