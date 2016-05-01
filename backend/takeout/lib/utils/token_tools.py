@@ -2,12 +2,13 @@
 import time
 from bussiness.models.seller import Seller
 from customer.models.customer import Customer
+from admin.models.admin import Admin
 from password_tools import check_password
 from takeout.conn import redisClient
 
 
 USER_MODEL_MAP = {
-    "admin": Seller,
+    "admin": Admin,
     "customer": Customer,
     "bussiness": Seller,
 }

@@ -11,8 +11,9 @@ class UserBase(models.Model):
     password = models.CharField(max_length=200)
     account_type = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
     nickname = models.CharField(max_length=20)
-    created_time = models.DateField(auto_now_add=True)
-    updated_time = models.DateField(auto_now=True, auto_now_add=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(auto_now=True, auto_now_add=True)
+    image_id = models.CharField(max_length=500, null=True)
 
     class Meta:
         abstract = True

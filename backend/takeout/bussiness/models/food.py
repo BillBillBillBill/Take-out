@@ -2,6 +2,7 @@
 from django.db import models
 from bussiness.models.store import Store
 from lib.models.image import ImageStore
+from lib.utils.misc import get_timestamp_from_datetime
 
 
 class Food(models.Model):
@@ -9,8 +10,8 @@ class Food(models.Model):
     description = models.CharField(max_length=200)
     price = models.FloatField()
     stock = models.IntegerField()
-    created_time = models.DateField(auto_now_add=True)
-    updated_time = models.DateField(auto_now=True, auto_now_add=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(auto_now=True, auto_now_add=True)
     image_ids = models.CharField(max_length=500, null=True)
     store = models.ForeignKey(Store, related_name='foods', on_delete=models.CASCADE)
 

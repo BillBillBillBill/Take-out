@@ -19,7 +19,7 @@ def JsonResponse(data, status_code=200):
     try:
         data = '{"status_code": %s, "data": %s}' % (status_code, json.dumps(data))
     except:
-        data = '{"status_code": 200, "data": {}}'
+        data = '{"status_code": 200, "data": {"message": "Json Dumps Error"}}'
     return HttpResponse(
         content=data,
         content_type='text/json; charset=utf-8',

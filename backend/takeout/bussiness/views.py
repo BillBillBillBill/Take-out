@@ -31,7 +31,7 @@ class SellerList(APIView):
             new_seller.save()
         except Exception, e:
             print e
-            return JsonErrorResponse("Fail" + e.message)
+            return JsonErrorResponse("Fail:" + e.message)
         print "新注册卖家id：", new_seller.id
         return JsonResponse({"id": new_seller.id})
 
@@ -84,7 +84,7 @@ class StoreList(APIView):
             new_store.save()
         except Exception, e:
             print e
-            return JsonErrorResponse("Fail" + e.message)
+            return JsonErrorResponse("Fail:" + e.message)
         print "新注册id：", new_store.id
         return JsonResponse({"id": new_store.id})
 
@@ -146,7 +146,7 @@ class FoodList(APIView):
             new_food.save()
         except Exception, e:
             print e
-            return JsonErrorResponse("Fail" + e.message)
+            return JsonErrorResponse("Fail:" + e.message)
         print "新注册id：", new_food.id
         return JsonResponse({"id": new_food.id})
 

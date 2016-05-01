@@ -2,6 +2,7 @@
 from django.db import models
 from bussiness.models.seller import Seller
 from lib.models.image import ImageStore
+from lib.utils.misc import get_timestamp_from_datetime
 
 
 class Store(models.Model):
@@ -15,8 +16,8 @@ class Store(models.Model):
     announcement = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     is_banned = models.CharField(max_length=1, choices=BAN_STATUS, default="N")
-    created_time = models.DateField(auto_now_add=True)
-    updated_time = models.DateField(auto_now=True, auto_now_add=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+    updated_time = models.DateTimeField(auto_now=True, auto_now_add=True)
     image_ids = models.CharField(max_length=500, null=True)
     owner = models.OneToOneField(Seller, related_name='store')
 

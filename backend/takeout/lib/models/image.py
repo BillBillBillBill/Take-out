@@ -2,6 +2,7 @@
 from django.db import models
 from takeout.settings import STATIC_URL
 
+
 class ImageStore(models.Model):
     name = models.CharField(max_length=150,null=True)
     img = models.ImageField(upload_to='images/%Y/%m/%d')
