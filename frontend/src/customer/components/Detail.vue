@@ -526,8 +526,53 @@
            count: 109,
            star: 4}
         ],
-        currentid: this.$route.params.bussinessId-1
+        currentid: this.$route.params.bussinessId-1,
+        username: 'iii',
+        shopping_cart: [],
+        address: '',
+        tel: ''
       }
+    },
+    methods: {
+      addFood: function(foodname, money, num) {
+        var isFind = false;
+          for (var i = 0; i < this.shopping_cart.length; i++) {
+            if (this.shopping_cart[i].food_name == foodname) {
+              this.shopping_cart[i].amount += num;
+              isFind = true;
+              break;
+            }
+          }
+          if (!isFind) {
+            var temp = {};
+            temp.food_name = foodname;
+            temp.price = money;
+            temp.amount = num;
+            this.shopping_cart.push(temp);
+          }
+      },
+      isValidate: function(event) {
+        var address = $("#address").val();
+        var tel = $("#tel").val();
+        if (address == "" || tel == "") {
+          return false;
+        }
+        var tel_reg = /^[1-9][0-9]{10}$/;
+        if (tel_reg.test(tel)) {
+          this.address = address;
+          this.tel = tel;
+          return true;
+        } else alert("You should enter a valid telphone number.");
+        event.preventDefault();
+        return false;
+      },
+      emptyInput: function() {
+        $("#address").val("");
+        $("#tel").val("");
+      }
+      /*finishOrder: function() {
+        alert("进入确认订单界面！");
+      }*/
     }
   }
 </script>
@@ -535,6 +580,75 @@
 <template>
 <div>
   <orbitimages></orbitimages>
+  <div class="row small-up-1 medium-up-2 large-up-4">
+    <template v-for="item in businessdetail[currentid].foods">
+      <div class="column">
+
+        <div class="reveal" :id="item.food_name" data-reveal>
+          <h2>{{item.food_name}}</h2>
+          <img :src="item.picture" />
+          <p>${{item.money}}</p>
+          <p>{{item.count}}</p>
+          <p>{{item.star}}</p>
+          <div class="button expanded" data-open="order_again" v-on:click="addFood(item.food_name, item.money, 1)">加入购物车</div>
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <a :data-open="item.food_name">
+        <img class="thumbnail" :src="item.picture" /></a>
+        <h5>{{item.food_name}}</h5>
+        <p>${{item.money}}</p>
+        <div class="button expanded" data-open="order_again" v-on:click="addFood(item.food_name, item.money, 1)">加入购物车</div>
+        
+      </div>
+    </template>
+    <div class="button order_button" data-open="addorder">去下单</div>
+    <div class="reveal" id="order_again" data-reveal>
+      <h2>成功加入购物车</h2>
+      <div class="button expanded" data-close aria-label="Close modal">继续挑选食物</div>
+      <div class="button expanded" data-open="addorder">完成啦~去下单</div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <form class="reveal" id="addorder" method="post" action="./" data-reveal>
+      <div>
+        <label>地址:
+          <input type="text" id="address" name="address" required="required" placeholder="Your Address"></input>
+        </label>
+        <label>联系电话:
+          <input type="tel" id="tel" name="tel" required="required" placeholder="Your Phone Number"></input>
+        </label>
+      </div>
+      <div>
+        <ul id="order_list">
+          <li class="row order_head">
+            <span class="column">食物名称</span>
+            <span class="column">数量</span>
+            <span class="column">单价</span>
+            <span class="column">总价</span>
+          </li>
+          <template v-for="food in shopping_cart">
+            <li class="row">
+              <span class="column">{{food.food_name}}</span>
+              <span class="column">{{food.amount}}</span>
+              <span class="column">{{food.price}}</span>
+              <span class="column">{{food.amount}}x{{food.price}}={{food.amount*food.price}}</span>
+            </li>
+          </template>
+        </ul>
+      </div>
+      <div id="submit_button">
+        <input class="button expanded" type="submit" v-on:click="isValidate($event)" value="提交订单"></input>
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button" v-on:click="emptyInput()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </form>
+  </div>
   <!--<div class="row small-up- 1 medium-up-2">
     <div class="column">
 
@@ -553,16 +667,5 @@
       </div>
     </div>
   </div>-->
-  <div class="row small-up-1 medium-up-2 large-up-4">
-    <template v-for="item in businessdetail[currentid].foods">
-      <div class="column">
-        <a v-bind:href="item.myurl">
-        <img class="thumbnail" :src="item.picture" /></a>
-        <h5>{{item.food_name}}</h5>
-        <p>${{item.money}}</p>
-        <a class="button expanded" v-bind:href="item.myurl">加入购物车</a>
-      </div>
-    </template>
-  </div>
 </div>
 </template>
