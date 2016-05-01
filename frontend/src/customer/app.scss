@@ -25,3 +25,22 @@ body{
 .orbit-container {
 	height: 200px;
 }
+
+#order_list {
+	margin: 0;
+}
+
+.order_head {
+	font-weight: bold;
+}
+
+.order_button {
+	position: fixed;
+	margin: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#submit_button {
+	margin-top: 10px;
+}
