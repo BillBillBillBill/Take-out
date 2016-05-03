@@ -530,7 +530,8 @@
         username: 'iii',
         shopping_cart: [],
         address: '',
-        tel: ''
+        tel: '',
+        total: 0
       }
     },
     methods: {
@@ -539,6 +540,7 @@
           for (var i = 0; i < this.shopping_cart.length; i++) {
             if (this.shopping_cart[i].food_name == foodname) {
               this.shopping_cart[i].amount += num;
+              this.total += num*money;
               isFind = true;
               break;
             }
@@ -548,6 +550,7 @@
             temp.food_name = foodname;
             temp.price = money;
             temp.amount = num;
+            this.total += temp.price*temp.amount;
             this.shopping_cart.push(temp);
           }
       },
@@ -627,18 +630,22 @@
         <ul id="order_list">
           <li class="row order_head">
             <span class="column">食物名称</span>
-            <span class="column">数量</span>
-            <span class="column">单价</span>
-            <span class="column">总价</span>
+            <span class="column">数量/份</span>
+            <span class="column">单价/元</span>
+            <span class="column">总价/元</span>
           </li>
           <template v-for="food in shopping_cart">
             <li class="row">
               <span class="column">{{food.food_name}}</span>
               <span class="column">{{food.amount}}</span>
-              <span class="column">{{food.price}}</span>
+              <span class="column">￥{{food.price}}</span>
               <span class="column">{{food.amount}}x{{food.price}}={{food.amount*food.price}}</span>
             </li>
           </template>
+          <li class="row">
+            <span class="column small-3 order_head">合计:</span>
+            <span class="column small-3 small-offset-6">￥{{total}}</span>
+          </li>
         </ul>
       </div>
       <div id="submit_button">
