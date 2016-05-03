@@ -22,7 +22,10 @@ class Food(models.Model):
             "description": self.description,
             "price": self.price,
             "stock": self.stock,
+            "food_review_list": []
         }
+        for food_review in self.food_reviews.all():
+            data['food_review_list'].append(food_review.to_string())
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
         else:

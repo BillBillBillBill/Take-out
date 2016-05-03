@@ -29,8 +29,11 @@ class Store(models.Model):
             "phone": self.phone,
             "announcement": self.announcement,
             "description": self.description,
-            "owner": self.owner.to_detail_string()
+            "owner": self.owner.to_detail_string(),
+            "order_review_list": []
         }
+        for order_review in self.order_reviews.all():
+            data['order_review_list'].append(order_review.to_string())
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
         else:

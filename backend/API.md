@@ -369,13 +369,14 @@ curl http://127.0.0.1:8000/order/1
 # 修改订单信息
 URL:/order/order_id
 Method:PUT
-Require:
-Optional:status
+Require:action("accept","transport","close","finish")
+Optional:food_review_list(Required:food_id, Optional:content,star), order_review(Required:delivery_time, Optional:content,star)
 Token Require: Yes
 Return:{"data": {}}
 
 curl example
-curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "status": "5"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/order/1
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "action": "finish"}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/order/1
+curl -d '{"token": "20160501014629$customer$1$5d33a5bb$50d6cdd6ddf4a3ec78a10424a67fada17a0f9098b697b652523fb3093aac03e1", "action": "finish", "food_review_list": [{"food_id": 1}], "order_review": {"content": "laji", "star": "1", "delivery_time": 50}}' -X PUT -H "Content-Type:application/json"  http://127.0.0.1:8000/order/2
 ==============================================================================
 # 管理员注册
 URL:/admin
