@@ -4,6 +4,7 @@ from customer import Customer, DeliveryInformation
 from bussiness.models.store import Store
 from bussiness.models.food import Food
 from lib.utils.misc import get_timestamp_from_datetime
+from datetime import datetime
 
 
 class Order(models.Model):
@@ -41,6 +42,28 @@ class Order(models.Model):
 
     def to_detail_string(self):
         return self.to_string()
+
+    def accept(self):
+        if self.status == "1":
+            self.status = "2"
+            self.accept_order_time = datetime.now()
+            self.save()
+
+    def transport(self):
+        if self.status == "2":
+            self.status = "3"
+            self.save()
+
+    def finish(self):
+        if self.status == "3":
+            self.status = "4"
+            self.confirm_time = datetime.now()
+            self.save()
+
+    def close(self):
+        if self.status != "4":
+            self.status = "5"
+            self.save()
 
 
 class OrderFood(models.Model):
