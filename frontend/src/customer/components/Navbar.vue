@@ -24,7 +24,7 @@
     <div class="top-bar-right">
       <ul class="menu">
         <li><input type="search" placeholder="Search" v-model="searchText"></li>
-        <li><button type="button" class="button">Search</button></li>
+        <!--<li><button type="button" class="button">Search</button></li>-->
       </ul>
     </div>
   </div>

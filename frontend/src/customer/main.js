@@ -6,10 +6,10 @@ import Router from 'vue-router'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
-import Order from './components/Order.vue'
-import About from './components/About.vue'
 import Detail from './components/Detail.vue'
-import Comment from './components/Comment.vue'
+import Order from './components/Order.vue'
+import Orderdetail from './components/Orderdetail.vue'
+import About from './components/About.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -24,21 +24,21 @@ router.map({
     name: 'home',
     component: Home
   },
-  '/order':{
-    name: 'order',
-    component: Order
-  },
-  '/about':{
-    name: 'about',
-    component: About
-  },
   '/home/:bussinessId':{
     name: 'detail',
     component: Detail
   },
-  '/order/comment/:orderId':{
-    name: 'comment',
-    component: Comment
+  '/order':{
+    name: 'order',
+    component: Order
+  },
+  '/order/:orderId':{
+    name: 'order_detail',
+    component: Orderdetail
+  },
+  '/about':{
+    name: 'about',
+    component: About
   }
 })
 

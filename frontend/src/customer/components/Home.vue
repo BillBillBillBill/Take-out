@@ -33,13 +33,14 @@
                 {{item.title}}
               </div>
               <div class="row">
-                {{item.star}}
+                <i v-for="n in item.star" class="fi-star yellow"></i>
+                <i v-for="n in (5-item.star)" class="fi-star gray"></i>
               </div>
               <div class="row">
-                {{item.number}}
+                月售<span class="item_count">{{item.count}}</span>单
               </div>
               <div class="row">
-                月售{{item.count}}单
+                <i class="fi-telephone"></i> {{item.number}}
               </div>
             </div>
           </div>
