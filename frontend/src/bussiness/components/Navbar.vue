@@ -1,23 +1,32 @@
 <script>
   export default {
-    name: "Navbar"
+    name: "Navbar",
+    props: ['searchText', 'bussinessName']
   }
 </script>
 
 <template>
   <div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Vue Webgulp</li>
-      <li><a v-link="{name: 'home'}">Home</a></li>
-      <li><a v-link="{name: 'about'}">About</a></li>
-      <li><a v-link="{name: 'quote'}">Quote</a></li>
-    </ul>
+    <div class="top-bar-title" data-hide-for="medium">
+      <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+        <button class="menu-icon dark" type="button" data-toggle></button>
+      </span>
+    </div>
+    <div id="responsive-menu">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">{{bussinessName}}</li>
+          <li><a v-link="{name: 'home'}">首页</a></li>
+          <li><a v-link="{name: 'order'}">所有订单</a></li>
+          <li><a v-link="{name: 'about'}">个人中心</a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><input type="search" placeholder="Search" v-model="searchText"></li>
+          <!--<li><button type="button" class="button">Search</button></li>-->
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      
-    </ul>
-  </div>
-</div>
 </template>

@@ -77,6 +77,10 @@ gulp.task('build.js', function() {
 gulp.task('build.img', function() {
   gulp.src('src/customer/images/*.{jpg,png,gif}')
     .pipe(gulp.dest('dist/customer/images/'));
+  gulp.src('src/bussiness/images/*.{jpg,png,gif}')
+    .pipe(gulp.dest('dist/bussiness/images/'));
+  gulp.src('src/admin/images/*.{jpg,png,gif}')
+    .pipe(gulp.dest('dist/admin/images/'));
 });
 
 // Watch changes in index.html file && main.js file
