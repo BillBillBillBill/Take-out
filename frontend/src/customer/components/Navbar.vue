@@ -16,7 +16,7 @@
     <div class="top-bar-left">
       <ul class="menu">
         <li class="menu-text">Campus Food</li>
-        <li><a v-link="{name: 'home'}">商家</a></li>
+        <li><a v-link="{name: 'home'}">首页</a></li>
         <li><a v-link="{name: 'order'}">我的订单</a></li>
         <li><a v-link="{name: 'about'}">个人中心</a></li>
       </ul>
