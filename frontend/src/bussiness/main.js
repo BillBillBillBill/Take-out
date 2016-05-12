@@ -7,6 +7,7 @@ import Router from 'vue-router'
 import App from './components/App.vue'
 import Home from './components/Home.vue'
 import Order from './components/Order.vue'
+import Detail from './components/Detail.vue'
 import About from './components/About.vue'
 
 // Install plugins
@@ -25,6 +26,10 @@ router.map({
   '/order':{
     name: 'order',
     component: Order
+  },
+  '/order/:orderId':{
+    name: 'detail',
+    component: Detail
   },
   '/about':{
     name: 'about',

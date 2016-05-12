@@ -43,7 +43,7 @@
         <div class="column align-middle">
           <h4>{{bussinessDetail.title}}</h4>
           <div>
-            <i v-for="n in bussinessDetail.star" class="fi-class yellow"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
+            <i v-for="n in bussinessDetail.star" class="fi-star yellow"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
           </div>
           <div>月销售量{{bussinessDetail.count}}单</div>
           <div><i class="fi-telephone"></i> {{bussinessDetail.number}}</div>
