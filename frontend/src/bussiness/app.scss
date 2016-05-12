@@ -13,12 +13,13 @@ body{
 	text-align: right;
 }
 
-.bussiness-home {
+.bussiness-home, .bussiness-order-detail, .bussiness-info {
 	margin-top: 20px;
 }
 
 .order-info {
 	border: 1px solid $grey2;
+	padding: 10px;
 }
 
 .receive-reject {

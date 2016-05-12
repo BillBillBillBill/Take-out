@@ -217,6 +217,24 @@
           {
            id: 2,
            picture: '../images/flower.jpg',
+           comments: [
+              {user: '123*****678',
+              date: '2016-02-14',
+              star: 4,
+              description: "好吃好吃好好吃！"},
+              {user: '123*****678',
+              date: '2016-05-03',
+              star: 3,
+              description: "良心商家~"},
+              {user: '123*****678',
+              date: '2015-12-14',
+              star: 5,
+              description: "好吃好吃好好吃！"},
+              {user: '123*****678',
+              date: '2016-04-07',
+              star: 2,
+              description: "一般般"}
+             ],
            foods: [
             {food_name: 'a',
              picture: '../images/flower.jpg',
