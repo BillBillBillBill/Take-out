@@ -6,8 +6,9 @@ import Router from 'vue-router'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
+//import Detail from './components/Detail.vue'
+import Complain from './components/Complain.vue'
 import About from './components/About.vue'
-import Quote from './components/Quote.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -22,13 +23,17 @@ router.map({
     name: 'home',
     component: Home
   },
+ /* '/detail/:bussinessId':{
+    name: 'detail',
+    component: Detail
+  },*/
+  '/complain':{
+    name: 'complain',
+    component: Complain
+  },
   '/about':{
     name: 'about',
     component: About
-  },
-  '/quote':{
-    name: 'quote',
-    component: Quote
   }
 })
 

@@ -3,6 +3,7 @@
 
   export default {
   	name: "Detail",
+    props: ['searchText'],
 
   	components: {
   	  'orbitimages': Orbitimages
@@ -1896,7 +1897,7 @@
 <div>
   <orbitimages :bussiness-detail="businessdetail[currentid]"></orbitimages>
   <div class="row small-up-1 medium-up-2 large-up-4">
-    <template v-for="item in businessdetail[currentid].foods">
+    <template v-for="item in businessdetail[currentid].foods | filterBy searchText in 'food_name'">
       <div class="column">
 
         <div class="reveal" :id="item.food_name" data-reveal>

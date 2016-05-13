@@ -18,10 +18,18 @@ body{
 }
 
 .order-info {
-	border: 1px solid $grey2;
+
 	padding: 10px;
 }
 
 .receive-reject {
 	margin-right: 10px;
+}
+
+.mouseoverstyle {
+	border-left: 3px solid $grey2;
+}
+
+a {
+	color: $black;
 }

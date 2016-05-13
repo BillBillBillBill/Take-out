@@ -1,6 +1,7 @@
 <script>
   export default {
     name: "Order",
+    props: ['searchText'],
 
     data: function() {
       return {
@@ -541,7 +542,7 @@
       </template>
     </div>-->
     <div class="row small-up-1 medium-up-2 large-up-3">
-      <template v-for="item in orders">
+      <template v-for="item in orders | filterBy searchText">
         <div class="column">
           <a v-link="{name: 'order_detail', params: {orderId: item.orderid}}">
             <div class="row order_row">
