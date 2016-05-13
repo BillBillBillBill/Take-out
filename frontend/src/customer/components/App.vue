@@ -10,7 +10,7 @@
 
     data: function() {
       return {
-        business: [
+        bussiness: [
           {
            id: 1,
            picture: '../images/flower.jpg',
@@ -103,6 +103,6 @@
 <template>
   <div>
     <navbar :search-text.sync="searchText"></navbar>
-    <router-view :business.sync="business" :search-text.sync="searchText"></router-view>
+    <router-view :bussiness.sync="bussiness" :search-text.sync="searchText"></router-view>
   </div>
 </template>

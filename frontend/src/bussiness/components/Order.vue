@@ -1,6 +1,7 @@
 <script>
   export default {
     name: "Order",
+    props: ['searchText'],
 
     data: function() {
       return {
@@ -231,6 +232,14 @@
         }
         ]
       }
+    },
+    methods: {
+      changeMouseOverStyle: function() {
+        $(event.target).addClass("mouseoverstyle");
+      },
+      resetMouseLeaveStyle: function() {
+        $(event.target).removeClass("mouseoverstyle");
+      }
     }
   }
 </script>
@@ -238,8 +247,8 @@
 <template>
   <div>
     <div class="row small-up-1 medium-up-2 large-up-4">
-      <template v-for="order in orders">
-        <div class="column order-info">
+      <template v-for="order in orders | filterBy searchText in 'order_date' 'order_status' 'customer_name' 'customer_address' 'customer_tel'">
+        <div class="column order-info" v-on:mouseenter="changeMouseOverStyle" v-on:mouseleave="resetMouseLeaveStyle">
           <a v-link="{name: 'detail', params: {orderId:order.order_id}}">
           <div class="row">
             <div class="column">

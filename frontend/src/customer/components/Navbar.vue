@@ -1,7 +1,18 @@
 <script>
   export default {
     name: "Navbar",
-    props: ['searchText']
+    props: ['searchText'],
+    data: function() {
+      return {
+        username: 'lala',
+        isLog: true
+      }
+    },
+    methods: {
+      resetLogout: function() {
+        this.isLog = false;
+      }
+    }
   }
 </script>
 
@@ -24,7 +35,22 @@
     <div class="top-bar-right">
       <ul class="menu">
         <li><input type="search" placeholder="Search" v-model="searchText"></li>
-        <!--<li><button type="button" class="button">Search</button></li>-->
+        <li>
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <template v-if="isLog">
+                <i class="fi-torso"></i> {{username}}
+              </template>
+              <template v-else>
+                <a v-link="{name: 'login'}"><i class="fi-torso"></i> 登录/注册</a>
+              </template>
+              <ul class="menu" v-if="isLog">
+                <li><a v-link="{name: 'login'}" v-on:click="resetLogout">退出</a></li>
+                <li><a v-link="{name: 'login'}" v-on:click="resetLogout">更换账户</a>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

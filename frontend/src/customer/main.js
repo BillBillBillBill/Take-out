@@ -5,6 +5,7 @@ import Resource from 'vue-resource'
 import Router from 'vue-router'
 
 import App from './components/App.vue'
+import Login from './components/Login.vue'
 import Home from './components/Home.vue'
 import Detail from './components/Detail.vue'
 import Order from './components/Order.vue'
@@ -20,6 +21,10 @@ var router = new Router()
 
 // Route config
 router.map({
+  '/login':{
+    name: 'login',
+    component: Login
+  },
   '/home':{
     name: 'home',
     component: Home

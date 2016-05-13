@@ -34,8 +34,17 @@ module.exports =  {
         loaders: ['style', 'css', 'sass']
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css']
+      },
+      {
         test: /\.vue$/,
         loader: 'vue'
+      },
+      {
+        test: /\.jpg$/,
+        loader: 'url-loader',
+        query: {mimetype: 'image/jpg'}
       }
     ]
   },
@@ -45,5 +54,6 @@ module.exports =  {
   },
   resolve: {
     modulesDirectories: ['node_modules']
-  }
+  },
+  debug: true
 }

@@ -6,7 +6,7 @@
     components: {
       'sortbar': Sortbar
     },
-    props: ['business', 'searchText'],
+    props: ['bussiness', 'searchText'],
     data: function() {
       return {
         sortpara: ''
@@ -21,7 +21,7 @@
     <sortbar :sortpara.sync="sortpara"></sortbar>
   </div>
   <div class="row small-up-1 medium-up-2 large-up-4" id="customer-home">
-    <template v-for="item in business | filterBy searchText in 'title' | orderBy sortpara -1">
+    <template v-for="item in bussiness | filterBy searchText in 'title' | orderBy sortpara -1">
       <div class="column">
         <a v-link="{name: 'detail', params: {bussinessId: item.id}}">
           <div class="row customer-item" small-2>
