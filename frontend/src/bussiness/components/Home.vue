@@ -15,6 +15,9 @@
       	if (foodname == "") return false;
       	return true;
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

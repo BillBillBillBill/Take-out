@@ -6,6 +6,7 @@ import Router from 'vue-router'
 
 import App from './components/App.vue'
 import Login from './components/Login.vue'
+import Register from './components/Register.vue'
 import Home from './components/Home.vue'
 import Detail from './components/Detail.vue'
 import Order from './components/Order.vue'
@@ -24,6 +25,10 @@ router.map({
   '/login':{
     name: 'login',
     component: Login
+  },
+  '/register':{
+    name: 'register',
+    component: Register
   },
   '/home':{
     name: 'home',

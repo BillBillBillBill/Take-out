@@ -1889,6 +1889,9 @@
         $("#address").val("");
         $("#tel").val("");
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

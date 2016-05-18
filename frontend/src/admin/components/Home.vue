@@ -6,6 +6,9 @@
       cancelBussiness: function(id) {
       	alert("成功注销该商家");
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

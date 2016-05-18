@@ -1,6 +1,6 @@
 <script>
   export default {
-  	name: 'Login',
+  	name: 'Register',
   	/*data: function() {
   		return {
   			username: 'ice'
@@ -13,9 +13,9 @@
 </script>
 
 <template>
-  <div class="login-container">
-  	<h3>登录</h3>
-  	<form method="post" action="./" class="login-form">
+  <div class="register-container">
+  	<h3>注册</h3>
+  	<form method="post" action="./" class="register-form">
   	  <div class="input-form">
   	  	<span class="fi-torso span-img"></span>
   	  	<input id="username" class="input-span" name="username" type="text" placeholder="Please enter your username."></input>
@@ -24,13 +24,13 @@
   	  	<span class="fi-lock span-img"></span>
   	  	<input id="password" class="input-span" name="password" type="password" placeholder="Please enter your password."></input>
   	  </div>
-  	  <input id="login_submit" class="button expanded" type="submit" value="登录"></input>
+  	  <input id="register_submit" class="button expanded" type="submit" value="注册"></input>
   	</form>
-  	<a v-link="{name: 'register'}" class="register-link">新用户注册</a>
-  	<div class="enter-row">
-      <a href="http://localhost:8081/#!/login" class="enter-link">商家版</a>
-      <a class="enter-link">顾客版</a>
-      <a href="http://localhost:8082/#!/login" class="enter-link">管理员版</a>
+  	<a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
+    <div class="enter-row">
+      <a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>
+      <a href="http://localhost:8080/#!/register" class="enter-link">顾客版</a>
+      <a class="enter-link">管理员版</a>
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@
     -webkit-box-sizing:border-box; /* Safari */
   }
 
-  .login-container {
+  .register-container {
   	margin: 50px auto;
   	width: 300px;
   	height: 290px;
@@ -58,7 +58,7 @@
   	padding-bottom: 0;
   }
 
-  .login-form {
+  .register-form {
   	padding: 10px;
   	position: relative;
   }
@@ -76,7 +76,7 @@
   	margin-top: 7.5px;
   }
 
-  .register-link {
+  .login-link {
   	padding-right: 10px;
   	float: right;
   	font-size: 12px;
@@ -84,13 +84,13 @@
   }
 
   .enter-row {
-  	padding: 10px;
-  	text-align: center;
+    padding: 10px;
+    text-align: center;
   }
 
   .enter-link {
-  	font-size: 12px;
-  	padding: 10px;
-  	text-decoration: underline;
+    font-size: 12px;
+    padding: 10px;
+    text-decoration: underline;
   }
 </style>

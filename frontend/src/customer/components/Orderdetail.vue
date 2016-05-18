@@ -2036,26 +2036,29 @@
   			this.isShow = false;
   		},
   		hoverGrade: function(index) {
-            this.changeStarsGrade(index);
-      	},
-      	getGrade: function(index) {
-        	this.changeStarsGrade(index);
-      	},
-      	resetStars: function() {
-        	var stars = $(".grade-star");
-        	for (var i = 0; i < stars.length; i++) {
-          		$(stars[i]).removeClass("yellow").addClass("gray");
-        	}
-      	},
-      	changeStarsGrade: function(index) {
-        	var stars = $(".grade-star");
-        	this.resetStars();
-        	for (var i = 0; i <= index; i++) {
-          		$(stars[i]).removeClass("gray").addClass("yellow");
-        	}
-        	this.grade = index + 1;
-      	}
-  	}
+        this.changeStarsGrade(index);
+      },
+      getGrade: function(index) {
+        this.changeStarsGrade(index);
+      },
+      resetStars: function() {
+        var stars = $(".grade-star");
+        for (var i = 0; i < stars.length; i++) {
+          $(stars[i]).removeClass("yellow").addClass("gray");
+        }
+      },
+      changeStarsGrade: function(index) {
+        var stars = $(".grade-star");
+        this.resetStars();
+        for (var i = 0; i <= index; i++) {
+          $(stars[i]).removeClass("gray").addClass("yellow");
+        }
+        this.grade = index + 1;
+      }
+  	},
+    ready: function() {
+      $(document).foundation();
+    }
   }
 </script>
 

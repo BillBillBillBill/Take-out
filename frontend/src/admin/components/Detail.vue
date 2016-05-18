@@ -1,6 +1,9 @@
 <script>
   export default {
-  	name: 'Detail'
+  	name: 'Detail',
+  	ready: function() {
+      $(document).foundation();
+    }
   }
 </script>
 

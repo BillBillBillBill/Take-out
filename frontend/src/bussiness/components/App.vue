@@ -85,7 +85,10 @@
       	searchText: '',
       	bussinessName: 'lalalal'
       }
-    }
+    }/*,
+    ready: function() {
+      $(document).foundation();
+    }*/
   }
 </script>
 
