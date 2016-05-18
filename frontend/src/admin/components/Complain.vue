@@ -82,6 +82,9 @@
       failCheck: function(id) {
         alert(id + " is Failed");
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
 
     /*ready: function() {

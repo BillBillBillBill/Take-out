@@ -94,7 +94,10 @@
         ],
         searchText: ''
       }
-  	}
+  	}/*,
+  	ready: function() {
+      $(document).foundation();
+    }*/
   }
 </script>
 

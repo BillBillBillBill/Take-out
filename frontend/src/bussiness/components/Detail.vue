@@ -391,7 +391,10 @@
   	  	  ]}
   	  	]
   	  }
-  	}
+  	},
+    ready: function() {
+      $(document).foundation();
+    }
   }
 </script>
 

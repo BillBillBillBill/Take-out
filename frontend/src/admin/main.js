@@ -6,6 +6,8 @@ import Router from 'vue-router'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
+import Login from './components/Login.vue'
+import Register from './components/Register.vue'
 //import Detail from './components/Detail.vue'
 import Complain from './components/Complain.vue'
 import About from './components/About.vue'
@@ -19,6 +21,14 @@ var router = new Router()
 
 // Route config
 router.map({
+  '/login':{
+    name: 'login',
+    component: Login
+  },
+  '/register':{
+    name: 'register',
+    component: Register
+  },
   '/home':{
     name: 'home',
     component: Home

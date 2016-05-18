@@ -13,6 +13,9 @@
         event.preventDefault();
         return false;
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

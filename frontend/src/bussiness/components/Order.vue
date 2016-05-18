@@ -240,6 +240,9 @@
       resetMouseLeaveStyle: function() {
         $(event.target).removeClass("mouseoverstyle");
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

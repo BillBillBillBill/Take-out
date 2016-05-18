@@ -35,6 +35,9 @@
         event.preventDefault();
         return false;
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
 
     /*data: function(){

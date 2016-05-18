@@ -67,10 +67,18 @@ gulp.task('build.index', function() {
 
 // Copy foundation.min.js file
 gulp.task('build.js', function() {
-  gulp.src('node_modules/foundation-sites/dist/foundation.min.js')
-    .pipe(gulp.dest('dist/customer/'));
-  gulp.src('node_modules/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('dist/customer'));
+  gulp.src('src/customer/foundation.min.js')
+    .pipe(gulp.dest('dist/customer/js'));
+  gulp.src('src/customer/jquery.min.js')
+    .pipe(gulp.dest('dist/customer/js'));
+  gulp.src('src/bussiness/foundation.min.js')
+    .pipe(gulp.dest('dist/bussiness/js'));
+  gulp.src('src/bussiness/jquery.min.js')
+    .pipe(gulp.dest('dist/bussiness/js'));
+  gulp.src('src/admin/foundation.min.js')
+    .pipe(gulp.dest('dist/admin/js'));
+  gulp.src('src/admin/jquery.min.js')
+    .pipe(gulp.dest('dist/admin/js'));
 });
 
 // Copy images
@@ -83,6 +91,15 @@ gulp.task('build.img', function() {
     .pipe(gulp.dest('dist/admin/images/'));
 });
 
+gulp.task('build.css', function() {
+  gulp.src('src/customer/foundation.min.css')
+    .pipe(gulp.dest('dist/customer/css'));
+  gulp.src('src/bussiness/foundation.min.css')
+    .pipe(gulp.dest('dist/bussiness/css'));
+  gulp.src('src/admin/foundation.min.css')
+    .pipe(gulp.dest('dist/admin/css'));
+});
+
 // Watch changes in index.html file && main.js file
 gulp.task('watch', function() {
   gulp.watch(['src/**/index.html'], ['build.index']);
@@ -91,5 +108,5 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function(callback) {
-  runSeq(['webpack', 'build.index', 'build.js', 'build.img', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
+  runSeq(['webpack', 'build.index', 'build.js', 'build.img', 'build.css', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
 });

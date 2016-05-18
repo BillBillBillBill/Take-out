@@ -11,6 +11,9 @@
       return {
         sortpara: ''
       }
+    },
+    ready: function() {
+      $(document).foundation();
     }
   }
 </script>

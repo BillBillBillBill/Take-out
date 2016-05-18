@@ -12,7 +12,10 @@
       resetLogout: function() {
         this.isLog = false;
       }
-    }
+    }/*,
+    ready: function() {
+      $(document).foundation();
+    }*/
   }
 </script>
 
