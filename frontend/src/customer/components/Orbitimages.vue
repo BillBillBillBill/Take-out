@@ -12,24 +12,20 @@
     <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     <li class="is-active orbit-slide">
       <img class="orbit-image" src="../images/pic1.jpg" alt="Food">
-     <!-- <figcaption class="orbit-caption1">The first food.</figcaption>-->
     </li>
     <li class="orbit-slide">
       <img class="orbit-image" src="../images/pic2.jpg" alt="Food">
-     <!-- <figcaption class="orbit-caption1">The second food.</figcaption>-->
     </li>
     <li class="orbit-slide">
       <img class="orbit-image" src="../images/pic3.jpg" alt="Food">
-     <!-- <figcaption class="orbit-caption1">The third food.</figcaption>-->
     </li>
     <li class="orbit-slide">
       <img class="orbit-image" src="../images/pic4.jpg" alt="Food">
-      <!--<figcaption class="orbit-caption1">The fouth food.</figcaption>-->
     </li>
     <figcaption class="orbit-caption1" data-open="showBussinessInfo">
       <div>{{bussinessDetail.title}}</div>
       <div>
-        <i v-for="n in bussinessDetail.star" class="fi-star yellow"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
+        <i v-for="n in bussinessDetail.star" class="fi-star gold"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
       </div>
       <div>月销售量{{bussinessDetail.count}}单</div>
       <div><i class="fi-telephone"></i>{{bussinessDetail.number}}</div>
@@ -43,7 +39,7 @@
         <div class="column align-middle">
           <h4>{{bussinessDetail.title}}</h4>
           <div>
-            <i v-for="n in bussinessDetail.star" class="fi-star yellow"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
+            <i v-for="n in bussinessDetail.star" class="fi-star gold"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
           </div>
           <div>月销售量{{bussinessDetail.count}}单</div>
           <div><i class="fi-telephone"></i> {{bussinessDetail.number}}</div>
@@ -56,7 +52,7 @@
             <li v-for="comment in bussinessDetail.comments" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
               <a class="accordion-title">
                 <span>{{comment.user}}</span>
-                <i v-for="n in comment.star" class="fi-star yellow"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
+                <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
                 <span>{{comment.date}}</span>
               </a>
               <div class="description accordion-content" data-tab-content>{{comment.description}}</div>
@@ -77,3 +73,34 @@
   </nav>
 </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .orbit-container {
+    height: 200px;
+  }
+
+  .orbit-caption1 {
+    position: absolute;
+    bottom: 10%;
+    left: 40px;
+    padding: 1rem;
+    color: #fefefe;
+    background-color: rgba(10, 10, 10, 0.5);
+  }
+
+  figcaption {
+    cursor: hand;
+    cursor: pointer;
+  }
+
+</style>

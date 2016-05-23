@@ -472,75 +472,6 @@
 
 <template>
   <div>
-   <!-- <div class="row small-up-1 medium-up-2 large-up-4">
-      <template v-for="item in orders">
-        <div class="column orderlist">
-          <a href="#">
-              <div class="column">
-                <img :src="item.picture" />
-              </div>
-              <div class="column">
-                <div class="row">{{item.address}}</div>
-                <div class="row">{{item.tel}}</div>
-                <template v-for="li in item.order_list">
-                  <div class="row">
-                    <div class="column">{{li.food_name}}</div>
-                    <div class="column">{{li.amount}}份</div>
-                    <div class="column">￥{{li.price}}/份</div>
-                  </div>
-                </template>
-              </div>
-          </a>
-        </div>
-      </template>
-    </div>-->
-    <!--<div class="row small-up-1 medium-up-2 large-up-4">
-      <template v-for="item in orders">
-        <div class="column">
-          <a :data-open="item.orderid">
-            <div class="row customer-item" small-2>
-              <div class="column">
-                <img :src="item.picture" />
-              </div>
-              <div class="column">
-                <div class="row">商家：{{item.bussiness}}</div>
-                <div class="row">地址：{{item.address}}</div>
-                <div class="row">电话：{{item.tel}}</div>
-                <div class="row">状态：{{item.status}}</div>
-                <a v-if="item.status == '已完成'" v-link="{name: 'comment', params: {orderId: item.orderid}}" class="button comment">评价</a>
-                <a v-if="item.status == '已取消' || item.status == '已完成'" v-link="{name: 'comment', params: {orderId: item.orderid}}" class="button comment">投诉</a>
-                <a v-if="item.status == '未处理'" v-link="{name: 'comment', params: {orderId: item.orderid}}" class="button comment">取消订单</a>
-              </div>
-            </div>
-          </a>
-
-          <div class="reveal" :id="item.orderid" data-reveal>
-            <img :src="item.picture" />
-            <p>商家：{{item.bussiness}}</p>
-            <p>地址：{{item.address}}</p>
-            <p>电话：{{item.tel}}</p>
-            <p>状态：{{item.status}}</p>
-            <a v-if="item.status == '已完成'" v-link="{name: 'comment', params: {orderId: item.orderid}}" class="button comment" data-close>评价</a>
-            <p>订单详情：</p>
-            <template v-for="li in item.order_list">
-              <div class="row">
-                <div class="column">{{li.food_name}}</div>
-                <div class="column">{{li.amount}}份</div>
-                <div class="column">￥{{li.price}}/份</div>
-              </div>
-            </template>
-            <div class="row">
-              <div class="column small-4 order_head">合计:</div>
-              <div class="column small-4 small-offset-4">￥{{item.total}}</div>
-            </div>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-        </div>
-      </template>
-    </div>-->
     <div class="row small-up-1 medium-up-2 large-up-3">
       <template v-for="item in orders | filterBy searchText">
         <div class="column">
@@ -558,11 +489,8 @@
                   订单状态：{{item.status}}
                 </div>
                 <div class="row">
-                  <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
                   <div v-if="item.status == '已完成'" class="button comment" data-open="comment">评价</div>
-                  <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
                   <div v-if="item.status == '已取消' || item.status == '已完成'" class="button complain" data-open="complain">投诉</div>
-                  <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
                   <div v-if="item.status == '未处理'" class="button cancel" data-open="cancel">取消订单</div>
                   <div v-if="item.status == '配送中'" class="button complete" data-open="complete">完成订单</div>
                 </div>
@@ -608,3 +536,29 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .order_row {
+    padding: 10px;
+  }
+
+  .comment {
+    margin-right: 5px;
+  }
+
+  .grade-star {
+    cursor: hand;
+    cursor: pointer;
+  }
+
+</style>

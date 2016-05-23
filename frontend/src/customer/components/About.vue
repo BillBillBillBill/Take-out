@@ -87,3 +87,28 @@
   </div>
 </template>
 
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .picture-column {
+    text-align: center;
+  }
+
+  .my-info {
+    margin-top: 20px;
+  }
+  .my-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid $grey2;
+  }
+</style>
