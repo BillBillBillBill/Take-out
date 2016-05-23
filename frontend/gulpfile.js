@@ -65,7 +65,7 @@ gulp.task('build.index', function() {
     .pipe(gulp.dest('dist/admin/'))
 });
 
-// Copy foundation.min.js file
+// Copy js file
 gulp.task('build.js', function() {
   gulp.src('src/customer/foundation.min.js')
     .pipe(gulp.dest('dist/customer/js'));
@@ -91,6 +91,7 @@ gulp.task('build.img', function() {
     .pipe(gulp.dest('dist/admin/images/'));
 });
 
+// Copy css file
 gulp.task('build.css', function() {
   gulp.src('src/customer/foundation.min.css')
     .pipe(gulp.dest('dist/customer/css'));
@@ -98,6 +99,16 @@ gulp.task('build.css', function() {
     .pipe(gulp.dest('dist/bussiness/css'));
   gulp.src('src/admin/foundation.min.css')
     .pipe(gulp.dest('dist/admin/css'));
+});
+
+// Copy foundation.icons
+gulp.task('build.icons', function() {
+	gulp.src('src/customer/foundation-icons/*')
+	  .pipe(gulp.dest('dist/customer/foundation-icons/'));
+	gulp.src('src/bussiness/foundation-icons/*')
+	  .pipe(gulp.dest('dist/bussiness/foundation-icons'));
+	gulp.src('src/admin/foundation-icons/*')
+	  .pipe(gulp.dest('dist/admin/foundation-icons'));
 });
 
 // Watch changes in index.html file && main.js file
@@ -108,5 +119,5 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function(callback) {
-  runSeq(['webpack', 'build.index', 'build.js', 'build.img', 'build.css', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
+  runSeq(['webpack', 'build.index', 'build.js', 'build.img', 'build.css', 'build.icons', 'watch'], 'webserver_customer', 'webserver_bussiness', 'webserver_admin');
 });

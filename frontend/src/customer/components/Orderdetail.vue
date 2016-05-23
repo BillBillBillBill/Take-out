@@ -2044,14 +2044,14 @@
       resetStars: function() {
         var stars = $(".grade-star");
         for (var i = 0; i < stars.length; i++) {
-          $(stars[i]).removeClass("yellow").addClass("gray");
+          $(stars[i]).removeClass("gold").addClass("gray");
         }
       },
       changeStarsGrade: function(index) {
         var stars = $(".grade-star");
         this.resetStars();
         for (var i = 0; i <= index; i++) {
-          $(stars[i]).removeClass("gray").addClass("yellow");
+          $(stars[i]).removeClass("gray").addClass("gold");
         }
         this.grade = index + 1;
       }
@@ -2066,19 +2066,15 @@
   <div class="row orderdetail small-up-1 medium-up-2">
   <template v-for="item in orders">
   <template v-if="item.orderid == currentOrderId">
-    <div class="column" data-hide-for="medium">
+    <div class="column">
       <div class="row">
       	<div class="column">
-      	  <div data-sticky-container>
-  		    <div class="sticky" data-sticky data-margin-top="5px">
-  	  	      <img class="thumbnail" src="../images/flower.jpg" />
-  	        </div>
-  	      </div>
+  	  	  <img class="thumbnail" src="../images/flower.jpg" />
       	</div>
       	<div class="column align-middle ">
       	  <h4>{{bussiness_name}}</h4>
           <div>
-            <i v-for="n in star" class="fi-star yellow"></i><i v-for="n in (5-star)" class="fi-star gray"></i>
+            <i v-for="n in star" class="fi-star gold"></i><i v-for="n in (5-star)" class="fi-star gray"></i>
           </div>
           <div>月销售量{{count}}单</div>
           <div><i class="fi-telephone"></i>{{tel}}</div>
@@ -2143,7 +2139,7 @@
         <div class="row food_detail_">
           <div class="column">{{order.food_name}}</div>
           <div class="column-6">
-            <i v-for="n in order.star" class="fi-star yellow"></i><i v-for="n in (5-order.star)" class="fi-star gray"></i>
+            <i v-for="n in order.star" class="fi-star gold"></i><i v-for="n in (5-order.star)" class="fi-star gray"></i>
           </div>
           <div class="column price"><i class="fi-yen"></i> {{order.price}}</div>
           <div class="column count_detail">剩余<span class="item_count">{{order.count}}</span>份</div>
@@ -2166,7 +2162,7 @@
           <li v-for="comment in order.comments" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
             <a class="accordion-title">
               <span>{{comment.user}}</span>
-              <i v-for="n in comment.star" class="fi-star yellow"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
+              <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
               <span>{{comment.date}}</span>
             </a>
             <div class="description accordion-content" data-tab-content>{{comment.description}}</div>
@@ -2214,3 +2210,19 @@
   </template>	
   </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .orderdetail {
+    margin-top: 20px;
+  }
+</style>

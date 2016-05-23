@@ -1909,7 +1909,7 @@
           <div class="row food_detail_">
             <div class="column">{{item.food_name}}</div>
             <div class="column-6">
-              <i v-for="n in item.star" class="fi-star yellow"></i><i v-for="n in (5-item.star)" class="fi-star gray"></i>
+              <i v-for="n in item.star" class="fi-star gold"></i><i v-for="n in (5-item.star)" class="fi-star gray"></i>
             </div>
             <div class="column price"><i class="fi-yen"></i> {{item.money}}</div>
             <div class="column count_detail">剩余<span class="item_count">{{item.count}}</span>份</div>
@@ -1922,7 +1922,7 @@
              <li v-for="comment in item.comments" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
                <a class="accordion-title">
                 <span>{{comment.user}}</span>
-                <i v-for="n in comment.star" class="fi-star yellow"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
+                <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
                 <span>{{comment.date}}</span>
                </a>
                <div class="description accordion-content" data-tab-content>{{comment.description}}</div>
@@ -1935,7 +1935,7 @@
         <div class="row food_detail">
           <div class="column">{{item.food_name}}</div>
           <div class="column-6">
-            <i v-for="n in item.star" class="fi-star yellow"></i><i v-for="n in (5-item.star)" class="fi-star gray"></i>
+            <i v-for="n in item.star" class="fi-star gold"></i><i v-for="n in (5-item.star)" class="fi-star gray"></i>
           </div>
           <div class="column price"><i class="fi-yen"></i> {{item.money}}</div>
         </div>
@@ -1992,23 +1992,61 @@
       </button>
     </form>
   </div>
-  <!--<div class="row small-up- 1 medium-up-2">
-    <div class="column">
-
-    </div>
-    <div class="colunm">
-      <div class="bussiness-info" data-hide-for="small">
-        <div class="row bussiness-info-banner">
-          商家信息
-        </div>
-        <div class="row bussiness-info-detail">
-          <dl>
-            <dt>商家名称:</dt>
-            <dd>{{business[currentid].title}}</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>-->
 </div>
 </template>
+
+<style lang="sass">
+// Import
+@import "../variables.scss";
+
+// Style
+* {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+  -webkit-box-sizing:border-box; /* Safari */
+}
+
+.food_detail {
+  margin-bottom: 10px;
+}
+
+.food_detail_ {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.price {
+  text-align: right;
+}
+
+.count_detail {
+  text-align: right;
+}
+
+.item_count {
+  color: $black;
+  font-weight: bold;
+}
+
+#order_list {
+  margin: 0;
+}
+
+.order_head {
+  font-weight: bold;
+  margin: 0;
+  color: $grey2;
+}
+
+.order_button {
+  position: fixed;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#submit_button {
+  margin-top: 10px;
+}
+
+</style>

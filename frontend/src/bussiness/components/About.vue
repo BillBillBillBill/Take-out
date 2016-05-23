@@ -66,3 +66,19 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .bussiness-info {
+    margin-top: 20px;
+  }
+</style>

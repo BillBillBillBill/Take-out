@@ -14,6 +14,9 @@
       	var foodname = $("#food_name").val();
       	if (foodname == "") return false;
       	return true;
+      },
+      isAddfoodValidate: function(event) {
+        return true;
       }
     },
     ready: function() {
@@ -58,7 +61,57 @@
             <span aria-hidden="true">&times;</span>
           </button>
   	  	</div>
+        <div class="button add_food_button" data-open="addfood">添加菜式</div>
+        <div class="reveal" id="addfood" data-reveal>
+          <form method="post" action="./">
+            <label>添加食物图片：
+              <input type="file" id="addfood_image" name="addfoodimage" required="required"></input>
+            </label>
+            <label>添加食物名称：
+              <input type="text" id="addfood_name" name="addfoodname" required="required" placeholder="Add Food Name"></input>
+            </label>
+            <label>添加食物价格：
+              <input type="number" id="addfood_price" name="addfoodprice" required="required" placeholder="Add Food Price"></input>
+            </label>
+            <label>添加货存信息/件
+              <input type="number" id="addfood_amount" name="addfoodamount" required="required" placeholder="Add Food Amount"></input>
+            </label>
+            <div id="submit_addfood_info">
+              <input class="button expanded" type="submit" value="确认添加菜式" v-on:click="isAddfoodValidate($event)"></input>
+            </div>
+          </form>
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
   	  </template>
   	</div>
   </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  .add_food_button {
+    position: fixed;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .bussiness-home {
+    margin-top: 20px;
+  }
+
+  .amount {
+    text-align: right;
+  }
+</style>
