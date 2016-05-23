@@ -36,7 +36,7 @@
                 {{item.title}}
               </div>
               <div class="row">
-                <i v-for="n in item.star" class="fi-star yellow"></i>
+                <i v-for="n in item.star" class="fi-star gold"></i>
                 <i v-for="n in (5-item.star)" class="fi-star gray"></i>
               </div>
               <div class="row">
@@ -53,3 +53,25 @@
   </div>
 </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  #customer-home {
+    border: 1px solid rgb(169, 169, 169);
+  }
+
+  .customer-item {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    color: gray;
+  }
+</style>
