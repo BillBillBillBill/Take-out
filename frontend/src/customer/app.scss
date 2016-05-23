@@ -9,115 +9,11 @@ body{
   color: $black;
 }
 
-/** Customer Home **/
-#customer-home {
-	border: 1px solid rgb(169, 169, 169);
-}
-.customer-item {
-	padding-top: 15px;
-	padding-bottom: 20px;
-	color: gray;
-}
-#sort-bar {
-	width: 100%;
-}
-
-.orbit-container {
-	height: 200px;
-}
-
-#order_list {
-	margin: 0;
-}
-
-.order_head {
-	font-weight: bold;
-}
-
-.order_button {
-	position: fixed;
-	margin: 0;
-	bottom: 0;
-	right: 0;
-}
-
-#submit_button {
-	margin-top: 10px;
-}
-
-.orderlist {
-	border: 1px solid rgb(169, 169, 169);
-	margin-top: 10px;
-}
-
-.yellow {
+.gold {
 	color: gold;
 }
 .gray {
 	color: $grey3;
 }
 
-.item_count {
-	color: $black;
-	font-weight: bold;
-}
 
-.price {
-	text-align: right;
-}
-
-.food_detail {
-	margin-bottom: 10px;
-}
-
-.food_detail_ {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.count_detail {
-	text-align: right;
-}
-
-.orbit-caption1 {
-	position: absolute;
-	bottom: 10%;
-	left: 40px;
-	padding: 1rem;
-	color: #fefefe;
-  	background-color: rgba(10, 10, 10, 0.5);
-}
-
-.order_row {
-	padding: 10px;
-}
-.order_head {
-	margin: 0;
-	color: $grey2;
-}
-
-.orderdetail {
-	margin-top: 20px;
-}
-
-.comment {
-	margin-right: 5px;
-}
-
-figcaption,.grade-star {
-	cursor: hand;
-	cursor: pointer;
-}
-
-.picture-column {
-	text-align: center;
-}
-.my-info {
-	margin-top: 20px;
-}
-.my-picture {
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	border: 1px solid $grey2;
-}

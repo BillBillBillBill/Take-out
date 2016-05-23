@@ -303,3 +303,27 @@
     </div>
   </div>
 </template>
+
+<style lang="sass">
+  // Import
+  @import "../variables.scss";
+
+  // Style
+  * {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+  }
+
+  order-info {
+    padding: 10px;
+  }
+
+  .receive-reject {
+    margin-right: 10px;
+  }
+
+  .mouseoverstyle {
+    border-left: 3px solid $grey2;
+  }
+</style>

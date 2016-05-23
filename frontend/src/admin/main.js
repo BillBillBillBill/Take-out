@@ -8,7 +8,6 @@ import App from './components/App.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
-//import Detail from './components/Detail.vue'
 import Complain from './components/Complain.vue'
 import About from './components/About.vue'
 
@@ -33,10 +32,6 @@ router.map({
     name: 'home',
     component: Home
   },
- /* '/detail/:bussinessId':{
-    name: 'detail',
-    component: Detail
-  },*/
   '/complain':{
     name: 'complain',
     component: Complain
