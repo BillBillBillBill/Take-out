@@ -4,7 +4,7 @@
     props: ['searchText'],
     data: function() {
       return {
-        username: 'lala',
+        username: '',
         isLog: true
       }
     },
@@ -12,10 +12,14 @@
       resetLogout: function() {
         this.isLog = false;
       }
-    }/*,
+    },
     ready: function() {
-      $(document).foundation();
-    }*/
+      if (localStorage.customer_id) {
+        this.username = localStorage.customer_id;
+      } else {
+        this.username = '注册不成功';
+      }
+    }
   }
 </script>
 

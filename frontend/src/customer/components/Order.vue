@@ -8,7 +8,7 @@
         bubble: true,
         orders: [
         {bussiness: 'aaa',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order1",
@@ -38,7 +38,7 @@
          status: '未处理'
          },
          {bussiness: 'bbb',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order2",
@@ -68,7 +68,7 @@
          status: '已完成'
          },
          {bussiness: 'ccc',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order3",
@@ -98,7 +98,7 @@
          status: '配送中'
          },
          {bussiness: 'ddd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order4",
@@ -128,7 +128,7 @@
          status: '已接单'
          },
          {bussiness: 'eee',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order5",
@@ -158,7 +158,7 @@
          status: '已取消'
          },
          {bussiness: 'fff',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order6",
@@ -188,7 +188,7 @@
          status: '未处理'
         },
         {bussiness: 'ggg',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order7",
@@ -218,7 +218,7 @@
          status: '配送中'
          },
          {bussiness: 'hhh',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order8",
@@ -248,7 +248,7 @@
          status: '已完成'
          },
          {bussiness: 'iii',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order9",
@@ -278,7 +278,7 @@
          status: '未处理'
          },
          {bussiness: 'jjj',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order10",
@@ -308,7 +308,7 @@
          status: '已取消'
          },
          {bussiness: 'kkk',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order11",
@@ -338,7 +338,7 @@
          status: '已完成'
          },
          {bussiness: 'lll',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order12",
@@ -368,7 +368,7 @@
          status: '未处理'
         },
         {bussiness: 'nnn',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order13",
@@ -398,7 +398,7 @@
          status: '配送中'
          },
          {bussiness: 'mmm',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order14",
@@ -428,7 +428,7 @@
          status: '已完成'
          },
          {bussiness: 'ooo',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order15",

@@ -7,7 +7,7 @@
   			isShow: false,
   			orders: [
         	{bussiness: 'aaa',
-         	picture: '../images/flower.jpg',
+         	picture: 'images/flower.jpg',
          	address: 'qwertyu',
         	tel: '12345678900',
          	orderid: "order1",
@@ -16,7 +16,7 @@
          	order_list: [
          	{food_name: 'a',
           	amount: 3,
-          	picture: '../images/flower.jpg',
+          	picture: 'images/flower.jpg',
           	count: 543,
              comments: [
               {user: '123*****678',
@@ -40,13 +40,13 @@
           	price: 5
           	},
          	{food_name: 'b',
-         	picture: '../images/flower.jpg',
+         	picture: 'images/flower.jpg',
           	amount: 3,
           	star:2,
           	price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -71,7 +71,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -96,7 +96,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -123,7 +123,7 @@
          status: '未处理'
          },
          {bussiness: 'bbb',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order2",
@@ -131,7 +131,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -156,7 +156,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -181,7 +181,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -206,7 +206,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -231,7 +231,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -258,7 +258,7 @@
          status: '已完成'
          },
          {bussiness: 'ccc',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order3",
@@ -266,7 +266,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -291,7 +291,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -316,7 +316,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -341,7 +341,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -366,7 +366,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -393,7 +393,7 @@
          status: '配送中'
          },
          {bussiness: 'ddd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order4",
@@ -401,7 +401,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -426,7 +426,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -451,7 +451,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -476,7 +476,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -501,7 +501,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -528,7 +528,7 @@
          status: '已接单'
          },
          {bussiness: 'eee',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order5",
@@ -536,7 +536,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -561,7 +561,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -586,7 +586,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -611,7 +611,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -636,7 +636,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -663,7 +663,7 @@
          status: '已取消'
          },
          {bussiness: 'fff',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order6",
@@ -671,7 +671,7 @@
          total: 10,
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -696,7 +696,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -721,7 +721,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -746,7 +746,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -771,7 +771,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -798,7 +798,7 @@
          status: '未处理'
         },
         {bussiness: 'ggg',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order7",
@@ -806,7 +806,7 @@
          total: 10,
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -831,7 +831,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -856,7 +856,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -881,7 +881,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -906,7 +906,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -933,7 +933,7 @@
          status: '配送中'
          },
          {bussiness: 'hhh',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order8",
@@ -941,7 +941,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -966,7 +966,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -991,7 +991,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1016,7 +1016,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1041,7 +1041,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1068,7 +1068,7 @@
          status: '已完成'
          },
          {bussiness: 'iii',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order9",
@@ -1076,7 +1076,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1101,7 +1101,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1126,7 +1126,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1151,7 +1151,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1176,7 +1176,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1203,7 +1203,7 @@
          status: '未处理'
          },
          {bussiness: 'jjj',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order10",
@@ -1211,7 +1211,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1236,7 +1236,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1261,7 +1261,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1286,7 +1286,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1311,7 +1311,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1338,7 +1338,7 @@
          status: '已取消'
          },
          {bussiness: 'kkk',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order11",
@@ -1346,7 +1346,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1371,7 +1371,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1396,7 +1396,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1421,7 +1421,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1446,7 +1446,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1473,7 +1473,7 @@
          status: '已完成'
          },
          {bussiness: 'lll',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order12",
@@ -1481,7 +1481,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1506,7 +1506,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1531,7 +1531,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1556,7 +1556,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1581,7 +1581,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1608,7 +1608,7 @@
          status: '未处理'
         },
         {bussiness: 'nnn',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order13",
@@ -1616,7 +1616,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1641,7 +1641,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1666,7 +1666,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1691,7 +1691,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1716,7 +1716,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1743,7 +1743,7 @@
          status: '配送中'
          },
          {bussiness: 'mmm',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order14",
@@ -1751,7 +1751,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1776,7 +1776,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1801,7 +1801,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1826,7 +1826,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1851,7 +1851,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1878,7 +1878,7 @@
          status: '已完成'
          },
          {bussiness: 'ooo',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
          address: 'qwertyu',
          tel: '12345678900',
          orderid: "order15",
@@ -1886,7 +1886,7 @@
          date: '2016-03-24',
          order_list: [
          {food_name: 'a',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1911,7 +1911,7 @@
           price: 5
           },
          {food_name: 'b',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1936,7 +1936,7 @@
           price: 5
           },
          {food_name: 'c',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1961,7 +1961,7 @@
           price: 5
           },
          {food_name: 'd',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [
@@ -1986,7 +1986,7 @@
           price: 5
           },
          {food_name: 'e',
-         picture: '../images/flower.jpg',
+         picture: 'images/flower.jpg',
           amount: 3,
           count: 543,
              comments: [

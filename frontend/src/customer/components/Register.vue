@@ -6,8 +6,41 @@
   			username: 'ice'
   		}
   	}*/
-  	ready: function() {
+  	/*ready: function() {
       $(document).foundation();
+    },*/
+    methods: {
+      submit_register: function(event) {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var nickname = $("#nickname").val();
+        var account_type = "phone";
+        var data = {
+            username: username,
+            password: password,
+            nickname: nickname,
+            account_type: account_type
+        };
+        $.ajax({
+          url: "../api/customer",
+          async: false,
+          type: "POST",
+          contentType: 'application/json',
+          dataType: "json",
+          processData: false,
+          data: JSON.stringify(data),
+          error: function(message) {
+            alert("Error: " + message);
+          },
+          success: function(data) {
+            alert("success");
+            alert(data);
+            localStorage.customer_id = data.data.id;
+          }
+        });
+        event.preventDefault();
+        return false;
+      }
     }
   }
 </script>
@@ -15,7 +48,7 @@
 <template>
   <div class="register-container">
   	<h3>注册</h3>
-  	<form method="post" action="./" class="register-form">
+  	<form method="post" action="../api/customer" class="register-form">
   	  <div class="input-form">
   	  	<span class="fi-torso span-img"></span>
   	  	<input id="username" class="input-span" name="username" type="text" placeholder="Please enter your username."></input>
@@ -24,7 +57,11 @@
   	  	<span class="fi-lock span-img"></span>
   	  	<input id="password" class="input-span" name="password" type="password" placeholder="Please enter your password."></input>
   	  </div>
-  	  <input id="register_submit" class="button expanded" type="submit" value="注册"></input>
+      <div class="input-form">
+        <span class="fi-skull span-img"></span>
+        <input id="nickname" class="input-span" name="nickname" type="text" placeholder="Please enter your nickname."></input>
+      </div>
+  	  <input id="register_submit" class="button expanded" type="submit" value="注册" v-on:click="submit_register($event)"></input>
   	</form>
   	<a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
     <div class="enter-row">

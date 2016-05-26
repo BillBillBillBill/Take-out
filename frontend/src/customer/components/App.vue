@@ -13,7 +13,7 @@
         bussiness: [
           {
            id: 1,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://www.baidu.com',
            title: '一饭',
@@ -22,7 +22,7 @@
            star: 3},
           {
            id: 2,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '二饭',
@@ -31,7 +31,7 @@
            star: 4},
           {
            id: 3,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '三饭',
@@ -40,7 +40,7 @@
            star: 2},
           {
            id: 4,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '四饭',
@@ -49,7 +49,7 @@
            star: 5},
           {
            id: 5,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '五饭',
@@ -58,7 +58,7 @@
            star: 2},
           {
            id: 6,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '六饭',
@@ -67,7 +67,7 @@
            star: 5},
           {
            id: 7,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '七饭',
@@ -76,7 +76,7 @@
            star: 1},
           {
            id: 8,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '八饭',
@@ -85,7 +85,7 @@
            star: 2},
           {
            id: 9,
-           picture: '../images/flower.jpg',
+           picture: 'images/flower.jpg',
            alt: 'flower',
            myurl: 'http://baidu.com',
            title: '九饭',
