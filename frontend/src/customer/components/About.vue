@@ -6,7 +6,7 @@
     data: function() {
       return {
         username: '我是谁',
-        mypicture: '../images/flower.jpg',
+        mypicture: 'images/flower.jpg',
         default_address: '慎思园7号520',
         default_tel: '18819481246',
         resetInfo: false
