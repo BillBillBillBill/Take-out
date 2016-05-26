@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from models.admin import Admin
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
+from lib.utils.token_tools import get_token
 
 
 class AdminList(APIView):
@@ -31,7 +32,12 @@ class AdminList(APIView):
             print e
             return JsonErrorResponse("Fail" + e.message)
         print "新注册管理员id：", new_admin.id
-        return JsonResponse({"id": new_admin.id})
+        # 登陆
+        token = get_token(username, password, "admin")
+        return JsonResponse({
+            "id": new_admin.id,
+            "token": token
+        })
 
 
 class AdminDetail(APIView):

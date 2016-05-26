@@ -8,6 +8,7 @@ from bussiness.models.food import Food
 from lib.models.review import FoodReview, OrderReview
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
+from lib.utils.token_tools import get_token
 
 
 class CustomerList(APIView):
@@ -36,7 +37,12 @@ class CustomerList(APIView):
             print e
             return JsonErrorResponse("Fail:" + e.message)
         print "新注册顾客id：", new_customer.id
-        return JsonResponse({"id": new_customer.id})
+        # 登陆
+        token = get_token(username, password, "customer")
+        return JsonResponse({
+            "id": new_customer.id,
+            "token": token
+        })
 
 
 class CustomerDetail(APIView):

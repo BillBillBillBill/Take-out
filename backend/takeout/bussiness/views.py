@@ -5,6 +5,7 @@ from models.store import Store
 from models.food import Food
 from lib.utils.response import JsonResponse, JsonErrorResponse
 from lib.utils.misc import get_update_dict_by_list
+from lib.utils.token_tools import get_token
 
 
 class SellerList(APIView):
@@ -33,7 +34,12 @@ class SellerList(APIView):
             print e
             return JsonErrorResponse("Fail:" + e.message)
         print "新注册卖家id：", new_seller.id
-        return JsonResponse({"id": new_seller.id})
+        # 登陆
+        token = get_token(username, password, "bussiness")
+        return JsonResponse({
+            "id": new_seller.id,
+            "token": token
+        })
 
 
 class SellerDetail(APIView):
