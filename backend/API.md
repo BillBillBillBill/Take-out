@@ -6,6 +6,10 @@ API接口说明
 请求失败格式：
 {"status_code": 4xx, "message": xxx}
 
+需要认证的功能在请求头加上：
+Authorization-Token: yourAccessToken
+或者在body中加入(键为token)
+
 
 # 文件(图片)上传
 URL:/upload
@@ -36,7 +40,7 @@ Method:POST
 Require:username,password,nickname,account_type
 Optional:
 Token Require: No
-Return:{"data": {"id": "seller id"}}
+Return:{"data": {"id": "seller id", "token": "accessToken"}}
 
 curl example
 curl -d '{"username": "test", "password": "test", "nickname": "fuck", "account_type": "P"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/seller
@@ -187,7 +191,7 @@ Method:POST
 Require:username,password,nickname,account_type
 Optional:
 Token Require: No
-Return:{"data": {"id": "customer id"}}
+Return:{"data": {"id": "customer id", "token": "accessToken"}}
 
 curl example
 curl -d '{"username": "test", "password": "test", "nickname": "fuck", "account_type": "P"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/customer
@@ -384,7 +388,7 @@ Method:POST
 Require:username,password,nickname,account_type
 Optional:
 Token Require: No
-Return:{"data": {"id": "admin id"}}
+Return:{"data": {"id": "admin id", "token": "accessToken"}}
 
 curl example
 curl -d '{"username": "test", "password": "test", "nickname": "fuck", "account_type": "P"}' -X POST -H "Content-Type:application/json" http://127.0.0.1:8000/admin
