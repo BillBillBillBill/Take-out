@@ -1,20 +1,14 @@
 <script>
   export default {
   	name: 'Register',
-  	/*data: function() {
-  		return {
-  			username: 'ice'
-  		}
-  	}*/
-  	/*ready: function() {
-      $(document).foundation();
-    },*/
+    props: ['customerInfo', 'isLog'],
     methods: {
       submit_register: function(event) {
+        var that = this;
         var username = $("#username").val();
         var password = $("#password").val();
         var nickname = $("#nickname").val();
-        var account_type = "phone";
+        var account_type = "customer";
         var data = {
             username: username,
             password: password,
@@ -25,6 +19,7 @@
           url: "../api/customer",
           async: false,
           type: "POST",
+          //heardes: {'HTTP_AUTHORIZATION_TOKEN': 'your accessToken'},
           contentType: 'application/json',
           dataType: "json",
           processData: false,
@@ -33,9 +28,25 @@
             alert("Error: " + message);
           },
           success: function(data) {
-            alert("success");
-            alert(data);
+            //console.log("success");
+            localStorage.customer_token = data.data.token;
             localStorage.customer_id = data.data.id;
+            that.isLog = true;
+            $.ajax({
+              url: "../api/customer/" + localStorage.customer_id,
+              async: false,
+              type: "GET",
+              error: function(message) {
+                alert("Error: " + message);
+              },
+              success: function(data) {
+                //console.log("success");
+                //console.log(data.data.customer);
+                that.customerInfo = data.data.customer;
+                localStorage.customer_nickname = that.customerInfo.nickname;
+              }
+            });
+            window.location.href = "#!/home";
           }
         });
         event.preventDefault();
@@ -65,7 +76,7 @@
   	</form>
   	<a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
     <div class="enter-row">
-      <a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>
+      <!--<a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>-->
       <a class="enter-link">顾客版</a>
       <a href="http://localhost:8082/#!/register" class="enter-link">管理员版</a>
     </div>

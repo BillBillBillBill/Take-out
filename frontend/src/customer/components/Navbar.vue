@@ -1,24 +1,52 @@
 <script>
   export default {
     name: "Navbar",
-    props: ['searchText'],
+    props: ['searchText', 'customerInfo', 'isLog'],
     data: function() {
       return {
-        username: '',
-        isLog: true
+        username: localStorage.customer_nickname
       }
     },
     methods: {
       resetLogout: function() {
+        localStorage.customer_token = "";
+        localStorage.customer_nickname = "";
+        localStorage.customer_id = "";
         this.isLog = false;
+        this.username = "";
       }
     },
     ready: function() {
-      if (localStorage.customer_id) {
-        this.username = localStorage.customer_id;
-      } else {
-        this.username = '注册不成功';
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        if (!localStorage.customer_token) {
+          that.username = "";
+          that.isLog = false;
+          window.location.href = "#!/login";
+        } else {
+          that.isLog = true;
+          that.username = localStorage.customer_nickname;
+          $.ajax({
+            url: "../api/customer/" + localStorage.customer_id,
+            async: false,
+            type: "GET",
+            error: function(message) {
+              alert("Error: " + message);
+            },
+            success: function(data) {
+              that.customerInfo = data.data.customer;
+            }
+          });
+        }
       }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
     }
   }
 </script>
@@ -43,20 +71,24 @@
       <ul class="menu">
         <li><input type="search" placeholder="Search" v-model="searchText"></li>
         <li>
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <template v-if="isLog">
-                <i class="fi-torso"></i> {{username}}
-              </template>
-              <template v-else>
+          <template v-if="isLog">
+            <ul class="dropdown menu" data-dropdown-menu>
+              <li>
+                <i class="fi-torso"></i> {{customerInfo.nickname}}
+                <ul class="menu">
+                  <li><a v-link="{name: 'login'}" v-on:click="resetLogout">退出</a></li>
+                  <li><a v-link="{name: 'login'}" v-on:click="resetLogout">更换账户</a></li>
+                </ul>
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <ul class="menu">
+              <li>
                 <a v-link="{name: 'login'}"><i class="fi-torso"></i> 登录/注册</a>
-              </template>
-              <ul class="menu" v-if="isLog">
-                <li><a v-link="{name: 'login'}" v-on:click="resetLogout">退出</a></li>
-                <li><a v-link="{name: 'login'}" v-on:click="resetLogout">更换账户</a>
-              </ul>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </template>
         </li>
       </ul>
     </div>

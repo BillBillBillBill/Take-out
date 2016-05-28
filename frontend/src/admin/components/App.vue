@@ -92,18 +92,17 @@
            count: 19,
            star: 4}
         ],
-        searchText: ''
+        searchText: '',
+        adminInfo: {},
+        isLog: false
       }
-  	}/*,
-  	ready: function() {
-      $(document).foundation();
-    }*/
+  	}
   }
 </script>
 
 <template>
   <div>
-  	<navbar :search-text.sync="searchText"></navbar>
-  	<router-view :bussiness.sync="bussiness" :search-text.sync="searchText"></router-view>
+  	<navbar :search-text.sync="searchText" :admin-info.sync="adminInfo" :is-log.sync="isLog"></navbar>
+  	<router-view :bussiness.sync="bussiness" :search-text.sync="searchText" :admin-info.sync="adminInfo" :is-log.sync="isLog"></router-view>
   </div>
 </template>

@@ -1,13 +1,55 @@
 <script>
   export default {
   	name: 'Register',
-  	/*data: function() {
-  		return {
-  			username: 'ice'
-  		}
-  	}*/
-  	ready: function() {
-      $(document).foundation();
+  	props: ['adminIfno', 'isLog'],
+    methods: {
+      submit_register: function(event) {
+        var that = this;
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var nickname = $("#nickname").val();
+        var account_type = "admin";
+        var data = {
+          username: username,
+          password: password,
+          nickname: nickname,
+          account_type: account_type
+        };
+        $.ajax({
+          url: "../api/admin",
+          async: false,
+          type: "POST",
+          //heardes: {'HTTP_AUTHORIZATION_TOKEN': 'your accessToken'},
+          contentType: 'application/json',
+          dataType: "json",
+          processData: false,
+          data: JSON.stringify(data),
+          error: function(message) {
+            alert("Error: " + message);
+          },
+          success: function(data) {
+            //console.log("success");
+            localStorage.admin_token = data.data.token;
+            localStorage.admin_id = data.data.id;
+            that.isLog = true;
+            $.ajax({
+              url: "../api/admin/" + localStorage.admin_id,
+              async: false,
+              type: "GET",
+              error: function(message) {
+                alert("Error: " + message);
+              },
+              success: function(data) {
+                that.adminInfo = data.data.admin;
+                localStorage.admin_nickname = that.adminInfo.nickname;
+              }
+            });
+            window.location.href = "#!/home";
+          }
+        });
+        event.preventDefault();
+        return false;
+      }
     }
   }
 </script>
@@ -24,11 +66,15 @@
   	  	<span class="fi-lock span-img"></span>
   	  	<input id="password" class="input-span" name="password" type="password" placeholder="Please enter your password."></input>
   	  </div>
-  	  <input id="register_submit" class="button expanded" type="submit" value="注册"></input>
+      <div class="input-form">
+        <span class="fi-skull span-img"></span>
+        <input id="nickname" class="input-span" name="nickname" type="text" placeholder="Please enter your nickname."></input>
+      </div>
+  	  <input id="register_submit" class="button expanded" type="submit" value="注册" v-on:click="submit_register($event)"></input>
   	</form>
   	<a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
     <div class="enter-row">
-      <a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>
+      <!--<a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>-->
       <a href="http://localhost:8080/#!/register" class="enter-link">顾客版</a>
       <a class="enter-link">管理员版</a>
     </div>

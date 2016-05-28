@@ -89,7 +89,7 @@ Method:GET
 Require:
 Optional:
 Token Require: No
-Return:{"data": {"seller_list": [{seller_infor}]}}
+Return:{"data": {"store_list": [{store_infor}]}}
 
 curl example
 curl http://127.0.0.1:8000/store

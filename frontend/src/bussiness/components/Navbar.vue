@@ -1,21 +1,53 @@
 <script>
   export default {
     name: "Navbar",
-    props: ['searchText', 'bussinessName'],
+    props: ['searchText', 'bussinessInfo', 'isLog'],
     data: function() {
       return {
-        username: 'lala',
-        isLog: true
+        username: localStorage.bussiness_nickname
       }
     },
     methods: {
       resetLogout: function() {
+        localStorage.bussiness_token = "";
+        localStorage.bussiness_nickname = "";
+        localStorage.bussiness_id = "";
         this.isLog = false;
+        this.username = "";
       }
-    }/*,
+    },
     ready: function() {
-      $(document).foundation();
-    }*/
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        if (!localStorage.bussiness_token) {
+          that.username = "";
+          that.isLog = false;
+          window.location.href = "#!/login";
+        } else {
+          that.isLog = true;
+          that.username = localStorage.bussiness_nickname;
+          $.ajax({
+            url: "../api/seller/" + localStorage.bussiness_id,
+            async: false,
+            type: "GET",
+            error: function(message) {
+              alert("Error: " + message);
+            },
+            success: function(data) {
+              that.bussinessInfo = data.data.seller;
+            }
+          });
+        }
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
+    }
   }
 </script>
 
@@ -29,7 +61,7 @@
     <div id="responsive-menu">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text">{{bussinessName}}</li>
+          <li class="menu-text">商家版</li>
           <li><a v-link="{name: 'home'}">首页</a></li>
           <li><a v-link="{name: 'order'}">所有订单</a></li>
           <li><a v-link="{name: 'about'}">个人中心</a></li>
@@ -39,20 +71,24 @@
         <ul class="menu">
           <li><input type="search" placeholder="Search" v-model="searchText"></li>
           <li>
-            <ul class="dropdown menu" data-dropdown-menu>
-              <li>
-                <template v-if="isLog">
-                  <i class="fi-torso"></i> {{username}}
-                </template>
-                <template v-else>
+            <template v-if="isLog">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li>
+                  <i class="fi-torso"></i> {{bussinessInfo.nickname}}
+                  <ul class="menu">
+                    <li><a v-link="{name: 'login'}" v-on:click="resetLogout">退出</a></li>
+                    <li><a v-link="{name: 'login'}" v-on:click="resetLogout">更换账户</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </template>
+            <template v-else>
+              <ul class="menu">
+                <li>
                   <a v-link="{name: 'login'}"><i class="fi-torso"></i> 登录/注册</a>
-                </template>
-                <ul class="menu" v-if="isLog">
-                  <li><a v-link="{name: 'login'}" v-on:click="resetLogout">退出</a></li>
-                  <li><a v-link="{name: 'login'}" v-on:click="resetLogout">更换账户</a>
-                </ul>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </template>
           </li>
         </ul>
       </div>

@@ -48,8 +48,15 @@ router.map({
 })
 
 // For every new route scroll to the top of the page
-router.beforeEach(function () {
-  window.scrollTo(0, 0)
+// Check if it has logged in
+router.beforeEach(function(transition) {
+  if (!localStorage.bussiness_token && !(transition.to.path === '/login')) {
+    if (transition.from.path === '/login') transition.abort();
+    else transition.redirect('/login');
+  } else {
+    transition.next();
+    window.scrollTo(0, 0)
+  }
 })
 
 // If no route is matched redirect home

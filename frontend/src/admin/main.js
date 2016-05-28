@@ -9,7 +9,7 @@ import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import Complain from './components/Complain.vue'
-import About from './components/About.vue'
+import Addbussiness from './components/Addbussiness.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -36,15 +36,22 @@ router.map({
     name: 'complain',
     component: Complain
   },
-  '/about':{
-    name: 'about',
-    component: About
+  '/add':{
+    name: 'add',
+    component: Addbussiness
   }
 })
 
 // For every new route scroll to the top of the page
-router.beforeEach(function () {
-  window.scrollTo(0, 0)
+// Check if it has logged in
+router.beforeEach(function(transition) {
+    if (!localStorage.customer_token && !(transition.to.path === '/register' || transition.to.path === '/login')) {
+      if (transition.from.path === '/register' || transition.from.path === '/login') transition.abort();
+      else transition.redirect('/login');
+    } else {
+      transition.next();
+      window.scrollTo(0, 0)
+    }
 })
 
 // If no route is matched redirect home

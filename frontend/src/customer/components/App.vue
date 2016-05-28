@@ -93,7 +93,9 @@
            count: 109,
            star: 4}
         ],
-        searchText: ''
+        searchText: '',
+        customerInfo: {},
+        isLog: false
       }
     }
   }
@@ -102,7 +104,7 @@
 
 <template>
   <div>
-    <navbar :search-text.sync="searchText"></navbar>
-    <router-view :bussiness.sync="bussiness" :search-text.sync="searchText"></router-view>
+    <navbar :search-text.sync="searchText" :customer-info.sync="customerInfo" :is-log.sync="isLog"></navbar>
+    <router-view :bussiness.sync="bussiness" :search-text.sync="searchText" :customer-info.sync="customerInfo" :is-log.sync="isLog"></router-view>
   </div>
 </template>
