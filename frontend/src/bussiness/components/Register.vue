@@ -28,7 +28,7 @@
     </form>
     <a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
     <div class="enter-row">
-      <a class="enter-link">商家版</a>
+      <!--<a class="enter-link">商家版</a>-->
       <a href="http://localhost:8080/#!/register" class="enter-link">顾客版</a>
       <a href="http://localhost:8082/#!/register" class="enter-link">管理员版</a>
     </div>

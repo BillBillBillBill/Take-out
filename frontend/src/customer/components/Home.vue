@@ -9,11 +9,50 @@
     props: ['bussiness', 'searchText'],
     data: function() {
       return {
-        sortpara: ''
+        sortpara: '',
+        storelist: []
       }
     },
+   /* methods: {
+      printmsg: function() {
+        alert(this.storelist.storeinfo[0]);
+      }
+    },*/
     ready: function() {
-      $(document).foundation();
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/store",
+          async: false,
+          type: "GET",
+          dataType: "json",
+          error: function(message) {
+            alert("Error: " + message);
+          },
+          success: function(data) {
+            console.log("success");
+            var list = data.data.store_list;
+            for (var i = 0; i < list.length; i++) {
+              var info = {
+                store_id: list[i].id,
+                store_name: list[i].name,
+                bussiness_image: list[i].owner.images[0],
+                store_phone: list[i].phone,
+                store_address: list[i].address
+              };
+              that.storelist.push(info);
+            }
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
     }
   }
 </script>
@@ -24,26 +63,29 @@
     <sortbar :sortpara.sync="sortpara"></sortbar>
   </div>
   <div class="row small-up-1 medium-up-2 large-up-4" id="customer-home">
-    <template v-for="item in bussiness | filterBy searchText in 'title' | orderBy sortpara -1">
+    <template v-for="item in storelist | filterBy searchText in 'store_name' | orderBy sortpara -1">
       <div class="column">
-        <a v-link="{name: 'detail', params: {bussinessId: item.id}}">
+        <a v-link="{name: 'detail', params: {bussinessId: item.store_id}}">
           <div class="row customer-item" small-2>
             <div class="column">
-              <img :src="item.picture" />
+              <img :src="item.bussiness_image" />
             </div>
             <div class="column">
               <div class="row">
-                {{item.title}}
+                {{item.store_name}}
               </div>
               <div class="row">
-                <i v-for="n in item.star" class="fi-star gold"></i>
-                <i v-for="n in (5-item.star)" class="fi-star gray"></i>
+                <i v-for="n in 3" class="fi-star gold"></i>
+                <i v-for="n in (5-3)" class="fi-star gray"></i>
               </div>
               <div class="row">
-                月售<span class="item_count">{{item.count}}</span>单
+                月售<span class="item_count"><!--{{item.count}}-->400</span>单
               </div>
               <div class="row">
-                <i class="fi-telephone"></i> {{item.number}}
+                <i class="fi-telephone"></i> {{item.store_phone}}
+              </div>
+              <div class="row">
+                <i class="fi-marker"></i> {{item.store_address}}
               </div>
             </div>
           </div>

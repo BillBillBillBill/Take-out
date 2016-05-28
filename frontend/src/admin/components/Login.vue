@@ -1,13 +1,54 @@
 <script>
   export default {
   	name: 'Login',
-  	/*data: function() {
-  		return {
-  			username: 'ice'
-  		}
-  	}*/
-  	ready: function() {
-      $(document).foundation();
+    props: ['adminInfo', 'isLog'],
+    methods: {
+      submit_login: function(event) {
+        var that = this;
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var data = {
+          username: username,
+          password: password
+        };
+        $.ajax({
+          url: "../api/api-token-auth/admin",
+          async: false,
+          type: "POST",
+          contentType: 'application/json',
+          dataType: "json",
+          processData: false,
+          data: JSON.stringify(data),
+          error: function(message) {
+            alert("Error: " + message);
+          },
+          success: function(data) {
+            //console.log("success");
+            localStorage.admin_token = data.data.token;
+            var token = localStorage.admin_token;
+            var info = token.split("$");
+            localStorage.admin_id = info[2];
+            that.isLog = true;
+            $.ajax({
+              url: "../api/admin/" + localStorage.admin_id,
+              async: false,
+              type: "GET",
+              error: function(message) {
+                alert("Error: " + message);
+              },
+              success: function(data) {
+                //console.log("success");
+                that.adminInfo = data.data.admin;
+                localStorage.admin_nickname = that.adminInfo.nickname;
+                console.log(localStorage.admin_nickname);
+              }
+            });
+            window.location.href = "#!/home";
+          }
+        });
+        event.preventDefault();
+        return false;
+      }
     }
   }
 </script>
@@ -15,7 +56,7 @@
 <template>
   <div class="login-container">
   	<h3>登录</h3>
-  	<form method="post" action="./" class="login-form">
+  	<form method="post" action="api/api-token-auth/admin" class="login-form">
   	  <div class="input-form">
   	  	<span class="fi-torso span-img"></span>
   	  	<input id="username" class="input-span" name="username" type="text" placeholder="Please enter your username."></input>
@@ -24,7 +65,7 @@
   	  	<span class="fi-lock span-img"></span>
   	  	<input id="password" class="input-span" name="password" type="password" placeholder="Please enter your password."></input>
   	  </div>
-  	  <input id="login_submit" class="button expanded" type="submit" value="登录"></input>
+  	  <input id="login_submit" class="button expanded" type="submit" value="登录" v-on:click="submit_login($event)"></input>
   	</form>
   	<a v-link="{name: 'register'}" class="register-link">新用户注册</a>
   	<div class="enter-row">

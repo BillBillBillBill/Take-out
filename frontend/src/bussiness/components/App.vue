@@ -83,18 +83,16 @@
         amount: 29}
       	],
       	searchText: '',
-      	bussinessName: 'lalalal'
+        bussinessInfo: {},
+        isLog: false
       }
-    }/*,
-    ready: function() {
-      $(document).foundation();
-    }*/
+    }
   }
 </script>
 
 <template>
   <div>
-  	<navbar :search-text.sync="searchText" :bussiness-name="bussinessName"></navbar>
- 	<router-view :foods.sync="foods" :search-text.sync="searchText"></router-view>
+  	<navbar :search-text.sync="searchText" :bussiness-info.sync="bussinessInfo" :is-log.sync="isLog"></navbar>
+ 	<router-view :foods.sync="foods" :search-text.sync="searchText" :bussiness-info.sync="bussinessInfo" :is-log.sync="isLog"></router-view>
   </div>
 </template>
