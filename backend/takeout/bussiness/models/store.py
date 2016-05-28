@@ -38,7 +38,11 @@ class Store(models.Model):
             order_review = order_review.to_string()
             data['order_review_list'].append(order_review)
             total_star += order_review.get("star", 5)
-        data["average_star"] = total_star / len(all_order_reviews)
+        order_reviews_length = len(all_order_reviews)
+        if order_reviews_length != 0:
+            data["average_star"] = total_star / float(len(all_order_reviews))
+        else:
+            data["average_star"] = 5
         data["total_orders_num"] = len(self.orders.all())
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
