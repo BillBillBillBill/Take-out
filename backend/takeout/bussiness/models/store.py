@@ -32,8 +32,14 @@ class Store(models.Model):
             "owner": self.owner.to_detail_string(),
             "order_review_list": []
         }
-        for order_review in self.order_reviews.all():
-            data['order_review_list'].append(order_review.to_string())
+        total_star = 0
+        all_order_reviews = self.order_reviews.all()
+        for order_review in all_order_reviews:
+            order_review = order_review.to_string()
+            data['order_review_list'].append(order_review)
+            total_star += order_review.get("star", 5)
+        data["average_star"] = total_star / len(all_order_reviews)
+        data["total_orders_num"] = len(self.orders.all())
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
         else:

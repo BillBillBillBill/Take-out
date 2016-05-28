@@ -25,7 +25,7 @@ class Review(models.Model):
     def to_string(self):
         data = {
             "content": self.content,
-            "star": self.get_star_display(),
+            "star": int(self.star),
             "created_time": get_timestamp_from_datetime(self.created_time)
         }
         return data
