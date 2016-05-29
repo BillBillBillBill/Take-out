@@ -13,7 +13,7 @@ class ImageStore(models.Model):
         path = STATIC_URL + self.img.path
         # fuck windows
         if platform.system() == 'Windows':
-            path = path.replace(os.getcwd(), "").replace("\\", "/").lstrip("/")
+            path = path.replace(os.getcwd()+"\\upload_files\\", "").replace("\\", "/").lstrip("/")
         return {
             "name": self.name,
             "path": path
