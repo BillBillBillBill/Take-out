@@ -13,7 +13,6 @@ class ImageStore(models.Model):
         path = STATIC_URL + self.img.path
         # fuck windows
         if platform.system() == 'Windows':
-            path = os.getcwd()
             path = path.replace(os.getcwd(), "").replace("\\", "/").lstrip("/")
         return {
             "name": self.name,
