@@ -1,14 +1,20 @@
 # coding: utf-8
 from django.db import models
 from takeout.settings import STATIC_URL
+import platform
+import os
 
 
 class ImageStore(models.Model):
-    name = models.CharField(max_length=150,null=True)
+    name = models.CharField(max_length=150, null=True)
     img = models.ImageField(upload_to='images/%Y/%m/%d')
 
     def to_string(self):
         path = STATIC_URL + self.img.path
+        # fuck windows
+        if platform.system() == 'Windows':
+            path = os.getcwd()
+            path = path.replace(os.getcwd(), "").replace("\\", "/").lstrip("/")
         return {
             "name": self.name,
             "path": path
