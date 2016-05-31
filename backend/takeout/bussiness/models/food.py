@@ -22,10 +22,21 @@ class Food(models.Model):
             "description": self.description,
             "price": self.price,
             "stock": self.stock,
-            "food_review_list": []
+            "food_review_list": [],
+            "total_orders_num": 0
         }
-        for food_review in self.food_reviews.all():
+        total_star = 0
+        all_food_reviews = self.food_reviews.all()
+        for food_review in all_food_reviews:
             data['food_review_list'].append(food_review.to_string())
+            total_star += food_review.get("star", 5)
+        food_reviews_length = len(all_food_reviews)
+        for order_food in self.order_foods.all():
+            data["total_orders_num"] += order_food.count
+        if food_reviews_length != 0:
+            data["average_star"] = total_star / float(len(all_food_reviews))
+        else:
+            data["average_star"] = 5
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
         else:
