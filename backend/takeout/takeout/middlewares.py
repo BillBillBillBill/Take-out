@@ -4,6 +4,7 @@ from customer.models.customer import Customer
 from admin.models.admin import Admin
 from conn import redisClient
 import json
+import urlparse
 from lib.utils.response import JsonResponse, JsonErrorResponse
 
 
@@ -44,8 +45,16 @@ class JsonMiddlerware(object):
             request.json = {}
 
 
-class TestMiddlerware(object):
+class QuertStringMiddlerware(object):
     def process_request(self, request):
-        if request.u:
-            print request.u.username
-        return None
+        query_string = request.META.get("QUERY_STRING", "")
+        # convert to json, flat it
+        try:
+            request.param = {}
+            for k, v in urlparse.parse_qs(query_string).items():
+                if len(v) == 1:
+                    request.param[k] = v[0]
+                else:
+                    request.param[k] = v
+        except:
+            request.param = {}

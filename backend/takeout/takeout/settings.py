@@ -53,6 +53,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE_CLASSES = [
     'takeout.middlewares.JsonMiddlerware',
+    'takeout.middlewares.QuertStringMiddlerware',
     'takeout.middlewares.TokenMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,7 +63,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'takeout.middlewares.TestMiddlerware',
 ]
 
 ROOT_URLCONF = 'takeout.urls'

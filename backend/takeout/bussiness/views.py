@@ -120,7 +120,7 @@ class StoreDetail(APIView):
 class FoodList(APIView):
     def get(self, request):
         # 获取食品列表
-        store_id = request.json.get("store_id", None)
+        store_id = request.param.get("store_id", None)
         if not store_id:
             return JsonErrorResponse("You must provide a store_id", 400)
         store = Store.objects.filter(id=store_id).first()
