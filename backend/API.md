@@ -138,7 +138,7 @@ Token Require: No
 Return:{"data": {"food_list": [{food_infor}]}}
 
 curl example
-curl -X GET -d '{"store_id": 1}' http://127.0.0.1:8000/food
+curl -X GET http://127.0.0.1:8000/food?store_id=1
 
 # 创建食物
 URL:/food
