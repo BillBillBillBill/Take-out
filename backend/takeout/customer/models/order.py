@@ -36,6 +36,7 @@ class Order(models.Model):
             "total_price": self.total_price,
             "store": self.store.id,
             "customer": self.customer.id,
+            "delivery_information_list": [delivery_information.to_string() for delivery_information in self.delivery_information.all()]
         }
         data["food_list"] = [food.to_string() for food in self.order_foods.all()]
         return data
@@ -76,7 +77,7 @@ class OrderFood(models.Model):
             "id": self.id,
             "count": self.count,
             "order": self.order.id,
-            "food": self.food.id
+            "food": self.food.to_string()
         }
 
     def to_detail_string(self):
