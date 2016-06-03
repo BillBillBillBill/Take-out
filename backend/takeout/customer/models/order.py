@@ -36,7 +36,7 @@ class Order(models.Model):
             "total_price": self.total_price,
             "store": self.store.id,
             "customer": self.customer.id,
-            "delivery_information_list": [delivery_information.to_string() for delivery_information in self.delivery_information.all()]
+            "delivery_information": self.delivery_information.to_string()
         }
         data["food_list"] = [food.to_string() for food in self.order_foods.all()]
         return data
