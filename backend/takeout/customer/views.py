@@ -175,7 +175,7 @@ class ComplaintDetail(APIView):
         try:
             update_item = ['status']
             status = request.json.get("status")
-            assert status in map(lambda i:i[0], Complaint.STATUS_LIST), "not valid"
+            assert status in map(lambda i: i[0], Complaint.StatusList), "not valid"
             update_dict = get_update_dict_by_list(update_item, request.json)
             modify_num = Complaint.objects.filter(id=complaint_id).update(**update_dict)
             assert modify_num == 1
