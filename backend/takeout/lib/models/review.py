@@ -42,7 +42,7 @@ class FoodReview(Review):
             "id": self.id,
             "food": self.food.id,
             "order": self.order.id,
-            "customer": self.customer.id
+            "customer": self.customer.nickname
         })
         return data
 
