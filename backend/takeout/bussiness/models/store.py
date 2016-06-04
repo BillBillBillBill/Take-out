@@ -39,11 +39,19 @@ class Store(models.Model):
             data['order_review_list'].append(order_review)
             total_star += order_review.get("star", 5)
         order_reviews_length = len(all_order_reviews)
+        # 计算平均分
         if order_reviews_length != 0:
             data["average_star"] = total_star / float(len(all_order_reviews))
         else:
             data["average_star"] = 5
+        # 计算售出订单数
         data["total_orders_num"] = len(self.orders.all())
+        # 计算投诉率
+        if data["total_orders_num"] == 0:
+            data["complaint_rate"] = 0
+        else:
+            print dir(self.complaints)
+            data["complaint_rate"] = len(self.complaints.filter(status="R")) / float(data["total_orders_num"])
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
         else:
