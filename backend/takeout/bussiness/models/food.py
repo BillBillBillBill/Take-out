@@ -29,7 +29,7 @@ class Food(models.Model):
         all_food_reviews = self.food_reviews.all()
         for food_review in all_food_reviews:
             data['food_review_list'].append(food_review.to_string())
-            total_star += food_review.get("star", 5)
+            total_star += food_review.to_string().get("star", 5)
         food_reviews_length = len(all_food_reviews)
         for order_food in self.order_foods.all():
             data["total_orders_num"] += order_food.count
