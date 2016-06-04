@@ -190,7 +190,10 @@ class OrderList(APIView):
             return JsonErrorResponse("can't find user", 404)
         if account_type != "customer" and account_type != "bussiness":
             return JsonErrorResponse("wrong account type", 403)
-        orders = [order.to_string() for order in owner.orders.all()]
+        if account_type == "customer":
+            orders = [order.to_string() for order in owner.orders.all()]
+        else:
+            orders = [order.to_string() for order in owner.store.orders.all()]
         return JsonResponse({"order_list": orders})
 
     def post(self, request):
