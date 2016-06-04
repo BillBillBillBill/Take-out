@@ -59,7 +59,7 @@ class OrderReview(Review):
         data.update({
             "id": self.id,
             "order": self.order.id,
-            "customer": self.customer.id,
+            "customer": self.customer.nickname,
             "store": self.store.id,
         })
         return data
