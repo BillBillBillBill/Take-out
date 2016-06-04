@@ -130,6 +130,10 @@ class DeliveryInformationDetail(APIView):
 class ComplaintList(APIView):
     def get(self, request):
         # 获取投诉列表
+        account_type = request.account_type
+        if account_type == "admin":
+            complaints = [complaint.to_string() for complaint in Complaint.objects.all()]
+            return JsonResponse({"complaint_list": complaints})
         customer = request.u
         if not customer:
             return JsonErrorResponse("can't find customer", 404)
