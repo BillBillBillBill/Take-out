@@ -76,7 +76,7 @@
                   order_address: list[i].delivery_information.address
                 };
                 var newDate = new Date();
-                newDate.setTime(parseInt(list[i].make_order_time)*1000);
+                newDate.setTime(parseInt(list[i].make_order_time)*1000 + 3600000*8);
                 info.order_date = newDate.toLocaleString();
                 that.order_list.push(info);
               }

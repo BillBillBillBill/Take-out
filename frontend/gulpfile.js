@@ -75,9 +75,13 @@ gulp.task('build.js', function() {
     .pipe(gulp.dest('dist/bussiness/js'));
   gulp.src('src/bussiness/jquery.min.js')
     .pipe(gulp.dest('dist/bussiness/js'));
+  gulp.src('src/bussiness/lrz.bundle.js')
+    .pipe(gulp.dest('dist/bussiness/js'));
   gulp.src('src/admin/foundation.min.js')
     .pipe(gulp.dest('dist/admin/js'));
   gulp.src('src/admin/jquery.min.js')
+    .pipe(gulp.dest('dist/admin/js'));
+  gulp.src('src/admin/lrz.bundle.js')
     .pipe(gulp.dest('dist/admin/js'));
 });
 

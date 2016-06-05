@@ -17,10 +17,12 @@
         shopping_cart: [],
         total: 0,
         food_list: [],
-        current_food: {}
+        current_food: {},
+        current_food_review: []
       }
     },
     methods: {
+      //将食物添加到购物车
       addFood: function(food_id, name, price, count) {
         var that = this;
         var isFind = false;
@@ -43,6 +45,8 @@
           that.shopping_cart.push(temp);
         }
       },
+
+      //获取收货信息列表
       getDeliveryInfo: function() {
         var that = this;
         $.ajax({
@@ -72,6 +76,8 @@
           }
         });
       },
+
+      //删除指定的一条收货信息
       deleteDelivery_info: function(id) {
         var that = this;
         $.ajax({
@@ -93,10 +99,14 @@
           }
         });
       },
+
+      //控制是否显示新增收货信息的表单
       show_flag: function() {
         if (this.showflag) this.showflag = false;
         else this.showflag = true;
       },
+
+      //提交确认添加一条收货信息
       submit_add_delivery: function() {
         var that = this;
         var add_data = {
@@ -120,6 +130,8 @@
           }
         });
       },
+
+      //提交订单
       postOrder: function(event) {
         var that = this;
         var delivery_id = $(":checked").val();
@@ -151,6 +163,8 @@
         event.preventDefault();
         return false;
       },
+
+      //检验输入表单内容是否合理
       isValidate: function(event) {
         var address = $("#address").val();
         var tel = $("#tel").val();
@@ -166,10 +180,14 @@
         event.preventDefault();
         return false;
       },
+
+      //将表单内容置空
       emptyInput: function() {
         $("#address").val("");
         $("#tel").val("");
       },
+
+      //获取指定食物的详细信息
       getFoodDetail: function(food_id) {
         var that = this;
         var list = that.food_list;
@@ -182,14 +200,29 @@
               food_price: list[i].food_price,
               food_stock: list[i].food_stock,
               food_star: list[i].food_star,
-              food_comments: list[i].food_comments
-            }
+              //food_comments: list[i].food_comments
+            };
             that.current_food = info;
+            var review = list[i].food_comments;
+            console.log(review);
+            for (var j = 0; j < review.length; j++) {
+              var review_info = {
+                customer: review[j].customer,
+                star: review[j].star,
+                content: review[j].content
+              };
+              var newDate = new Date();
+              newDate.setTime(parseInt(review[j].created_time)*1000 + 3600000*8);
+              var time = newDate.toLocaleString();
+              review_info.created_time = time;
+              that.current_food_review.push(review_info);
+            }
             break;
           }
         }
       }
     },
+
     ready: function() {
       var that = this;
       function reloadPage() {
@@ -256,37 +289,45 @@
     <template v-for="item in food_list | filterBy searchText in 'food_name'">
       <div class="column">
 
+        <!--查看特定食物详情-->
         <div class="reveal" :id='"food"+ item.food_id' data-reveal>
-          <h2>{{current_food.food_name}}</h2>
-          <img :src="item.food_image" />
-          <div class="row food_detail_">
-            <div class="column">{{current_food.food_name}}</div>
-            <div class="column-6">
-              <i v-for="n in current_food.food_star" class="fi-star gold"></i><i v-for="n in (5-current_food.food_star)" class="fi-star gray"></i>
-            </div>
-            <div class="column price"><i class="fi-yen"></i> {{current_food.food_price}}</div>
-            <div class="column count_detail">剩余<span class="item_count">{{current_food.food_stock}}</span>份</div>
-          </div>
           <div class="row">
-            <strong>描述：</strong>{{current_food.food_description}}
+            <div class="column">
+              <img :src="item.food_image" class="reveal_img" />
+            </div>
+            <div class="column">
+              <div class="row">{{current_food.food_name}}</div>
+              <div class="row">
+                <i v-for="n in current_food.food_star" class="fi-star gold"></i><i v-for="n in (5-current_food.food_star)" class="fi-star gray"></i>
+              </div>
+              <div class="row price"><i class="fi-yen"></i> {{current_food.food_price}}</div>
+              <div class="row count_detail">剩余<span class="item_count">{{current_food.food_stock}}</span>份</div>
+              <div class="row">
+                <strong>描述：</strong>{{current_food.food_description}}
+              </div>
+            </div>
           </div>
-          <div class="button expanded" data-open="order_again" v-on:click="addFood(current_food.food_id, current_food.food_name, current_food.food_price, 1)">加入购物车</div>
+          <!--将食物加入购物车按钮-->
+          <div class="button expanded margin-button" data-open="order_again" v-on:click="addFood(current_food.food_id, current_food.food_name, current_food.food_price, 1)">加入购物车</div>
           <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
           </button>
+          <!--食物评价列表-->
           <ul id="food_review_accordion" class="show_comments accordion" data-accordion data-multi-expand="true">
-             <li v-for="comment in current_food.food_comments"  class="accordion-item is-active" data-accordion-item>
+             <li v-for="comment in current_food_review"  class="accordion-item is-active" data-accordion-item>
                <a class="accordion-title">
                 <span>{{comment.customer}}</span>
                 <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5 - comment.star)" class="fi-star gray"></i>
+                <span>{{comment.created_time}}</span>
                </a>
                <div class="description accordion-content" data-tab-content>{{comment.content}}</div>
              </li>
           </ul>
         </div>
 
+        <!--食物信息-->
         <a :data-open='"food"+ item.food_id' v-on:click="getFoodDetail(item.food_id)">
-        <img :src="item.food_image" class="thumbnail"></a>
+        <img :src="item.food_image" class="thumbnail food_image"></a>
         <div class="row food_detail">
           <div class="column">{{item.food_name}}</div>
           <div class="column-6">
@@ -298,6 +339,8 @@
 
       </div>
     </template>
+
+    <!--下单/确认下单按钮-->
     <div class="button order_button" data-open="addorder" v-on:click="getDeliveryInfo">去下单</div>
     <div class="reveal" id="order_again" data-reveal>
       <h2>成功加入购物车</h2>
@@ -308,8 +351,11 @@
       </button>
     </div>
 
+    <!--弹出下单窗口-->
     <form class="reveal" id="addorder" method="post" action="./" data-reveal>
+
       <div>
+        <!--显示所有收货信息-->
         <template v-for="information in delivery_information_list">
           <div class="callout small">
             <div class="row">
@@ -334,6 +380,8 @@
             </div>
           </div>
         </template>
+
+        <!--新增一个收货信息-->
         <i class="fi-plus" v-on:click="show_flag"></i>
         <div v-if="showflag">
           <label>收货人：
@@ -348,7 +396,10 @@
           <div class="button" v-on:click="submit_add_delivery">确认添加</div>
         </div>
       </div>
+
+
       <div>
+        <!--显示订单中的食物列表-->
         <ul id="order_list">
           <li class="row order_head">
             <span class="column">食物名称</span>
@@ -370,12 +421,17 @@
           </li>
         </ul>
       </div>
+
+      <!--提交订单按钮-->
       <div id="submit_button">
         <input class="button expanded" type="submit" v-on:click="postOrder($event)" value="提交订单" data-close></input>
       </div>
+
+      <!--关闭下单窗口-->
       <button class="close-button" data-close aria-label="Close modal" type="button" v-on:click="emptyInput()">
         <span aria-hidden="true">&times;</span>
       </button>
+
     </form>
   </div>
 </div>
@@ -432,6 +488,14 @@
 }
 
 #submit_button {
+  margin-top: 10px;
+}
+
+img.reveal_img {
+  height: 150px;
+}
+
+.margin-button {
   margin-top: 10px;
 }
 

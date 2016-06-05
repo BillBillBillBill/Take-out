@@ -201,9 +201,16 @@
                   id: food[i].food.id,
                   stock: food[i].food.stock,
                   price: food[i].food.price,
+                  description: food[i].food.description,
                   food_review_list: food[i].food.food_review_list
                 };
                 if (food[i].food.images[0]) food_data.image = "../api/" + food[i].food.images[0].path;
+                for (var i = 0; i < food_data.food_review_list.length; i++) {
+                  var newDate = new Date();
+                  newDate.setTime(parseInt(food_data.food_review_list[i].created_time)*1000 + 3600000*8);
+                  var time = newDate.toLocaleString();
+                  food_data.food_review_list[i].created_time = time;
+                }
                 that.order_food_info.push(food_data);
               }
             }
@@ -223,6 +230,7 @@
                   store_address: list.address,
                   total_orders_number: list.total_orders_num,
                   average_star: list.average_star,
+                  complaint_rate: Math.round(parseFloat(list.complaint_rate)*100)/100,
                   order_review_list: list.order_review_list
                 };
                 if (list.images[0]) info.bussiness_image = "../api/" + list.images[0].path;
@@ -239,29 +247,35 @@
       $(window).unload(function() {
         reloadPage();
       });
+    },
+    watch: {
+      'order_food_info': function() {
+        var order_food_info = this.order_food_info;
+        for (var i in order_food_info) {
+          new Foundation.Reveal($("#food" + order_food_info[i].id), {});
+        }
+      }
     }
   }
 </script>
 
 <template>
   <div class="row orderdetail small-up-1 medium-up-2">
- <!-- <template v-for="item in current_order_info">-->
     <div class="column">
       <div class="row">
-        <!--<template v-for="info in store_info">-->
-          <div class="column">
-            <img class="thumbnail" :src="store_info.bussiness_image" />
+        <div class="column">
+          <img class="thumbnail" :src="store_info.bussiness_image" />
+        </div>
+        <div class="column align-middle ">
+          <h4>{{store_info.store_name}}</h4>
+          <div>
+            <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
           </div>
-          <div class="column align-middle ">
-            <h4>{{store_info.store_name}}</h4>
-            <div>
-              <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
-            </div>
-            <div>月销售量{{store_info.total_orders_number}}单</div>
-            <div><i class="fi-telephone"></i>{{store_info.store_phone}}</div>
-            <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
-          </div>
-       <!-- </template>-->
+          <div>投诉率：{{store_info.complaint_rate * 100}}%</div>
+          <div>月销售量{{store_info.total_orders_number}}单</div>
+          <div><i class="fi-telephone"></i>{{store_info.store_phone}}</div>
+          <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
+        </div>
       </div>
       <div class="row">
       	<div class="column medium-6">
@@ -313,20 +327,26 @@
 
       <!--弹出食物详情窗口-->
       <div class="reveal" :id="'food' + food.id" data-reveal>
-      	<h2>{{food.name}}</h2>
-        <img :src="food.image" />
-        <div class="row food_detail_">
-          <div class="column">{{food.name}}</div>
-          <div class="column-6">
-            <i v-for="n in food.star" class="fi-star gold"></i><i v-for="n in (5-food.star)" class="fi-star gray"></i>
+        <div class="row">
+          <div class="column">
+            <img :src="food.image" class="reveal_img" />
           </div>
-          <div class="column price"><i class="fi-yen"></i> {{food.price}}</div>
-          <div class="column count_detail">剩余<span class="item_count">{{food.stock}}</span>份</div>
+          <div class="column">
+            <div class="row">{{food.name}}</div>
+            <div class="row">
+              <i v-for="n in food.star" class="fi-star gold"></i><i v-for="n in (5-food.star)" class="fi-star gray"></i>
+            </div>
+            <div class="row price"><i class="fi-yen"></i> {{food.price}}</div>
+            <div class="row count_detail">剩余<span class="item_count">{{food.stock}}</span>份</div>
+            <div class="row">
+              <strong>描述：</strong>{{food.description}}
+            </div>
+            <div class="button margin-button" v-if="current_order_info.status == '配送中'" v-on:click="openComment">评价该食物</div>
+          </div>
         </div>
-        <div class="button" v-if="current_order_info.status == '配送中'" v-on:click="openComment">评价该食物</div>
 
         <!--弹出评论食物窗口-->
-        <form method="post" action="./" v-if="isShow">
+        <form method="post" action="./" v-if="isShow" class="margin-button">
           <div>
             您的评分是：{{foodgrade}} 分
             <template v-for="n in 5">
@@ -341,12 +361,12 @@
         </button>
 
         <!--显示食物评价列表-->
-        <ul class="show_comments accordion" data-accordion data-multi-expand="true">
+        <ul class="show_comments accordion margin-button" data-accordion data-multi-expand="true">
           <li v-for="comment in food.food_review_list" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
             <a class="accordion-title">
-              <span>comment.user</span>
+              <span>{{comment.customer}}</span>
               <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
-              <span>{{comment.delivery_time}}</span>
+              <span>{{comment.created_time}}</span>
             </a>
             <div class="description accordion-content" data-tab-content>{{comment.content}}</div>
           </li>
@@ -415,5 +435,9 @@
 
   .complete {
     margin-right: 10px;
+  }
+
+  .margin-button {
+    margin-top: 10px;
   }
 </style>

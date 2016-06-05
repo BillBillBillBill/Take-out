@@ -28,6 +28,7 @@
         var announcement = $("#add_store_announcement").val();
         var description = $("#add_store_description").val();
         var phone = $("#add_store_phone").val();
+        var that = this;
         if (this.isValidate(password,password_,phone)) {
           var bussiness_data = {
             username: username,
@@ -52,8 +53,6 @@
               var newbussiness_token = data.data.token;
               var image_flag = false;
               var image_id = "";
-              console.log(newbussiness_id);
-              console.log(newbussiness_token);
               if ($("#add_store_image").val() != "") {
                 image_flag = true;
                 var formData = new FormData($("#upload_image_form")[0]);
@@ -73,6 +72,31 @@
                     image_id = data.data.id;
                   }
                 });
+                /*lrz($("#add_store_image")[0].files[0],
+                  { width: 650,
+                    height: 430,
+                    done: function(result) {
+                      var formData = new FormData();
+                      formData.append("image", result);
+                      $.ajax({
+                        url: "../api/upload",
+                        async: false,
+                        type: "POST",
+                        headers: {'Authorization-Token': newbussiness_token},
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        dataType: "json",
+                        error: function(xhr, status) {
+                          alert("Error: " + status);
+                        },
+                        success: function(data) {
+                          image_id = data.data.id;
+                          console.log("image_id: " +  image_id);
+                        }
+                      });
+                    }
+                  });*/
               }
               var store_data = {
                 name: name,
@@ -114,9 +138,9 @@
   <div class="row add_info">
     <div class="column small-6 add_info_col">
       <h4>添加商家(注册商家)</h4>
-      <form enctype="multipart/form-data" id="upload_image_form">
+      <form id="upload_image_form">
         <label>商店图片：
-          <input type="file" id="add_store_image" name="image"></input>
+          <input type="file" id="add_store_image" name="image" accept="image/*"></input>
         </label>
       </form>
       <form method="post" action="../api/seller">

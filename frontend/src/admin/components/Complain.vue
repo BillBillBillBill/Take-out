@@ -1,6 +1,4 @@
 <script>
-  //import QuoteService from '../services/quote'
-
   export default {
     name: "Complain",
     props: ['searchText'],
@@ -63,7 +61,7 @@
                   store: list[i].store
                 }
                 var newDate = new Date();
-                newDate.setTime(parseInt(list[i].created_time)*1000);
+                newDate.setTime(parseInt(list[i].created_time)*1000 + 3600000*8);
                 info.created_time = newDate.toLocaleString();
                 that.complaint_list.push(info);
               }

@@ -29,7 +29,7 @@
               store_address: list.address,
               total_orders_number: list.total_orders_num,
               average_star: list.average_star,
-              complaint_rate: list.complaint_rate
+              complaint_rate: Math.round(parseFloat(list.complaint_rate)*100)/100
             };
             if (list.images[0]) info.bussiness_image = "../api/" + list.images[0].path;
             that.store_info = info;
@@ -38,7 +38,7 @@
               var list_ = data.data.store.order_review_list;
               for (var i = 0; i < list_.length; i++) {
                 var newDate = new Date();
-                newDate.setTime(parseInt(list_[i].created_time)*1000);
+                newDate.setTime(parseInt(list_[i].created_time)*1000 + 3600000*8);
                 var time = newDate.toLocaleString();
                 var info_ = {
                   customer: list_[i].customer,
