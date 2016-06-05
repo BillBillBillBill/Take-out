@@ -55,11 +55,15 @@
       reloadPage();
       $(window).load(function() {
         reloadPage();
-        new Foundation.Accordion($(".accordion"), {});
       });
       $(window).unload(function() {
         reloadPage();
       });
+    },
+    watch: {
+      'review_list': function() {
+        new Foundation.Accordion($(".accordion"), {});
+      }
     }
   }
 </script>
