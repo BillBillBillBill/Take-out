@@ -144,11 +144,9 @@
       reloadPage();
       $(window).load(function() {
         reloadPage();
-        new Foundation.Reveal($("#addfood"), {});
       });
       $(window).unload(function() {
         reloadPage();
-        new Foundation.Reveal($("#addfood"), {});
       });
     },
     watch: {
@@ -197,7 +195,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
   	  	</div>
-        
+      </template>
         <div class="reveal" id="addfood" data-reveal>
           <form enctype="multipart/form-data" id="upload_image_form">
             <label>添加食物图片：
@@ -225,7 +223,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-  	  </template>
+
       <div class="button add_food_button" data-open="addfood">添加菜式</div>
   	</div>
 </template>

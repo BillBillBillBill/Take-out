@@ -58,7 +58,7 @@
 
 <template>
   <div class="register-container">
-  	<h3>注册</h3>
+  	<h3>顾客注册</h3>
   	<form method="post" action="../api/customer" class="register-form">
   	  <div class="input-form">
   	  	<span class="fi-torso span-img"></span>
@@ -75,11 +75,6 @@
   	  <input id="register_submit" class="button expanded" type="submit" value="注册" v-on:click="submit_register($event)"></input>
   	</form>
   	<a v-link="{name: 'login'}" class="login-link">已有账号?登录</a>
-    <div class="enter-row">
-      <!--<a href="http://localhost:8081/#!/register" class="enter-link">商家版</a>-->
-      <a class="enter-link">顾客版</a>
-      <a href="http://localhost:8082/#!/register" class="enter-link">管理员版</a>
-    </div>
   </div>
 </template>
 
@@ -97,7 +92,7 @@
   .register-container {
   	margin: 50px auto;
   	width: 300px;
-  	height: 290px;
+  	height: 270px;
   	border: 1px solid $grey2;
   }
 

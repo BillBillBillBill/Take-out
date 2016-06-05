@@ -59,7 +59,7 @@
 
 <template>
   <div class="login-container">
-  	<h3>登录</h3>
+  	<h3>商家登录</h3>
   	<form method="post" action="./" class="login-form">
   	  <div class="input-form">
   	  	<span class="fi-torso span-img"></span>
@@ -72,11 +72,6 @@
   	  <input id="login_submit" class="button expanded" type="submit" value="登录" v-on:click="submit_login($event)"></input>
   	</form>
   	<a v-link="{name: 'register'}" class="register-link">新用户注册</a>
-  	<div class="enter-row">
-      <a class="enter-link">商家版</a>
-      <a href="http://localhost:8080/#!/login" class="enter-link">顾客版</a>
-      <a href="http://localhost:8082/#!/login" class="enter-link">管理员版</a>
-    </div>
   </div>
 </template>
 
@@ -94,7 +89,7 @@
   .login-container {
   	margin: 50px auto;
   	width: 300px;
-  	height: 290px;
+  	height: 270px;
   	border: 1px solid $grey2;
   }
 
