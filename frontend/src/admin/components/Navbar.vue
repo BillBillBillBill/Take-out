@@ -31,8 +31,8 @@
             url: "../api/admin/" + localStorage.admin_id,
             async: false,
             type: "GET",
-            error: function(message) {
-              alert("Error: " + message);
+            error: function(xhr, status) {
+              alert("Error: " + status);
             },
             success: function(data) {
               that.adminInfo = data.data.admin;
@@ -62,9 +62,10 @@
     <div class="top-bar-left">
       <ul class="menu">
         <li class="menu-text">Admin</li>
-        <li><a v-link="{name: 'home'}">所有商家</a></li>
+        <!--<li><a v-link="{name: 'home'}">所有商家</a></li>-->
         <li><a v-link="{name: 'complain'}">所有投诉</a></li>
         <li><a v-link="{name: 'add'}">添加商家</a></li>
+        <li><a v-link="{name: 'about'}">个人中心</a></li>
       </ul>
     </div>
     <div class="top-bar-right">

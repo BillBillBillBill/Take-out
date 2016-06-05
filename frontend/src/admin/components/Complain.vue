@@ -7,117 +7,109 @@
 
     data: function(){
       return {
-        complains: [
-        {id: '1',
-        userid: 'user1',
-        username: 'mame1',
-        bussinessid: 'bussiness3',
-        bussiness_name: '三饭',
-        date: '2015/03/16',
-        reason: 'XXXXXXXX'
-        },
-        {id: '2',
-        userid: 'user3',
-        username: 'mede3',
-        bussinessid: 'bussiness5',
-        bussiness_name: '五饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '3',
-        userid: 'user6',
-        username: 'mema6',
-        bussinessid: 'bussiness9',
-        bussiness_name: '九饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '4',
-        userid: 'user2',
-        username: 'meme2',
-        bussinessid: 'bussiness3',
-        bussiness_name: '三饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '5',
-        userid: 'user1',
-        username: 'mete1',
-        bussinessid: 'bussiness3',
-        bussiness_name: '三饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '6',
-        userid: 'user6',
-        username: 'meme6',
-        bussinessid: 'bussiness8',
-        bussiness_name: '八饭',
-        date: '2014/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '7',
-        userid: 'user4',
-        username: 'meme4',
-        bussinessid: 'bussiness6',
-        bussiness_name: '六饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        {id: '8',
-        userid: 'user7',
-        username: 'meme7',
-        bussinessid: 'bussiness2',
-        bussiness_name: '二饭',
-        date: '2015/03/16',
-        reason: 'XXXXXX'
-        },
-        ]
+        complaint_list: []
       }
     },
     methods: {
-      passCheck: function(id) {
-        alert(id + " is Passed");
-      },
-      failCheck: function(id) {
-        alert(id + " is Failed");
+      handle_complaint: function(complaint_id, status) {
+        var that = this;
+        $.ajax({
+          url: "../api/complaint/" + complaint_id,
+          async: false,
+          type: "PUT",
+          headers: {'Authorization-Token': localStorage.admin_token},
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          data: JSON.stringify({status: status}),
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            for (var i = 0; i < that.complaint_list.length; i++) {
+              if (that.complaint_list[i].id == complaint_id) {
+                if (status == 'I') that.complaint_list[i].status = "Ignored";
+                else that.complaint_list[i].status = "Resolved";
+                break;
+              }
+            }
+          }
+        });
       }
     },
     ready: function() {
-      $(document).foundation();
-    }
-
-    /*ready: function() {
-      QuoteService.getQuote(this).then(function(response){
-        this.$set('quote', response.data[0].content);
-      }, function(response){
-        console.log(response);
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/complaint",
+          async: false,
+          type: "GET",
+          headers: {'Authorization-Token': localStorage.admin_token},
+          dataType: "json",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            var list = data.data.complaint_list;
+            if (that.complaint_list.length == 0) {
+              for (var i = 0; i < list.length; i++) {
+                var info = {
+                  id: list[i].id,
+                  status: list[i].status,
+                  customer: list[i].customer,
+                  content: list[i].content,
+                  store: list[i].store
+                }
+                var newDate = new Date();
+                newDate.setTime(parseInt(list[i].created_time)*1000);
+                info.created_time = newDate.toLocaleString();
+                that.complaint_list.push(info);
+              }
+            }
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
       });
-    }*/
+      $(window).unload(function() {
+        reloadPage();
+      });
+    }
   }
 </script>
 
 <template>
   <div class="row small-up-1 medium-up-2 large-up-3 complain-page">
-    <template v-for="item in complains | filterBy searchText in 'username' 'bussiness_name' 'date'">
+    <template v-for="item in complaint_list | filterBy searchText in 'customer' 'content' 'created_time'">
       <div class="column">
         <div class="callout small">
           <div class="row">
             <div class="column small-7">
-              <div class="row"><div class="column">被投诉商家：{{item.bussiness_name}}</div></div>
-              <div class="row"><div class="column">投诉顾客：{{item.username}}</div></div>
-              <div class="row"><div class="column">投诉日期：{{item.date}}</div></div>
-              <div class="row"><div class="column">投诉原因：{{item.reason}}</div></div>
+              <div class="row"><div class="column">被投诉商家：{{item.store}}</div></div>
+              <div class="row"><div class="column">投诉顾客：{{item.customer}}</div></div>
+              <div class="row"><div class="column">投诉日期：{{item.created_time}}</div></div>
+              <div class="row"><div class="column">投诉原因：{{item.content}}</div></div>
             </div>
-            <div class="column">
+            <div class="column" v-if="item.status == 'Processing'">
               <div class="row">
                 <div class="column shrink check-btn">
-                  <div class="button border-btn" v-on:click="passCheck(item.id)">审核通过</div>
+                  <div class="button border-btn" v-on:click="handle_complaint(item.id, 'R')">审核通过</div>
                 </div>
               </div>
               <div class="row">
                 <div class="column shrink check-btn">
-                  <div class="button border-btn" v-on:click="failCheck(item.id)">审核失败</div>
+                  <div class="button border-btn" v-on:click="handle_complaint(item.id, 'I')">审核失败</div>
+                </div>
+              </div>
+            </div>
+            <div class="column" v-else>
+              <div class="row">
+                <div class="column shrink check-btn">
+                  <div class="button border-btn">已处理</div>
                 </div>
               </div>
             </div>

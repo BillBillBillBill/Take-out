@@ -1,7 +1,65 @@
 <script>
   export default {
   	name: "Orbitimages",
-    props: ['bussinessDetail']
+    props: ['currentid'],
+    data: function() {
+      return {
+        store_info: {},
+        review_list: []
+      }
+    },
+    ready: function() {
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/store/" + that.currentid,
+          async: false,
+          type: "GET",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            var list = data.data.store;
+            console.log(list);
+            var info = {
+              store_id: list.id,
+              store_name: list.name,
+              store_phone: list.phone,
+              store_address: list.address,
+              total_orders_number: list.total_orders_num,
+              average_star: list.average_star,
+              complaint_rate: list.complaint_rate
+            };
+            if (list.images[0]) info.bussiness_image = "../api/" + list.images[0].path;
+            that.store_info = info;
+
+            if (that.review_list.length == 0) {
+              var list_ = data.data.store.order_review_list;
+              for (var i = 0; i < list_.length; i++) {
+                var newDate = new Date();
+                newDate.setTime(parseInt(list_[i].created_time)*1000);
+                var time = newDate.toLocaleString();
+                var info_ = {
+                  customer: list_[i].customer,
+                  star: list_[i].star,
+                  created_time: time,
+                  content: list_[i].content,
+                };
+                that.review_list.push(info_);
+              }
+            }
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
+    }
   }
 </script>
 
@@ -23,40 +81,46 @@
       <img class="orbit-image" src="../images/pic4.jpg" alt="Food">
     </li>
     <figcaption class="orbit-caption1" data-open="showBussinessInfo">
-      <div>{{bussinessDetail.title}}</div>
+      <div>{{store_info.store_name}}</div>
       <div>
-        <i v-for="n in bussinessDetail.star" class="fi-star gold"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
+        <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
       </div>
-      <div>月销售量{{bussinessDetail.count}}单</div>
-      <div><i class="fi-telephone"></i>{{bussinessDetail.number}}</div>
-      <div><i class="fi-marker"></i> {{bussinessDetail.address}}</div>
+      <div>投诉率：{{store_info.complaint_rate}}%</div>
+      <div>月销售量{{store_info.total_orders_number}}单</div>
+      <div><i class="fi-telephone"></i>{{store_info.store_phone}}</div>
+      <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
     </figcaption>
     <div class="reveal" id="showBussinessInfo" data-reveal>
       <div class="row small-up-2">
         <div class="column">
-          <img class="thumbnail" :src="bussinessDetail.picture">
+          <img class="thumbnail" :src="store_info.bussiness_image">
         </div>
         <div class="column align-middle">
-          <h4>{{bussinessDetail.title}}</h4>
+          <h4>{{store_info.store_name}}</h4>
           <div>
-            <i v-for="n in bussinessDetail.star" class="fi-star gold"></i><i v-for="n in (5-bussinessDetail.star)" class="fi-star gray"></i>
+            <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
           </div>
-          <div>月销售量{{bussinessDetail.count}}单</div>
-          <div><i class="fi-telephone"></i> {{bussinessDetail.number}}</div>
-          <div><i class="fi-marker"></i> {{bussinessDetail.address}}</div>
+          <div>投诉率：{{store_info.complaint_rate}}%</div>
+          <div>月销售量{{store_info.total_orders_number}}单</div>
+          <div><i class="fi-telephone"></i> {{store_info.store_phone}}</div>
+          <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
         </div>
       </div>
       <div class="row">
         <div class="column">
           <ul class="show_comments accordion" data-accordion data-multi-expand="true">
-            <li v-for="comment in bussinessDetail.comments" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
-              <a class="accordion-title">
-                <span>{{comment.user}}</span>
-                <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
-                <span>{{comment.date}}</span>
-              </a>
-              <div class="description accordion-content" data-tab-content>{{comment.description}}</div>
-            </li>
+            <template v-for="comment in review_list">
+              <li class="accordion-item is-active" data-accordion-item>
+                <a class="accordion-title">
+                  <span>{{comment.customer}}</span>
+                  <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5 - comment.star)" class="fi-star gray"></i>
+                  <span>{{comment.created_time}}</span>
+                </a>
+                <div class="accordion-content" data-tab-content>
+                  <div>{{comment.content}}</div>
+                </div>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
@@ -91,7 +155,7 @@
 
   .orbit-caption1 {
     position: absolute;
-    bottom: 10%;
+    bottom: 4%;
     left: 40px;
     padding: 1rem;
     color: #fefefe;

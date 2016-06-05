@@ -5,467 +5,182 @@
 
     data: function() {
       return {
-        bubble: true,
-        orders: [
-        {bussiness: 'aaa',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order1",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '未处理'
-         },
-         {bussiness: 'bbb',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order2",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'ccc',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order3",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'ddd',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order4",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已接单'
-         },
-         {bussiness: 'eee',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order5",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已取消'
-         },
-         {bussiness: 'fff',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order6",
-         date: '2016-03-24',
-         total: 10,
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '未处理'
-        },
-        {bussiness: 'ggg',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order7",
-         date: '2016-03-24',
-         total: 10,
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'hhh',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order8",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'iii',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order9",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '未处理'
-         },
-         {bussiness: 'jjj',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order10",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已取消'
-         },
-         {bussiness: 'kkk',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order11",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'lll',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order12",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '未处理'
-        },
-        {bussiness: 'nnn',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order13",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'mmm',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order14",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'ooo',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order15",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          },
-         {food_name: 'a',
-          amount: 3,
-          price: 5
-          }],
-         status: '已完成'
-        }]
+        order_list: [],
+        grade: 0
       }
     },
     methods: {
-      cancelOrder: function(orderid) {
-        alert("成功取消订单");
+      submit_complete_message: function(order_id) {
+        var that = this;
+        var info = {
+          action: "finish",
+        }
+        $.ajax({
+          url: "../api/order/" + order_id,
+          type: "PUT",
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            for (var i = 0; i < that.order_list.length; i++) {
+              if (that.order_list[i].order_id == order_id) {
+                that.order_list[i].order_status = "已完成";
+                break;
+              }
+            }
+          }
+        });
       },
-      completeOrder: function(orderid) {
-        alert("成功确认收货");
+      submit_comment_message: function(event, order_id, store_id) {
+        var that = this;
+        var delivery_time = $("#delivery_time" + order_id).val();
+        var info = {
+          action: "finish",
+          order_review: {
+            delivery_time: delivery_time
+          }
+        };
+        if (that.grade > 0) info.order_review.star = that.grade;
+        if ($("#comment_text" + order_id).val() != "") info.order_review.content = $("#comment_text" + order_id).val();
+        $.ajax({
+          url: "../api/order/" + order_id,
+          type: "PUT",
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            for (var i = 0; i < that.order_list.length; i++) {
+              if (that.order_list[i].order_id == order_id) {
+                that.order_list[i].order_status = "已完成";
+                break;
+              }
+            }
+            that.grade = 0;
+            $("#delivery_time" + order_id).val("0");
+            $("#comment_text" + order_id).val("");
+          }
+        });
+        event.preventDefault();
+        return false;
+      },
+      submit_complaint_message: function(event, order_id, store_id) {
+        var that = this;
+        var content = $("#complain_text" + order_id).val();
+        var info = {
+          content: content,
+          store_id: store_id
+        };
+        $.ajax({
+          url: "../api/complaint",
+          async: false,
+          type: "POST",
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          dataType: "json",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            $("#complain_text" + order_id).val("");
+          }
+        });
+        event.preventDefault();
+        return false;
+      },
+      hoverGrade: function(id, index) {
+        this.changeStarsGrade(id, index);
+      },
+      getGrade: function(id, index) {
+        this.changeStarsGrade(id, index);
+      },
+      resetStars: function(id) {
+        var stars = $("#comment" + id + " .grade-star");
+        for (var i = 0; i < stars.length; i++) {
+          $(stars[i]).removeClass("gold").addClass("gray");
+        }
+      },
+      changeStarsGrade: function(id, index) {
+        var stars = $("#comment" + id + " .grade-star");
+        this.resetStars(id);
+        for (var i = 0; i <= index; i++) {
+          $(stars[i]).removeClass("gray").addClass("gold");
+        }
+        this.grade = index + 1;
       }
+    },
+    ready: function() {
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/order",
+          async: false,
+          type: "GET",
+          headers: {'Authorization-Token': localStorage.customer_token},
+          dataType: "json",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            if (that.order_list.length == 0) {
+              var list = data.data.order_list;
+              console.log("order_list: " + list);
+              for (var i = 0; i < list.length; i++) {
+                var info = {
+                  order_status: list[i].status,
+                  //order_date: list[i].make_order_time,
+                  //order_note: list[i].note,
+                  //order_total_price: list[i].total_price,
+                  //order_food_list: list[i].food_list,
+                  order_id: list[i].id,
+                  order_store_id: list[i].store,
+                  order_phone: list[i].delivery_information.phone,
+                  order_receiver: list[i].delivery_information.receiver,
+                  order_address: list[i].delivery_information.address
+                };
+                var newDate = new Date();
+                newDate.setTime(parseInt(list[i].make_order_time)*1000);
+                info.order_date = newDate.toLocaleString();
+                $.ajax({
+                  url: "../api/store/" + info.order_store_id,
+                  async: false,
+                  type: "GET",
+                  dataType: "json",
+                  error: function(xhr, status) {
+                    alert("Error: " + status);
+                  },
+                  success: function(data) {
+                    var list = data.data.store;
+                    info.order_store_name = list.name;
+                    if (list.images[0]) info.order_store_image = "../api/" + list.images[0].path;
+                  }
+                });
+                that.order_list.push(info);
+              }
+            }
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
     }
   }
 </script>
@@ -473,64 +188,70 @@
 <template>
   <div>
     <div class="row small-up-1 medium-up-2 large-up-3">
-      <template v-for="item in orders | filterBy searchText">
+      <template v-for="item in order_list | filterBy searchText">
         <div class="column">
-          <a v-link="{name: 'order_detail', params: {orderId: item.orderid}}">
+          <a v-link="{name: 'order_detail', params: {orderId: item.order_id}}">
             <div class="row order_row">
               <div class="column medium-5 align-middle">
-                <h4 class="order_head">{{item.bussiness}}</h4>
-                <img :src="item.picture">
+                <h4 class="order_head">{{item.order_store_name}}</h4>
+                <img :src="item.order_store_image">
               </div>
               <div class="column align-bottom">
-                <div class="row">{{item.date}}</div>
-                <div class="row">收货人地址：{{item.address}}</div>
-                <div class="row">收货人电话：{{item.tel}}</div>
+                <div class="row">{{item.order_date}}</div>
+                <div class="row">收货人地址：{{item.order_address}}</div>
+                <div class="row">收货人电话：{{item.order_phone}}</div>
                 <div class="row">
-                  订单状态：{{item.status}}
-                </div>
-                <div class="row">
-                  <div v-if="item.status == '已完成'" class="button comment" data-open="comment">评价</div>
-                  <div v-if="item.status == '已取消' || item.status == '已完成'" class="button complain" data-open="complain">投诉</div>
-                  <div v-if="item.status == '未处理'" class="button cancel" data-open="cancel">取消订单</div>
-                  <div v-if="item.status == '配送中'" class="button complete" data-open="complete">完成订单</div>
-                </div>
-                <div class="reveal" id="comment" data-reveal>
-                  <form method="post" action="./">
-                    <div>
-                      您的评分是：{{grade}} 分
-                      <template v-for="n in 5">
-                        <i class="fi-star gray grade-star" v-bind:class="n+''" :id="'star-'+n" v-on:click="getGrade(n)" v-on:mouseover="hoverGrade(n)"></i>
-                      </template>
-                    </div>
-                    <textarea id="comment_text" name="comment" placeholder="Enter your comments on this order"></textarea>
-                    <input class="button expanded" id="comment_button" type="submit" value="提交评价"></input>
-                  </form>
-                  <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="reveal" id="complain" data-reveal>
-                  <form method="post" action="./">
-                    <label>投诉原因：
-                      <textarea id="complain_text" name="complain" placeholder="Enter your complain reasons here."></textarea>
-                    </label>
-                    <input class="button expanded" id="complain_button" type="submit" value="提交投诉"></input>
-                  </form>
-                  <button class="close-button" data-close aria-label="Close modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="reveal" id="cancel" data-reveal>
-                  <div class="button expanded" id="cancel_button" v-on:click="cancelOrder(currentOrderId)">确认取消</div>
-                  <div class="button expanded" data-close>不取消了</div>
-                </div>
-                <div class="reveal" id="complete" data-reveal>
-                  <div class="button expanded" id="complete_button" v-on:click="completeOrder(currentOrderId)">确认收货</div>
-                  <div class="button expanded" data-close>手滑点错了</div>
+                  订单状态：{{item.order_status}}
                 </div>
               </div>
             </div>
           </a>
+          <div class="row order_row">
+            <div class="column">
+              <div v-if="item.order_status == '配送中'" class="button complete" :data-open="'complete' + item.order_id">完成订单</div>
+              <div class="button complain" :data-open="'complain' + item.order_id">投诉</div>
+            </div>
+          </div>
+
+          <!--弹出评价订单窗口-->
+          <div class="reveal" :id="'comment' + item.order_id" data-reveal>
+            <form method="post" action="./">
+              <div>
+                您的评分是：{{grade}} 分
+                <template v-for="n in 5">
+                  <i class="fi-star gray grade-star" v-bind:class="n+''" v-on:click="getGrade(item.order_id, n)" v-on:mouseover="hoverGrade(item.order_id, n)"></i>
+                </template>
+              </div>
+              <label>配送时间/分钟
+                <input :id="'delivery_time' + item.order_id" type="number" name="delivery_time" required="required"></input>
+              </label>
+              <textarea :id="'comment_text' + item.order_id" name="content" placeholder="Enter your comments on this order"></textarea>
+              <input class="button expanded" class="comment_button" type="submit" value="提交评价" v-on:click="submit_comment_message($event, item.order_id, item.order_store_id)" data-close></input>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!--弹出投诉订单窗口-->
+          <div class="reveal" :id="'complain' + item.order_id" data-reveal>
+            <form method="post" action="./">
+              <label>投诉原因：
+                <textarea :id="'complain_text' + item.order_id" name="complain" placeholder="Enter your complain reasons here."></textarea>
+              </label>
+              <input class="button expanded" class="complain_button" type="submit" value="提交投诉" data-close v-on:click="submit_complaint_message($event, item.order_id, item.order_store_id)"></input>
+            </form>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!--弹出完成订单窗口-->
+          <div class="reveal" :id="'complete' + item.order_id" data-reveal>
+            <div class="button" class="complete_button" data-close v-on:click="submit_complete_message(item.order_id)">确认收货</div>
+            <div class="button" class="comment_button" :data-open="'comment' + item.order_id">评价</div>
+            <div class="button expanded" data-close>手滑点错了</div>
+          </div>
         </div>
       </template>
     </div>
