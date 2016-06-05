@@ -4,2033 +4,128 @@
   	data: function() {
   		return {
   			grade: 0,
+        foodgrade: 0,
   			isShow: false,
-  			orders: [
-        	{bussiness: 'aaa',
-         	picture: 'images/flower.jpg',
-         	address: 'qwertyu',
-        	tel: '12345678900',
-         	orderid: "order1",
-         	total: 10,
-         	date: '2016-03-24',
-         	order_list: [
-         	{food_name: 'a',
-          	amount: 3,
-          	picture: 'images/flower.jpg',
-          	count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          	star: 3,
-          	price: 5
-          	},
-         	{food_name: 'b',
-         	picture: 'images/flower.jpg',
-          	amount: 3,
-          	star:2,
-          	price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '未处理'
-         },
-         {bussiness: 'bbb',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order2",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star:1,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star:4,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'ccc',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order3",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'ddd',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order4",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          }],
-         status: '已接单'
-         },
-         {bussiness: 'eee',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order5",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          }],
-         status: '已取消'
-         },
-         {bussiness: 'fff',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order6",
-         date: '2016-03-24',
-         total: 10,
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          }],
-         status: '未处理'
-        },
-        {bussiness: 'ggg',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order7",
-         date: '2016-03-24',
-         total: 10,
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'hhh',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order8",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'iii',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order9",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '未处理'
-         },
-         {bussiness: 'jjj',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order10",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '已取消'
-         },
-         {bussiness: 'kkk',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order11",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'lll',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order12",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '未处理'
-        },
-        {bussiness: 'nnn',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order13",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          }],
-         status: '配送中'
-         },
-         {bussiness: 'mmm',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order14",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          }],
-         status: '已完成'
-         },
-         {bussiness: 'ooo',
-         picture: 'images/flower.jpg',
-         address: 'qwertyu',
-         tel: '12345678900',
-         orderid: "order15",
-         total: 10,
-         date: '2016-03-24',
-         order_list: [
-         {food_name: 'a',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 5,
-          price: 5
-          },
-         {food_name: 'b',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 4,
-          price: 5
-          },
-         {food_name: 'c',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 3,
-          price: 5
-          },
-         {food_name: 'd',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 2,
-          price: 5
-          },
-         {food_name: 'e',
-         picture: 'images/flower.jpg',
-          amount: 3,
-          count: 543,
-             comments: [
-              {user: '123*****678',
-              date: '2016-02-14',
-              star: 4,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-05-03',
-              star: 3,
-              description: "良心商家~"},
-              {user: '123*****678',
-              date: '2015-12-14',
-              star: 5,
-              description: "好吃好吃好好吃！"},
-              {user: '123*****678',
-              date: '2016-04-07',
-              star: 2,
-              description: "一般般"}
-             ],
-          star: 1,
-          price: 5
-          }],
-         status: '已完成'
-        }],
         currentOrderId: this.$route.params.orderId,
-        bussiness_name: "zzzzz",
-        star: 3,
-        address: "新天地三楼",
-        tel: "12345678976",
-        count: 97}
+        current_order_info: {},
+        store_info: {},
+        order_food_info: [],
+        food_review_list: []
+      }
   	},
   	methods: {
-  		cancelOrder: function(orderid) {
-  			alert("成功取消订单");
+  		completeOrder: function(order_id) {
+  			var that = this;
+        var info = {
+          action: "finish",
+        }
+        if (that.food_review_list.length > 0) info.food_review_list = that.food_review_list;
+        $.ajax({
+          url: "../api/order/" + order_id,
+          type: "PUT",
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            for (var i = 0; i < that.order_list.length; i++) {
+              if (that.order_list[i].order_id == order_id) {
+                that.order_list[i].order_status = "已完成";
+                break;
+              }
+            }
+          }
+        });
   		},
-  		completeOrder: function(orderid) {
-  			alert("成功确认收货");
-  		},
+      submit_order_comment: function(event, order_id, store_id) {
+        var that = this;
+        var delivery_time = $("#delivery_time").val();
+        var info = {
+          action: "finish",
+          order_review: {
+            delivery_time: delivery_time
+          }
+        };
+        if (that.grade > 0) info.order_review.star = that.grade;
+        if ($("#comment_text").val() != "") info.order_review.content = $("#comment_text").val();
+        if (that.food_review_list.length > 0) info.food_review_list = that.food_review_list;
+        $.ajax({
+          url: "../api/order/" + order_id,
+          type: "PUT",
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            for (var i = 0; i < that.order_list.length; i++) {
+              if (that.order_list[i].order_id == order_id) {
+                that.order_list[i].order_status = "已完成";
+                break;
+              }
+            }
+            that.grade = 0;
+            that.foodgrade = 0;
+            that.food_review_list = [];
+          }
+        });
+        event.preventDefault();
+        return false;
+      },
+      submit_food_comment: function(event, food_id) {
+        this.isShow = false;
+        var that = this;
+        var info = {
+          food_id: food_id
+        };
+        if (that.foodgrade > 0) {
+          info.star = that.foodgrade;
+          that.foodgrade = 0;
+        }
+        if ($("#food_comment_text").val() != "") {
+          info.content = $("#food_comment_text").val();
+          $("#food_comment_text").val("");
+        }
+        that.food_review_list.push(info);
+        event.preventDefault();
+        return false;
+      },
+      submit_complaint_message: function(event, store_id) {
+        var that = this;
+        var content = $("#complain_text").val();
+        var info = {
+          content: content,
+          store_id: store_id
+        };
+        $.ajax({
+          url: "../api/complaint",
+          async: false,
+          type: "POST",
+          headers: {'Authorization-Token': localStorage.customer_token},
+          data: JSON.stringify(info),
+          contentType: "application/json;charset=utf-8",
+          processData: false,
+          dataType: "json",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            $("#complain_text").val("");
+          }
+        });
+        event.preventDefault();
+        return false;
+      },
   		openComment: function() {
   			this.isShow = true;
-  		},
-  		submitComments: function(food_name) {
-  			this.isShow = false;
   		},
   		resetIsShow: function() {
   			this.isShow = false;
@@ -2057,121 +152,197 @@
       }
   	},
     ready: function() {
-      $(document).foundation();
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/order/" + that.currentOrderId,
+          async: false,
+          type: "GET",
+          headers: {'Authorization-Token': localStorage.customer_token},
+          dataType: "json",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            var order_info = data.data.order;
+            var info = {
+              status: order_info.status,
+              make_order_time: order_info.make_order_time,
+              order_id: order_info.id,
+              store_id: order_info.store,
+              order_price: order_info.total_price,
+             // order_food_list: order_info.food_list,
+              order_note: order_info.note,
+              order_delivery_information_address: order_info.delivery_information.address,
+              order_delivery_information_phone: order_info.delivery_information.phone
+            };
+            that.current_order_info = info;
+            var food = order_info.food_list;
+            if (that.order_food_info.length == 0) {
+              for (var i = 0; i < food.length; i++) {
+                var food_data = {
+                  count: food[i].count,
+                  name: food[i].food.name,
+                  star: food[i].food.average_star,
+                  id: food[i].id,
+                  stock: food[i].food.stock,
+                  price: food[i].food.price,
+                  food_review_list: food[i].food.food_review_list
+                };
+                if (food[i].food.images[0]) food_data.image = "../api/" + food[i].food.images[0].path;
+                that.order_food_info.push(food_data);
+              }
+            }
+            $.ajax({
+              url: "../api/store/" + that.current_order_info.store_id,
+              async: false,
+              type: "GET",
+              error: function(xhr, status) {
+                alert("Error: " + status);
+              },
+              success: function(data) {
+                var list = data.data.store;
+                var info = {
+                  store_id: list.id,
+                  store_name: list.name,
+                  store_phone: list.phone,
+                  store_address: list.address,
+                  total_orders_number: list.total_orders_num,
+                  average_star: list.average_star,
+                  order_review_list: list.order_review_list
+                };
+                if (list.images[0]) info.bussiness_image = "../api/" + list.images[0].path;
+                that.store_info = info;
+              }
+            });
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
     }
   }
 </script>
 
 <template>
   <div class="row orderdetail small-up-1 medium-up-2">
-  <template v-for="item in orders">
-  <template v-if="item.orderid == currentOrderId">
+ <!-- <template v-for="item in current_order_info">-->
     <div class="column">
       <div class="row">
-      	<div class="column">
-  	  	  <img class="thumbnail" src="../images/flower.jpg" />
-      	</div>
-      	<div class="column align-middle ">
-      	  <h4>{{bussiness_name}}</h4>
-          <div>
-            <i v-for="n in star" class="fi-star gold"></i><i v-for="n in (5-star)" class="fi-star gray"></i>
+        <!--<template v-for="info in store_info">-->
+          <div class="column">
+            <img class="thumbnail" :src="store_info.bussiness_image" />
           </div>
-          <div>月销售量{{count}}单</div>
-          <div><i class="fi-telephone"></i>{{tel}}</div>
-          <div><i class="fi-marker"></i> {{address}}</div>
-      	</div>
+          <div class="column align-middle ">
+            <h4>{{store_info.store_name}}</h4>
+            <div>
+              <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
+            </div>
+            <div>月销售量{{store_info.total_orders_number}}单</div>
+            <div><i class="fi-telephone"></i>{{store_info.store_phone}}</div>
+            <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
+          </div>
+       <!-- </template>-->
       </div>
       <div class="row">
       	<div class="column medium-6">
       	  <div class="callout small">
-      	    <div>收货地址：{{item.address}}</div>
+      	    <div>收货地址：{{current_order_info.order_delivery_information_address}}</div>
       	  </div>
       	</div>
       </div>
       <div class="row">
         <div class="column medium-6">
           <div class="callout small">
-      	    <div>收货人电话：{{item.tel}}</div>
+      	    <div>收货人电话：{{current_order_info.order_delivery_information_phone}}</div>
       	  </div>
         </div>
       </div>
       <div class="row">
         <div class="column medium-6">
           <div class="callout small">
-      	    <div>总计：<i class="fi-yen"></i>{{item.total}}</div>
+      	    <div>总计：<i class="fi-yen"></i>{{current_order_info.order_price}}</div>
       	  </div>
         </div>
       </div>
       <div class="row">
         <div class="column medium-6">
           <div class="callout small">
-      	    <div>状态：{{item.status}}</div>
+      	    <div>状态：{{current_order_info.status}}</div>
       	  </div>
         </div>
       </div>
       <div class="row">
         <div class="column">
-          <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
-          <div v-if="item.status == '已完成'" class="button comment" data-open="comment">评价</div>
-          <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
-          <div v-if="item.status == '已取消' || item.status == '已完成'" class="button complain" data-open="complain">投诉</div>
-          <!-- v-link="{name: 'comment', params: {orderId: item.orderid}}"-->
-          <div v-if="item.status == '未处理'" class="button cancel" data-open="cancel">取消订单</div>
-          <div v-if="item.status == '配送中'" class="button complete" data-open="complete">完成订单</div>
+          <div v-if="current_order_info.order_status == '配送中'" class="button complete" data-open="complete">完成订单</div>
+          <div class="button complain" data-open="complain">投诉</div>
         </div>
       </div>
   	</div>
   	<div class="column">
-  	<template v-for="order in item.order_list" >
+  	<template v-for="food in order_food_info" >
   	  <div class="callout small">
-  	  <a :data-open="order.food_name">
+  	  <a :data-open="'food' + food.id">
   	    <div class="row">
-          <div class="column align-middle"><img :src="order.picture" /></div>
-  	      <div class="column align-middle ">{{order.food_name}}</div>
-  	      <div class="column align-middle ">{{order.amount}}份</div>
-  	      <div class="column align-middle "><i class="fi-yen"></i> {{order.price}}/份</div>
+          <div class="column align-middle"><img :src="food.image" /></div>
+  	      <div class="column align-middle ">{{food.name}}</div>
+  	      <div class="column align-middle ">{{food.count}}份</div>
+  	      <div class="column align-middle "><i class="fi-yen"></i> {{food.price}}/份</div>
         </div>
       </a>
       </div>
-      <div class="reveal" :id="order.food_name" data-reveal>
-      	<h2>{{order.food_name}}</h2>
-        <img :src="order.picture" />
+
+      <!--弹出食物详情窗口-->
+      <div class="reveal" :id="'food' + food.id" data-reveal>
+      	<h2>{{food.name}}</h2>
+        <img :src="food.image" />
         <div class="row food_detail_">
-          <div class="column">{{order.food_name}}</div>
+          <div class="column">{{food.name}}</div>
           <div class="column-6">
-            <i v-for="n in order.star" class="fi-star gold"></i><i v-for="n in (5-order.star)" class="fi-star gray"></i>
+            <i v-for="n in food.star" class="fi-star gold"></i><i v-for="n in (5-food.star)" class="fi-star gray"></i>
           </div>
-          <div class="column price"><i class="fi-yen"></i> {{order.price}}</div>
-          <div class="column count_detail">剩余<span class="item_count">{{order.count}}</span>份</div>
+          <div class="column price"><i class="fi-yen"></i> {{food.price}}</div>
+          <div class="column count_detail">剩余<span class="item_count">{{food.stock}}</span>份</div>
         </div>
-        <div class="button" v-if="item.status == '已完成'" data-open="order_again" v-on:click="openComment">评价该食物</div>
+        <div class="button" v-if="current_order_info.status == '配送中'" v-on:click="openComment">评价该食物</div>
+
+        <!--弹出评论食物窗口-->
         <form method="post" action="./" v-if="isShow">
           <div>
-            您的评分是：{{grade}} 分
+            您的评分是：{{foodgrade}} 分
             <template v-for="n in 5">
               <i class="fi-star gray grade-star" v-bind:class="n+''" :id="'star-'+n" v-on:click="getGrade(n)" v-on:mouseover="hoverGrade(n)"></i>
             </template>
           </div>
-    	  <textarea id="comment_text" name="comment" placeholder="Enter your comments on this order"></textarea>
-    	  <input class="button expanded" id="comment_button" type="submit" value="提交评价" v-on:click="submitComments(order.food_name)"></input>
+    	    <textarea id="food_comment_text" name="content" placeholder="Enter your comments on this order"></textarea>
+    	    <input class="button expanded" id="comment_button" type="submit" value="提交评价" v-on:click="submit_food_comment($event, food.id)" data-close></input>
         </form>
         <button class="close-button" data-close aria-label="Close modal" type="button" v-on:click="resetIsShow">
           <span aria-hidden="true">&times;</span>
         </button>
+
+        <!--显示食物评价列表-->
         <ul class="show_comments accordion" data-accordion data-multi-expand="true">
-          <li v-for="comment in order.comments" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
+          <li v-for="comment in food.food_review_list" v-bind:class="[$index==0 ? 'is-active':'']" class="accordion-item" data-accordion-item>
             <a class="accordion-title">
-              <span>{{comment.user}}</span>
+              <span>comment.user</span>
               <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
-              <span>{{comment.date}}</span>
+              <span>{{comment.delivery_time}}</span>
             </a>
-            <div class="description accordion-content" data-tab-content>{{comment.description}}</div>
+            <div class="description accordion-content" data-tab-content>{{comment.content}}</div>
           </li>
         </ul>
       </div>
       </template>
     </div>
 
+    <!--弹出评论窗口-->
     <div class="reveal" id="comment" data-reveal>
       <form method="post" action="./">
         <div>
@@ -2180,34 +351,37 @@
             <i class="fi-star gray grade-star" v-bind:class="n+''" :id="'star-'+n" v-on:click="getGrade(n)" v-on:mouseover="hoverGrade(n)"></i>
           </template>
         </div>
+        <label>配送时间/分钟
+          <input id="delivery_time" type="number" name="delivery_time" required="required"></input>分钟
+        </label>
         <textarea id="comment_text" name="comment" placeholder="Enter your comments on this order"></textarea>
-        <input class="button expanded" id="comment_button" type="submit" value="提交评价"></input>
+        <input class="button expanded" id="comment_button" type="submit" value="提交评价" v-on:click="submit_order_comment($event, current_order_info.order_id, current_order_info.store_id)"></input>
       </form>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
+    <!--弹出投诉窗口-->
     <div class="reveal" id="complain" data-reveal>
       <form method="post" action="./">
       	<label>投诉原因：
       	  <textarea id="complain_text" name="complain" placeholder="Enter your complain reasons here."></textarea>
       	</label>
-      	<input class="button expanded" id="complain_button" type="submit" value="提交投诉"></input>
+      	<input class="button expanded" id="complain_button" type="submit" value="提交投诉" v-on:click="submit_complaint_message($event, current_order_info.store_id)" data-close></input>
       </form>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="reveal" id="cancel" data-reveal>
-      <div class="button expanded" id="cancel_button" v-on:click="cancelOrder(currentOrderId)">确认取消</div>
-      <div class="button expanded" data-close>不取消了</div>
-    </div>
+
+    <!--弹出完成订单窗口，其中可以选择确认收货和评价订单-->
     <div class="reveal" id="complete" data-reveal>
-      <div class="button expanded" id="complete_button" v-on:click="completeOrder(currentOrderId)">确认收货</div>
+      <div class="button expanded" id="complete_button" v-on:click="completeOrder(current_order_info.order_id)" data-close>确认收货</div>
+      <div class="button" id="comment_button" data-open="comment">评价</div>
       <div class="button expanded" data-close>手滑点错了</div>
     </div>
-  </template>
-  </template>	
+<!--  </template>-->
   </div>
 </template>
 

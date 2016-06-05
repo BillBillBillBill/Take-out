@@ -1,66 +1,134 @@
 <script>
   export default {
     name: "About",
+    props: ['isLog'],
     data: function() {
       return {
-        bussiness_image: '../images/flower.jpg',
-        bussiness_name: '鸡公煲',
-        bussiness_address: '新天地三楼',
-        bussiness_tel: '18819481246',
-        resetInfo: false
+        nickname: localStorage.bussiness_nickname,
+        resetInfo: false,
+        resetInfo_: false
       }
     },
     methods: {
       changeResetState: function() {
-        this.resetInfo = true;
+        if (this.resetInfo) this.resetInfo = false;
+        else {
+          this.resetInfo = true;
+          this.resetInfo_ = false;
+        }
       },
-      isValidate: function(event) {
-        var name = $("#bussiness_name").val();
-        var address = $("#bussiness_address").val();
-        var tel = $("#bussiness_tel").val();
-        if (address == "" || tel == "") return false;
-        var tel_reg = /^[1-9][0-9]{10}$/;
-        if (tel_rg.test(tel)) {
-          this.bussiness_name = name;
-          this.bussiness_address = address;
-          this.bussiness_tel = tel;
-          return true;
-        } else alert("You should enter a valid telephone number.");
+      changeResetState_: function() {
+        if (this.resetInfo_) this.resetInfo_ = false;
+        else {
+          this.resetInfo_ = true;
+          this.resetInfo = false;
+        }
+      },
+      submit_nickname: function(event) {
+        var that = this;
+        var name = $("#nickname").val();
+        if (name != "")
+          $.ajax({
+            url: "../api/seller/" + localStorage.bussiness_id,
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({nickname: name}),
+            processData: false,
+            error: function(xhr, status) {
+              alert("Error: " + status);
+            },
+            success: function(data) {
+              localStorage.bussiness_nickname = name;
+              that.nickname = localStorage.bussiness_nickname;
+              that.resetInfo = false;
+              window.location.reload();
+            }
+          });
+        event.preventDefault();
+        return false;
+      },
+      submit_password: function(event) {
+        var that = this;
+        var password = $("#password").val();
+        var password_ = $("#password_").val();
+        if (password_ === password)
+          $.ajax({
+            url: "../api/seller/" + localStorage.bussiness_id,
+            type: "PUT",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({password: password}),
+            processData: false,
+            error: function(xhr, status) {
+              alert("Error: " + status);
+            },
+            success: function(data) {
+              console.log("success");
+              that.resetInfo_ = false;
+              localStorage.bussiness_token = "";
+              localStorage.bussiness_id = "";
+              localStorage.bussiness_nickname = "";
+              that.isLog = false;
+              window.location.href = "#!/login";
+            }
+          });
+        else alert("You should enter the same password twice.");
         event.preventDefault();
         return false;
       }
     },
     ready: function() {
-      $(document).foundation();
+      var that = this;
+      function reloadPage() {
+        $(document).foundation();
+        $.ajax({
+          url: "../api/seller/" + localStorage.bussiness_id,
+          async: false,
+          type: "GET",
+          error: function(xhr, status) {
+            alert("Error: " + status);
+          },
+          success: function(data) {
+            console.log("success");
+            var info = data.data.seller;
+            that.nickname = info.nickname;
+            console.log(info.username);
+          }
+        });
+      }
+      reloadPage();
+      $(window).load(function() {
+        reloadPage();
+      });
+      $(window).unload(function() {
+        reloadPage();
+      });
     }
   }
 </script>
 
 <template>
-  <div class="row small-up-1 medium-up-2 align-center bussiness-info">
-    <div class="column">
-      <img :src="bussiness_image" class="bussiness_image" alt="my bussiness image">
-    </div>
-    <div class="column">
-      <h4>{{bussiness_name}}</h4>
-      <div><i class="fi-marker"></i> {{bussiness_address}}</div>
-      <div><i class="fi-telephone"></i> {{bussiness_tel}}</div>
-      <div class="button" v-on:click="changeResetState">修改商家信息</div>
-      <form method="post" action="./" v-if="resetInfo">
-        <label>商家名：
-          <input type="text" id="bussiness_name" name="bussiness_name" :value="bussiness_name" required="required"></input>
+  <div class="row bussiness-info">
+    <div class="align-center">
+      <h4>昵称：{{nickname}}</h4>
+      <div class="button" v-on:click="changeResetState">修改昵称</div>
+      <div class="button" v-on:click="changeResetState_">修改密码</div>
+      <form method="put" v-if="resetInfo">
+        <label>昵称：
+          <input type="text" id="nickname" name="nickname" :value="nickname" required="required"></input>
         </label>
-        <label>商家图标：
-          <input type="file" id="bussiness_image" name="bussiness_image"></input>
+        <div id="submit_nickname_reset">
+          <input class="button" type="submit" v-on:click="submit_nickname($event)"></input>
+        </div>
+      </form>
+      <form method="put" v-if="resetInfo_">
+        <label>修改密码：
+          <input type="password" id="password" name="password" placeholder="输入新密码" required="required"></input>
         </label>
-        <label>商家地址：
-          <input type="text" id="bussiness_address" name="bussiness_address" :value="bussiness_address" required="required"></input>
+        <label>确认密码：
+          <input type="password" id="password_" placeholder="重新输入一次密码" required="required"></input>
         </label>
-        <label>商家联系电话：
-          <input type="tel" id="bussiness_tel" name="bussiness_tel" :value="bussiness_tel" required="required"></input>
-        </label>
-        <div id="submit_info_button">
-          <input type="submit" class="button" v-on:click="isValidate($event)" value="确认修改信息"></input>
+        <div id="submit_password_reset">
+          <input class="button" type="submit" v-on:click="submit_password($event)"></input>
         </div>
       </form>
     </div>
@@ -80,5 +148,10 @@
 
   .bussiness-info {
     margin-top: 20px;
+  }
+
+  .align-center {
+    padding: 10px;
+    margin: auto;
   }
 </style>

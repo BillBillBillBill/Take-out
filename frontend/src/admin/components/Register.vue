@@ -24,8 +24,8 @@
           dataType: "json",
           processData: false,
           data: JSON.stringify(data),
-          error: function(message) {
-            alert("Error: " + message);
+          error: function(xhr, status) {
+            alert("Error: " + status);
           },
           success: function(data) {
             //console.log("success");
@@ -36,8 +36,8 @@
               url: "../api/admin/" + localStorage.admin_id,
               async: false,
               type: "GET",
-              error: function(message) {
-                alert("Error: " + message);
+              error: function(xhr, status) {
+                alert("Error: " + status);
               },
               success: function(data) {
                 that.adminInfo = data.data.admin;

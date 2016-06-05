@@ -10,6 +10,7 @@ import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import Complain from './components/Complain.vue'
 import Addbussiness from './components/Addbussiness.vue'
+import About from './components/About.vue'
 
 // Install plugins
 Vue.use(Router)
@@ -28,10 +29,10 @@ router.map({
     name: 'register',
     component: Register
   },
-  '/home':{
+  /*'/home':{
     name: 'home',
     component: Home
-  },
+  },*/
   '/complain':{
     name: 'complain',
     component: Complain
@@ -39,6 +40,10 @@ router.map({
   '/add':{
     name: 'add',
     component: Addbussiness
+  },
+  '/about':{
+    name: 'about',
+    component: About
   }
 })
 
@@ -56,7 +61,7 @@ router.beforeEach(function(transition) {
 
 // If no route is matched redirect home
 router.redirect({
-  '*': '/home'
+  '*': '/complain'
 })
 
 // Start up our app

@@ -31,8 +31,8 @@
             url: "../api/seller/" + localStorage.bussiness_id,
             async: false,
             type: "GET",
-            error: function(message) {
-              alert("Error: " + message);
+            error: function(xhr, status) {
+              alert("Error: " + status);
             },
             success: function(data) {
               that.bussinessInfo = data.data.seller;

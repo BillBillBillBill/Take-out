@@ -13,11 +13,6 @@
         storelist: []
       }
     },
-   /* methods: {
-      printmsg: function() {
-        alert(this.storelist.storeinfo[0]);
-      }
-    },*/
     ready: function() {
       var that = this;
       function reloadPage() {
@@ -27,21 +22,25 @@
           async: false,
           type: "GET",
           dataType: "json",
-          error: function(message) {
-            alert("Error: " + message);
+          error: function(xhr, status) {
+            alert("Error: " + status);
           },
           success: function(data) {
             console.log("success");
-            var list = data.data.store_list;
-            for (var i = 0; i < list.length; i++) {
-              var info = {
-                store_id: list[i].id,
-                store_name: list[i].name,
-                bussiness_image: list[i].owner.images[0],
-                store_phone: list[i].phone,
-                store_address: list[i].address
-              };
-              that.storelist.push(info);
+            if (that.storelist.length == 0) {
+              var list = data.data.store_list;
+              for (var i = 0; i < list.length; i++) {
+                var info = {
+                  store_id: list[i].id,
+                  store_name: list[i].name,
+                  store_phone: list[i].phone,
+                  store_address: list[i].address,
+                  total_orders_number: list[i].total_orders_num,
+                  average_star: list[i].average_star
+                };
+                if (list[i].images[0]) info.store_image = "../api/" + list[i].images[0].path;
+                that.storelist.push(info);
+              }
             }
           }
         });
@@ -68,18 +67,18 @@
         <a v-link="{name: 'detail', params: {bussinessId: item.store_id}}">
           <div class="row customer-item" small-2>
             <div class="column">
-              <img :src="item.bussiness_image" />
+              <img :src="item.store_image" />
             </div>
             <div class="column">
               <div class="row">
                 {{item.store_name}}
               </div>
               <div class="row">
-                <i v-for="n in 3" class="fi-star gold"></i>
-                <i v-for="n in (5-3)" class="fi-star gray"></i>
+                <i v-for="n in item.average_star" class="fi-star gold"></i>
+                <i v-for="n in (5-item.average_star)" class="fi-star gray"></i>
               </div>
               <div class="row">
-                月售<span class="item_count"><!--{{item.count}}-->400</span>单
+                月售<span class="item_count">{{item.total_orders_number}}</span>单
               </div>
               <div class="row">
                 <i class="fi-telephone"></i> {{item.store_phone}}
