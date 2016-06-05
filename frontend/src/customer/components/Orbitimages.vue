@@ -59,6 +59,7 @@
       });
       $(window).unload(function() {
         reloadPage();
+        new Foundation.Accordion($(".accordion"), {});
       });
     }
   }
