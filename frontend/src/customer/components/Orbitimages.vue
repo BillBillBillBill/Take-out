@@ -55,6 +55,7 @@
       reloadPage();
       $(window).load(function() {
         reloadPage();
+        new Foundation.Accordion($(".accordion"), {});
       });
       $(window).unload(function() {
         reloadPage();
@@ -85,7 +86,7 @@
       <div>
         <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
       </div>
-      <div>投诉率：{{store_info.complaint_rate}}%</div>
+      <div>投诉率：{{store_info.complaint_rate * 100}}%</div>
       <div>月销售量{{store_info.total_orders_number}}单</div>
       <div><i class="fi-telephone"></i>{{store_info.store_phone}}</div>
       <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
@@ -100,7 +101,7 @@
           <div>
             <i v-for="n in store_info.average_star" class="fi-star gold"></i><i v-for="n in (5-store_info.average_star)" class="fi-star gray"></i>
           </div>
-          <div>投诉率：{{store_info.complaint_rate}}%</div>
+          <div>投诉率：{{store_info.complaint_rate * 100}}%</div>
           <div>月销售量{{store_info.total_orders_number}}单</div>
           <div><i class="fi-telephone"></i> {{store_info.store_phone}}</div>
           <div><i class="fi-marker"></i> {{store_info.store_address}}</div>
