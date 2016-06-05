@@ -17,8 +17,7 @@
         shopping_cart: [],
         total: 0,
         food_list: [],
-        current_food: {},
-        current_food_review: []
+        current_food: {}
       }
     },
     methods: {
@@ -68,6 +67,7 @@
                 };
                 that.delivery_information_list.push(info);
               }
+              console.log(that.delivery_information_list[0]);
             }
           }
         });
@@ -181,23 +181,10 @@
               food_description: list[i].food_description,
               food_price: list[i].food_price,
               food_stock: list[i].food_stock,
-              food_star: list[i].food_star
+              food_star: list[i].food_star,
+              food_comments: list[i].food_comments
             }
             that.current_food = info;
-            var list_ = list[i].food_comments;
-            that.current_food_review = [];
-            for (var j = 0; j < list_.length; j++) {
-              var newDate = new Date();
-              newDate.setTime(parseInt(list_[j].created_time)*1000);
-              var time = newDate.toLocaleString();
-              var info_ = {
-                customer: list_[j].customer,
-                star: list_[j].star,
-                created_time: time,
-                content: list_[j].content,
-              };
-              that.current_food_review.push(info_);
-            }
             break;
           }
         }
@@ -243,12 +230,21 @@
       reloadPage();
       $(window).load(function() {
         reloadPage();
-        new Foundation.Accordion($(".accordion"), {});
       });
       $(window).unload(function() {
         reloadPage();
-        new Foundation.Accordion($(".accordion"), {});
       });
+    },
+    watch: {
+      'food_list': function() {
+        var food_list = this.food_list;
+        for (var i in food_list) {
+          new Foundation.Reveal($("#food" + food_list[i].food_id), {});
+        }
+      },
+      'current_food': function() {
+        new Foundation.Accordion($("#food_review_accordion"), {});
+      },
     }
   }
 </script>
@@ -260,7 +256,7 @@
     <template v-for="item in food_list | filterBy searchText in 'food_name'">
       <div class="column">
 
-        <div class="reveal" :id="'food'+ item.food_id" data-reveal>
+        <div class="reveal" :id='"food"+ item.food_id' data-reveal>
           <h2>{{current_food.food_name}}</h2>
           <img :src="item.food_image" />
           <div class="row food_detail_">
@@ -278,21 +274,18 @@
           <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
           </button>
-          <ul class="show_comments accordion" data-accordion data-multi-expand="true">
-             <li v-for="comment in current_food_review" class="accordion-item is-active" data-accordion-item>
+          <ul id="food_review_accordion" class="show_comments accordion" data-accordion data-multi-expand="true">
+             <li v-for="comment in current_food.food_comments"  class="accordion-item is-active" data-accordion-item>
                <a class="accordion-title">
                 <span>{{comment.customer}}</span>
-                <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5-comment.star)" class="fi-star gray"></i>
-                <span>{{comment.created_time}}</span>
+                <i v-for="n in comment.star" class="fi-star gold"></i><i v-for="n in (5 - comment.star)" class="fi-star gray"></i>
                </a>
-               <div class="description accordion-content" data-tab-content>
-                <div>{{comment.content}}</div>
-               </div>
+               <div class="description accordion-content" data-tab-content>{{comment.content}}</div>
              </li>
           </ul>
         </div>
 
-        <a :data-open="'food'+ item.food_id" v-on:click="getFoodDetail(item.food_id)">
+        <a :data-open='"food"+ item.food_id' v-on:click="getFoodDetail(item.food_id)">
         <img :src="item.food_image" class="thumbnail"></a>
         <div class="row food_detail">
           <div class="column">{{item.food_name}}</div>
@@ -302,7 +295,7 @@
           <div class="column price"><i class="fi-yen"></i> {{item.food_price}}</div>
         </div>
         <div class="button expanded" data-open="order_again" v-on:click="addFood(item.food_id, item.food_name, item.food_price, 1)">加入购物车</div>
-        
+
       </div>
     </template>
     <div class="button order_button" data-open="addorder" v-on:click="getDeliveryInfo">去下单</div>
