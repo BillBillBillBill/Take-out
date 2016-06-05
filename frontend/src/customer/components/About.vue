@@ -1,5 +1,4 @@
 <script>
-  import QuoteService from '../services/quote'
 
   export default {
     name: "About",
@@ -201,7 +200,7 @@
           <input type="text" id="nickname" name="nickname" :value="nickname" required="required"></input>
         </label>
         <div id="submit_nickname_reset">
-          <input class="button" type="submit" v-on:click="submit_nickname($event)"></input>
+          <input class="button" type="submit" v-on:click="submit_nickname($event)" value="确认"></input>
         </div>
       </form>
       <form method="put" v-if="resetInfo_">
@@ -212,7 +211,7 @@
           <input type="password" id="password_" placeholder="重新输入一次密码" required="required"></input>
         </label>
         <div id="submit_password_reset">
-          <input class="button" type="submit" v-on:click="submit_password($event)"></input>
+          <input class="button" type="submit" v-on:click="submit_password($event)" value="确认"></input>
         </div>
       </form>
     </div>
