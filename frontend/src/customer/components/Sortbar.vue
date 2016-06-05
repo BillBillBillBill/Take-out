@@ -12,11 +12,11 @@
       	  {
       	  activeflag: false,
       	  content: "销量高",
-      	  sortparam: 'count'},
+      	  sortparam: 'total_orders_number'},
       	  {
       	  activeflag: false,
       	  content: "评价好",
-      	  sortparam: 'star'}
+      	  sortparam: 'average_star'}
       	]
       }
     },

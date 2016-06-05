@@ -60,7 +60,7 @@
               order_delivery_information_phone: order_info.delivery_information.phone
             };
             var newDate = new Date();
-            newDate.setTime(parseInt(order_info.make_order_time)*1000);
+            newDate.setTime(parseInt(order_info.make_order_time)*1000 + 3600000*8);
             info.order_date = newDate.toLocaleString();
             that.current_order_info = info;
 

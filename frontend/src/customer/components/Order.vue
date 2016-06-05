@@ -152,7 +152,7 @@
                   order_address: list[i].delivery_information.address
                 };
                 var newDate = new Date();
-                newDate.setTime(parseInt(list[i].make_order_time)*1000);
+                newDate.setTime(parseInt(list[i].make_order_time)*1000 + 3600000*8);
                 info.order_date = newDate.toLocaleString();
                 $.ajax({
                   url: "../api/store/" + info.order_store_id,
@@ -181,6 +181,16 @@
       $(window).unload(function() {
         reloadPage();
       });
+    },
+    watch: {
+      'order_list': function() {
+        var order_list = this.order_list;
+        for (var i in order_list) {
+          new Foundation.Reveal($("#comment" + order_list[i].order_id), {});
+          new Foundation.Reveal($("#complain" + order_list[i].order_id), {});
+          new Foundation.Reveal($("#complete" + order_list[i].order_id), {});
+        }
+      }
     }
   }
 </script>

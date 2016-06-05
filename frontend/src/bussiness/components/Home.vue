@@ -1,5 +1,4 @@
 <script>
-  //import Sortbar from './Sortbar.vue'
   export default {
     name: "Home",
 
@@ -99,19 +98,6 @@
           },
           success: function(data) {
             console.log("success");
-            /*var food_id = data.data.id;
-            var info = {
-              food_description: description,
-              food_comments: [],
-              food_price: price,
-              food_name: name,
-              food_id: food_id,
-              food_stock: stock,
-              food_star: 5,
-            };
-            if (image_flag) info.food_image = "../api/" + .images[0].path;
-            that.food_list.push(info);*/
-            //$(window).location.reload();
           }
         });
         event.preventDefault();
@@ -158,10 +144,20 @@
       reloadPage();
       $(window).load(function() {
         reloadPage();
+        new Foundation.Reveal($("#addfood"), {});
       });
       $(window).unload(function() {
         reloadPage();
+        new Foundation.Reveal($("#addfood"), {});
       });
+    },
+    watch: {
+      'food_list': function() {
+        var food_list = this.food_list;
+        for (var i in food_list) {
+          new Foundation.Reveal($("#food" + food_list[i].food_id), {});
+        }
+      }
     }
   }
 </script>
@@ -180,10 +176,7 @@
   	  	</div>
   	  	<div class="reveal" :id='"food" + item.food_id' data-reveal>
   	  	  <form method="post" action="./">
-  	  	  	<img :src="item.food_image" />
-  	  	  	<!--<label>更改食物图片：
-  	  	  	  <input type="file" id="food_image" name="image"></input>
-  	  	  	</label>-->
+  	  	  	<img :src="item.food_image" class="reveal_img" />
   	  	  	<label>食物名称：
   	  	  	  <input type="text" :id='"food_name" + item.food_id' name="name" :value="item.food_name" required="required"></input>
   	  	  	</label>
@@ -261,5 +254,9 @@
 
   .amount {
     text-align: right;
+  }
+
+  .reveal_img {
+    height: 150px;
   }
 </style>

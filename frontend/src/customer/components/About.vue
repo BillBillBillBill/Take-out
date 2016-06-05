@@ -106,27 +106,32 @@
       },
       submit_add_delivery: function(event) {
         var that = this;
-        var add_data = {
-          address: $("#add_address").val(),
-          phone: $("#add_phone").val(),
-          receiver: $("#add_receiver").val()
-        };
-        $.ajax({
-          url: "../api/delivery_information",
-          async: false,
-          type: "POST",
-          headers: {'Authorization-Token': localStorage.customer_token},
-          data: JSON.stringify(add_data),
-          error: function(xhr, status) {
-            alert("Error: " + status);
-          },
-          success: function(data) {
-            console.log("success");
-            add_data.id = data.data.id;
-            that.delivery_information_list.push(add_data);
-            that.showflag = false;
-          }
-        });
+        var phone_reg = /^[1-9][0-9]{10}$/;
+        if (phone_reg.test($("#add_phone").val())) {
+          var add_data = {
+            address: $("#add_address").val(),
+            phone: $("#add_phone").val(),
+            receiver: $("#add_receiver").val()
+          };
+          $.ajax({
+            url: "../api/delivery_information",
+            async: false,
+            type: "POST",
+            headers: {'Authorization-Token': localStorage.customer_token},
+            data: JSON.stringify(add_data),
+            error: function(xhr, status) {
+              alert("Error: " + status);
+            },
+            success: function(data) {
+              console.log("success");
+              add_data.id = data.data.id;
+              that.delivery_information_list.push(add_data);
+              that.showflag = false;
+            }
+          });
+        } else {
+          alert("You should enter a valid telephone number.\n");
+        }
         event.preventDefault();
         return false;
       }
