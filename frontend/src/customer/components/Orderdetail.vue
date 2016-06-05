@@ -32,12 +32,10 @@
           },
           success: function(data) {
             console.log("success");
-            for (var i = 0; i < that.order_list.length; i++) {
-              if (that.order_list[i].order_id == order_id) {
-                that.order_list[i].order_status = "已完成";
-                break;
-              }
-            }
+            that.current_order_info.status = '已完成';
+            that.grade = 0;
+            that.foodgrade = 0;
+            that.food_review_list = [];
           }
         });
   		},
@@ -65,12 +63,7 @@
           },
           success: function(data) {
             console.log("success");
-            for (var i = 0; i < that.order_list.length; i++) {
-              if (that.order_list[i].order_id == order_id) {
-                that.order_list[i].order_status = "已完成";
-                break;
-              }
-            }
+            that.current_order_info.status = '已完成';
             that.grade = 0;
             that.foodgrade = 0;
             that.food_review_list = [];
@@ -89,9 +82,9 @@
           info.star = that.foodgrade;
           that.foodgrade = 0;
         }
-        if ($("#food_comment_text").val() != "") {
-          info.content = $("#food_comment_text").val();
-          $("#food_comment_text").val("");
+        if ($("#food_comment_text" + food_id).val() != "") {
+          info.content = $("#food_comment_text" + food_id).val();
+          $("#food_comment_text" + food_id).val("");
         }
         that.food_review_list.push(info);
         event.preventDefault();
@@ -137,18 +130,38 @@
         this.changeStarsGrade(index);
       },
       resetStars: function() {
-        var stars = $(".grade-star");
+        var stars = $("#comment .grade-star");
         for (var i = 0; i < stars.length; i++) {
           $(stars[i]).removeClass("gold").addClass("gray");
         }
       },
       changeStarsGrade: function(index) {
-        var stars = $(".grade-star");
+        var stars = $("#comment .grade-star");
         this.resetStars();
         for (var i = 0; i <= index; i++) {
           $(stars[i]).removeClass("gray").addClass("gold");
         }
         this.grade = index + 1;
+      },
+      hoverFoodGrade: function(id, index) {
+        this.changeFoodStarsGrade(id, index);
+      },
+      getFoodGrade: function(id, index) {
+        this.changeFoodStarsGrade(id, index);
+      },
+      resetFoodStars: function(id) {
+        var stars = $("#food" + id + " .grade-star");
+        for (var i = 0; i < stars.length; i++) {
+          $(stars[i]).removeClass("gold").addClass("gray");
+        }
+      },
+      changeFoodStarsGrade: function(id, index) {
+        var stars = $("#food" + id + " .grade-star");
+        this.resetFoodStars(id);
+        for (var i = 0; i <= index; i++) {
+          $(stars[i]).removeClass("gray").addClass("gold");
+        }
+        this.foodgrade = index + 1;
       }
   	},
     ready: function() {
@@ -185,7 +198,7 @@
                   count: food[i].count,
                   name: food[i].food.name,
                   star: food[i].food.average_star,
-                  id: food[i].id,
+                  id: food[i].food.id,
                   stock: food[i].food.stock,
                   price: food[i].food.price,
                   food_review_list: food[i].food.food_review_list
@@ -280,7 +293,7 @@
       </div>
       <div class="row">
         <div class="column">
-          <div v-if="current_order_info.order_status == '配送中'" class="button complete" data-open="complete">完成订单</div>
+          <div v-if="current_order_info.status == '配送中'" class="button complete" data-open="complete">完成订单</div>
           <div class="button complain" data-open="complain">投诉</div>
         </div>
       </div>
@@ -317,11 +330,11 @@
           <div>
             您的评分是：{{foodgrade}} 分
             <template v-for="n in 5">
-              <i class="fi-star gray grade-star" v-bind:class="n+''" :id="'star-'+n" v-on:click="getGrade(n)" v-on:mouseover="hoverGrade(n)"></i>
+              <i class="fi-star gray grade-star" v-bind:class="n+''" v-on:click="getFoodGrade(food.id, n)" v-on:mouseover="hoverFoodGrade(food.id, n)"></i>
             </template>
           </div>
-    	    <textarea id="food_comment_text" name="content" placeholder="Enter your comments on this order"></textarea>
-    	    <input class="button expanded" id="comment_button" type="submit" value="提交评价" v-on:click="submit_food_comment($event, food.id)" data-close></input>
+    	    <textarea :id="'food_comment_text' + food.id" name="content" placeholder="Enter your comments on this order"></textarea>
+    	    <input class="button expanded" class="comment_button" type="submit" value="提交评价" v-on:click="submit_food_comment($event, food.id)" data-close></input>
         </form>
         <button class="close-button" data-close aria-label="Close modal" type="button" v-on:click="resetIsShow">
           <span aria-hidden="true">&times;</span>
@@ -377,8 +390,8 @@
 
     <!--弹出完成订单窗口，其中可以选择确认收货和评价订单-->
     <div class="reveal" id="complete" data-reveal>
-      <div class="button expanded" id="complete_button" v-on:click="completeOrder(current_order_info.order_id)" data-close>确认收货</div>
-      <div class="button" id="comment_button" data-open="comment">评价</div>
+      <div class="button" id="complete_button" v-on:click="completeOrder(current_order_info.order_id)" data-close>确认收货</div>
+      <div class="button" id="comment_button" :data-open="comment">评价</div>
       <div class="button expanded" data-close>手滑点错了</div>
     </div>
 <!--  </template>-->
@@ -398,5 +411,9 @@
 
   .orderdetail {
     margin-top: 20px;
+  }
+
+  .complete {
+    margin-right: 10px;
   }
 </style>
