@@ -22,7 +22,7 @@
           headers: {'Authorization-Token': localStorage.bussiness_token},
           data: JSON.stringify(info),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -44,7 +44,7 @@
           headers: {'Authorization-Token': localStorage.bussiness_token},
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             var order_info = data.data.order;

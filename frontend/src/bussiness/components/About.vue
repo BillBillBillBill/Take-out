@@ -35,7 +35,7 @@
             data: JSON.stringify({nickname: name}),
             processData: false,
             error: function(xhr, status) {
-              alert("Error: " + status);
+              alert(JSON.parse(xhr.responseText).message);
             },
             success: function(data) {
               localStorage.bussiness_nickname = name;
@@ -59,7 +59,7 @@
             data: JSON.stringify({password: password}),
             processData: false,
             error: function(xhr, status) {
-              alert("Error: " + status);
+              alert(JSON.parse(xhr.responseText).message);
             },
             success: function(data) {
               console.log("success");
@@ -85,7 +85,7 @@
           async: false,
           type: "GET",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");

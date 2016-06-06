@@ -23,7 +23,7 @@
           headers: {'Authorization-Token': localStorage.customer_token},
           data: JSON.stringify(info),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -55,7 +55,7 @@
           headers: {'Authorization-Token': localStorage.customer_token},
           data: JSON.stringify(info),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -90,7 +90,7 @@
           processData: false,
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -132,7 +132,7 @@
           headers: {'Authorization-Token': localStorage.customer_token},
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             if (that.order_list.length == 0) {
@@ -160,7 +160,7 @@
                   type: "GET",
                   dataType: "json",
                   error: function(xhr, status) {
-                    alert("Error: " + status);
+                    alert(JSON.parse(xhr.responseText).message);
                   },
                   success: function(data) {
                     var list = data.data.store;

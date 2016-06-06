@@ -20,7 +20,7 @@
           processData: false,
           data: JSON.stringify(data),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             //console.log("success");
@@ -34,7 +34,7 @@
               async: false,
               type: "GET",
               error: function(xhr, status) {
-                alert("Error: " + status);
+                alert(JSON.parse(xhr.responseText).message);
               },
               success: function(data) {
                 //console.log("success");
@@ -71,7 +71,6 @@
   	  </div>
   	  <input id="login_submit" class="button expanded" type="submit" value="登录" v-on:click="submit_login($event)"></input>
   	</form>
-  	<a v-link="{name: 'register'}" class="register-link">新用户注册</a>
   </div>
 </template>
 

@@ -17,7 +17,7 @@
           async: false,
           type: "GET",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             var list = data.data.store;
@@ -99,7 +99,7 @@
     <div class="reveal" id="showBussinessInfo" data-reveal>
       <div class="row small-up-2">
         <div class="column">
-          <img class="thumbnail" :src="store_info.bussiness_image">
+          <img  style="height: 200px" width="100%" class="thumbnail" :src="store_info.bussiness_image">
         </div>
         <div class="column align-middle">
           <h4>{{store_info.store_name}}</h4>

@@ -32,7 +32,7 @@
             async: false,
             type: "GET",
             error: function(xhr, status) {
-              alert("Error: " + status);
+              alert(JSON.parse(xhr.responseText).message);
             },
             success: function(data) {
               that.bussinessInfo = data.data.seller;

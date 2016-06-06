@@ -23,10 +23,9 @@
           type: "GET",
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
-            console.log("success");
             if (that.storelist.length == 0) {
               var list = data.data.store_list;
               for (var i = 0; i < list.length; i++) {
@@ -67,7 +66,7 @@
         <a v-link="{name: 'detail', params: {bussinessId: item.store_id}}">
           <div class="row customer-item" small-2>
             <div class="column">
-              <img :src="item.store_image" />
+              <img  :src="item.store_image" />
             </div>
             <div class="column">
               <div class="row">

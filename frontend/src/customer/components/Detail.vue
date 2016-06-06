@@ -56,7 +56,7 @@
           headers: {'Authorization-Token': localStorage.customer_token},
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -85,7 +85,7 @@
           type: "DELETE",
           headers: {'Authorization-Token': localStorage.customer_token},
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -121,7 +121,7 @@
           headers: {'Authorization-Token': localStorage.customer_token},
           data: JSON.stringify(add_data),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -150,7 +150,7 @@
           data: JSON.stringify(info),
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -237,7 +237,7 @@
           data: querydata,
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -293,7 +293,7 @@
         <div class="reveal" :id='"food"+ item.food_id' data-reveal>
           <div class="row">
             <div class="column">
-              <img :src="item.food_image" class="reveal_img" />
+              <img style="height: 200px" width="100%" :src="item.food_image" class="reveal_img" />
             </div>
             <div class="column">
               <div class="row">{{current_food.food_name}}</div>
@@ -327,7 +327,7 @@
 
         <!--食物信息-->
         <a :data-open='"food"+ item.food_id' v-on:click="getFoodDetail(item.food_id)">
-        <img :src="item.food_image" class="thumbnail food_image"></a>
+        <img  style="height: 200px" width="100%" :src="item.food_image" class="thumbnail food_image"></a>
         <div class="row food_detail">
           <div class="column">{{item.food_name}}</div>
           <div class="column-6">
