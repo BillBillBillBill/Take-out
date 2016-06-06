@@ -20,7 +20,7 @@
           processData: false,
           data: JSON.stringify({status: status}),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -46,7 +46,7 @@
           headers: {'Authorization-Token': localStorage.admin_token},
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -112,7 +112,7 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </template>
   </div>

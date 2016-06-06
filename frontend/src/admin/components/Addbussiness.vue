@@ -45,7 +45,7 @@
             processData: false,
             data: JSON.stringify(bussiness_data),
             error: function(xhr, status) {
-              alert("Error: " + status);
+              alert(JSON.parse(xhr.responseText).message);
             },
             success: function(data) {
               console.log("success");
@@ -66,7 +66,7 @@
                   processData: false,
                   dataType: "json",
                   error: function(xhr, status) {
-                    alert("Error: " + status);
+                    alert(JSON.parse(xhr.responseText).message);
                   },
                   success: function(data) {
                     image_id = data.data.id;
@@ -88,7 +88,7 @@
                         processData: false,
                         dataType: "json",
                         error: function(xhr, status) {
-                          alert("Error: " + status);
+                          alert(JSON.parse(xhr.responseText).message);
                         },
                         success: function(data) {
                           image_id = data.data.id;
@@ -116,7 +116,7 @@
                 processData: false,
                 data: JSON.stringify(store_data),
                 error: function(xhr, status) {
-                  alert("Error: " + status);
+                  alert(JSON.parse(xhr.responseText).message);
                 },
                 success: function(data) {
                   console.log("success");

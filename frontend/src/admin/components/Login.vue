@@ -19,8 +19,8 @@
           dataType: "json",
           processData: false,
           data: JSON.stringify(data),
-          error: function(xhr, status) {
-            alert("Error: " + status);
+          error: function(xhr) {
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             //console.log("success");
@@ -33,8 +33,8 @@
               url: "../api/admin/" + localStorage.admin_id,
               async: false,
               type: "GET",
-              error: function(xhr, status) {
-                alert("Error: " + status);
+              error: function(xhr) {
+                alert(JSON.parse(xhr.responseText).message);
               },
               success: function(data) {
                 //console.log("success");
@@ -43,7 +43,7 @@
                 console.log(localStorage.admin_nickname);
               }
             });
-            window.location.href = "#!/home";
+            window.location.href = "#!/complain";
           }
         });
         event.preventDefault();
@@ -67,7 +67,6 @@
   	  </div>
   	  <input id="login_submit" class="button expanded" type="submit" value="登录" v-on:click="submit_login($event)"></input>
   	</form>
-  	<a v-link="{name: 'register'}" class="register-link">新用户注册</a>
   </div>
 </template>
 

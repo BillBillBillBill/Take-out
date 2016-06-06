@@ -5,7 +5,7 @@ import json
 
 def JsonErrorResponse(message, status_code=400):
     try:
-        data = '{"status_code": %s, "message": "%s"' % (status_code, message)
+        data = '{"status_code": %s, "message": "%s"}' % (status_code, message)
     except:
         data = '{"status_code": 400, "message": "Bad Request"}'
     return HttpResponse(

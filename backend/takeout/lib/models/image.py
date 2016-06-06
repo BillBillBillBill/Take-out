@@ -11,9 +11,10 @@ class ImageStore(models.Model):
 
     def to_string(self):
         path = STATIC_URL + self.img.path
-        # fuck windows
         if platform.system() == 'Windows':
             path = path.replace(os.getcwd()+"\\upload_files\\", "").replace("\\", "/").lstrip("/")
+        else:
+            path = path.replace(os.getcwd()+"/upload_files/", "")
         return {
             "name": self.name,
             "path": path

@@ -30,7 +30,7 @@
           data: JSON.stringify(food_data),
           processData: false,
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -66,7 +66,7 @@
             processData: false,
             dataType: "json",
             error: function(xhr, status) {
-              alert("Error: " + status);
+              alert(JSON.parse(xhr.responseText).message);
             },
             success: function(data) {
               image_id = data.data.id;
@@ -94,7 +94,7 @@
           processData: false,
           data: JSON.stringify(food_data),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -117,7 +117,7 @@
           data: querydata,
           dataType: "json",
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             console.log("success");
@@ -164,7 +164,7 @@
   	<div class="row small-up-1 medium-up-2 large-up-4 bussiness-home">
   	  <template v-for="item in food_list | filterBy searchText in 'food_name'">
   	  	<div class="column">
-  	  	  <img class="thumbnail" :src="item.food_image"/>
+  	  	  <img style="height: 200px" width="100%" :src="item.food_image"/>
   	  	  <div class="row food_detail">
   	  	  	<div class="column">{{item.food_name}}</div>
   	  	  	<div class="column-4"><i class="fi-yen"></i> {{item.food_price}}</div>

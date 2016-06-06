@@ -60,9 +60,9 @@ router.beforeEach(function(transition) {
 })
 
 // If no route is matched redirect home
-router.redirect({
-  '*': '/complain'
-})
+// router.redirect({
+//   '*': '/complain'
+// })
 
 // Start up our app
 router.start(App, '#app')

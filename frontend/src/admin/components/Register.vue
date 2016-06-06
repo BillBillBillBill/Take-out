@@ -25,7 +25,7 @@
           processData: false,
           data: JSON.stringify(data),
           error: function(xhr, status) {
-            alert("Error: " + status);
+            alert(JSON.parse(xhr.responseText).message);
           },
           success: function(data) {
             //console.log("success");
@@ -37,7 +37,7 @@
               async: false,
               type: "GET",
               error: function(xhr, status) {
-                alert("Error: " + status);
+                alert(JSON.parse(xhr.responseText).message);
               },
               success: function(data) {
                 that.adminInfo = data.data.admin;
