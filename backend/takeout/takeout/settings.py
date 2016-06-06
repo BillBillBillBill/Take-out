@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'admin',
     'customer',
     'lib',
+    'gunicorn',
 ]
 
 REST_FRAMEWORK = {
