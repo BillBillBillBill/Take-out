@@ -12,7 +12,7 @@
 ```bash
 python manage.py makemigrations
 python manage.py migrate
-python manage.py runserver
+sh run.sh
 ```
 
 # 目录说明

@@ -50,7 +50,6 @@ class Store(models.Model):
         if data["total_orders_num"] == 0:
             data["complaint_rate"] = 0
         else:
-            print dir(self.complaints)
             data["complaint_rate"] = len(self.complaints.filter(status="R")) / float(data["total_orders_num"])
         if self.image_ids:
             data['images'] = ImageStore.get_by_ids(self.image_ids)
