@@ -1,6 +1,6 @@
 # 介绍
 
-项目使用了Vuejs, Webpack 和 Gulp等
+项目前端使用了Foundation, Vuejs, Webpack 和 Gulp等。
 
 # 如何启动
 
