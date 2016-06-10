@@ -1,11 +1,11 @@
 # 介绍
 
-项目使用了Django REST framework实现，数据库使用Redis和MySQL。
+项目后端使用了Gunicorn + Gevent + Django REST framework，数据库使用Redis和SQLite。
 
 # 运行环境
 
-先安装好Mysql, Redis, Python2.7, PIP
-然后执行pip install -r requirements.txt
+先安装好Redis, Python2.7, PIP
+然后执行pip install -r requirements.txt安装相关依赖
 
 # 如何启动
 
