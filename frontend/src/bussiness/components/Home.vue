@@ -86,7 +86,6 @@
         if (image_flag) food_data.image_ids = image_id;
         $.ajax({
           url: "../api/food",
-          async: false,
           type: "POST",
           headers: {'Authorization-Token': localStorage.bussiness_token},
           contentType: "application/json;charset=utf-8",
@@ -202,7 +201,7 @@
               <input type="file" id="addfood_image" name="image" required="required"></input>
             </label>
           </form>
-          <form method="post" action="../api/food">
+          <form method="post">
             <label>添加食物名称：
               <input type="text" id="addfood_name" name="name" required="required" placeholder="Add Food Name"></input>
             </label>

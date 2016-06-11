@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from lib.controllers.session_controller import login
 from lib.controllers.file_manager import file_uploader
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -27,3 +28,4 @@ urlpatterns = [
     url(r'', include('customer.urls')),
     url(r'', include('admin.urls')),
 ]
+urlpatterns += staticfiles_urlpatterns()

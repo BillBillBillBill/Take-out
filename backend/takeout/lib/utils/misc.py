@@ -17,7 +17,7 @@ def get_update_dict_by_list(update_list, json_data):
 
 def get_timestamp_from_datetime(datetime):
     try:
-        return time.mktime(datetime.timetuple())
-    except Exception, e:
-        print e.message
+        timestamp = time.mktime(datetime.timetuple())
+        return timestamp
+    except Exception:
         return ""
