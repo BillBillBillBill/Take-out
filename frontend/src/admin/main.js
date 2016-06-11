@@ -50,7 +50,7 @@ router.map({
 // For every new route scroll to the top of the page
 // Check if it has logged in
 router.beforeEach(function(transition) {
-    if (!localStorage.customer_token && !(transition.to.path === '/register' || transition.to.path === '/login')) {
+    if (!localStorage.admin_token && !(transition.to.path === '/register' || transition.to.path === '/login')) {
       if (transition.from.path === '/register' || transition.from.path === '/login') transition.abort();
       else transition.redirect('/login');
     } else {
